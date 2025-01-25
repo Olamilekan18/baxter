@@ -1,101 +1,76 @@
+import HomeNav from "./components/HomepageNav";
+import { Metadata } from "next";
 import Image from "next/image";
+import stock_shot from '../public/stock.jpg'
+import APIRender from "./test_route/page";
+
+export const metadata : Metadata = {
+  title: 'Baxter: Guided Investments for a Better Today'
+}
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="grid w-11/12 mx-auto">
+      <HomeNav/>
+      <Hero/>
+      <APIRender symbol="NVDA"/>
+      <BodySection/>
     </div>
   );
+}
+
+function Hero(){
+  return(
+    <section id="hero" className="p-2 my-2 md:p-4 md:my-2">
+    <div className="grid text-center justify-items-center">
+      <p className="md:text-[10rem] text-6xl my-6">
+        Never Make a Wrong Investment Again
+      </p>
+
+      <div className="grid md:grid-cols-2 items-center justify-items-center">
+      <p className="text-2xl my-4 text-justify indent-4">Baxter is your ultimate tool for making informed investment decisions. We provide up-to-date stock charts, detailed data, and essential guidance to help you navigate the complexities of the stock market with confidence and security. Our goal is to empower individuals, businesses and corporate bodies to make informed decisions and secure their assets over the short and long term. </p>
+      <div className="grid justify-items-center">
+        <Image src={stock_shot} alt="Stock Shot" className="rounded-xl w-[75%]"/>
+      </div>
+      </div>
+
+      <span className="justify-self-center bg-pink-700 md:w-2/12 my-4 w-9/12 rounded-[1.75rem] text-center text-2xl hover:font-bold hover:bg-pink-600 transition-all md:hover:w-4/12 p-2">
+        Read More...
+      </span>
+    </div>
+    </section>
+  )
+}
+
+function BodySection(){
+  return(
+    <section className="p-2 my-2 md:p-4 md:my-2">
+      <div className="grid">
+        <p className="md:text-4xl text-2xl">
+          Why Choose Baxter?
+        </p>
+        <div className="grid grid-cols-2">
+          <div>
+          <p>Intuitive Stock Charts</p>
+
+<p>Visualize stock performance with dynamic, interactive charts that are easy to customize and understand. Spot trends, compare stocks, and track historical data all in one place. </p>
+
+<p>Comprehensive Market Data</p>
+
+<p>Stay ahead of the market with up-to-the-minute data, including stock prices, volume, earnings, and more. Baxter equips you with all the information you need to seize opportunities. </p>
+
+<p>Guided Investments</p>
+
+<p>Not sure where to start? Our guided investment tools offer personalized insights and curated stock recommendations based on your goals and risk tolerance.,</p>
+
+<p>Expert Resources</p>
+
+<p>Access a wealth of knowledge through our tutorials, webinars, and articles created by seasoned investors and market analysts. </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
 }
