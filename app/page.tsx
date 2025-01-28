@@ -2,8 +2,7 @@ import HomeNav from "./components/HomepageNav";
 import { Metadata } from "next";
 import Image from "next/image";
 import stock_shot from '../public/stock.jpg'
-import APIRender from "./test_route/apiCalls";
-import Link from "next/link";
+import APIRender from "./stock/[ticker]/apiCalls";
 import { FaInstagram, FaMailBulk } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
@@ -17,7 +16,7 @@ export default function Home() {
     <div className="grid w-11/12 mx-auto">
       <HomeNav/>
       <Hero/>
-      {/*<APIRender symbol="TSLA"/>*/}
+      {/*<APIRender symbol="NVDA"/>*/}
       <BodySection/>
       <Offerings/>
       <CTA_Footer/>
@@ -119,20 +118,20 @@ function CTA_Footer(){
   return(
     <>
     <section className="p-2 my-2 md:p-4 md:my-4 text-center" id="cta" >
-      <p>
+      <p className="text-2xl md:text-4xl">
         Start Your Investment Journey Today!
       </p>
-      <p>
-        Join the thousands of investors who utilise Baxter to help grow their portfolios and trade safely and securely. Whether you're a seasoned trader or just starting out, Baxter has all of the tools that you need to succeed. Sign up for our free tier <span>here</span> or our <span>Pro</span> tier here. 
+      <p className="my-2 md:my-4">
+        Join the thousands of investors who utilise Baxter to help grow their portfolios and trade safely and securely. Whether you're a seasoned trader or just starting out, Baxter has all of the tools that you need to succeed. Sign up for our free tier <span className="bold">here</span> or our <span>Pro</span> tier here. 
       </p>
-      <a className="rounded-2xl bg-pink-700 text-white hover:bg-pink-500 p-1 md:p-2 text-2xl md:text-3xl">Get Started</a>
+      <a className="rounded-2xl bg-pink-700 text-white hover:bg-pink-500 p-1 md:p-2 text-2xl md:text-3xl my-2 md:my-4 w-6/12 md:w-3/12 bgrid justify-self-center">Get Started</a>
     </section>
     <footer className="grid md:grid-cols-5">
       <div>
         <p className="text-2xl md:text-4xl font-bold">
           Baxter.
         </p>
-        <p>&copy; {date.getFullYear()} Baxter. <Link href={'https://github.com/vilio316'}>vilio316</Link></p>
+        <p>&copy; {date.getFullYear()} Baxter. <a className="inline" href={'https://github.com/vilio316'}>vilio316</a></p>
       </div>
 
       <div>
@@ -182,13 +181,13 @@ function CTA_Footer(){
 
       <div>
         <p>Contact Us</p>
-        <p>Reach out to us on any of the through the following channels:</p>
-        <div className="flex gap-x-4 ">
-          <FaMailBulk />
-          <FaInstagram />
-          <FaGithub />
-          <FaLinkedin />
-          <FaXTwitter/>
+        <p className="text-[1.25rem] my-2">Reach out to us on any of the through the following channels:</p>
+        <div className="flex gap-x-4 justify-items-center justify-center">
+          <FaMailBulk  size={'1.75rem'} className="hover:fill-pink-700"/>
+          <FaInstagram  size={'1.75rem'} className="hover:fill-pink-700" />
+          <FaGithub size={'1.75rem'} className="hover:fill-gray-700"/>
+          <FaLinkedin size={'1.75rem'} className="hover:fill-blue-700" />
+          <FaXTwitter size={'1.75rem'} />
         </div>
       </div>
     </footer>
