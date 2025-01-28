@@ -19,3 +19,18 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.head_p{
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
+}
+
+.side_p{
+  font-size: 1.25rem;
+  text-indent: 1rem;
+}
+
+footer a{
+  display: block
+}
