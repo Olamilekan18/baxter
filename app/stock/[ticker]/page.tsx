@@ -23,7 +23,6 @@ export default async function RouteShow({
             ticker?
         <APIRender symbol={ticker?.toString()} /> : null
 }
-
         </>
     )
 }
