@@ -3,7 +3,7 @@ import { Agdasima } from "next/font/google";
 import "./globals.css";
 
 
-const Agdas_font = Agdasima({
+export const Agdas_font = Agdasima({
   subsets: ['latin'],
   weight: "400"
 })
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Agdas_font.className} antialiased`}
+        className={`${Agdas_font.className} antialiased p-2 md:p-4`}
       >
         {children}
       </body>

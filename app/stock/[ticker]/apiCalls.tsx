@@ -23,6 +23,15 @@ export async function earnings(symbol:string) {
     return earn_response
 }
 
+export async function companyNews(symbol:string){
+    let {date_string_1, date_string_2} = giveDateString()
+    const news_request = await fetch(`${base_URL}/company-news?symbol=${symbol}&from=${date_string_1}&to=${date_string_2}&token=${api_key}`,{
+        cache: 'force-cache'
+    })
+    const news_response = await news_request.json()
+    return news_response
+}
+
 function giveDateString(){
     const curr_date = new Date()
     const curr_stamp= curr_date.getTime()
@@ -46,12 +55,13 @@ export default async function APIRender(props: {symbol: string }){
     const symb_result = await companyProfile(props.symbol)
     const price_report = await quoteHL(props.symbol.toLocaleUpperCase())
     const earningsData = await earnings(props.symbol.toUpperCase())
+    const newsReports: [] = await companyNews(props.symbol.toUpperCase())
     const {c , dp} = price_report 
 
     const {currency, logo, ticker, name, marketCapitalization} = symb_result
     return(
         <>
-        <div className="w-11/12 p-2 md:p-4">
+        <div className="md:col-span-1">
         <div className="wrapper">
         <div className="flex gap-x-2 md:gap-x-4 items-center">
         <img src={logo} className="rounded-full p-1 md:p-2 md:w-[75px] md:h-[75px] w-[50px] h-[50px]"/>
@@ -84,7 +94,7 @@ export default async function APIRender(props: {symbol: string }){
                     actual: number
                 }) => (
                     <div key={`${item.quarter} ${item.year}`}>
-                        <p className="text-justify">Q{item.quarter} {item.year} : {item.actual} ( <span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
+                        <p className="text-justify text-md md:text-lg">Q{item.quarter} {item.year} : {item.actual} ( <span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
                             {item.surprisePercent > 0 ? `+`: ''}
                             {item.surprisePercent.toFixed(2)} </span>)</p>
                     </div>
@@ -92,8 +102,44 @@ export default async function APIRender(props: {symbol: string }){
             }
             </div>
        </div>
-       </div>
+    </div>
+
+    <div className="company_news_data grid col-span-1">
+        <div>
+            <p className="text-lg md:text-4xl my-4">
+                Latest Company News
+            </p>
+            {
+                newsReports.slice(0, 10).map(
+                    ({category, headline, datetime , source, summary, url, image, id}) => {
+                        const dateVal =  new Date(datetime * 1000)
+
+                    return(
+                    <div key={id} className="md:grid-cols-4 grid gap-x-2 md:gap-x-4 p-2 md:p-4 items-center">
+                        
+                        {String(image).length > 0?
+                        <div className="md:col-span-1 justify-items-center grid">
+                            <img src={image} alt={`Image for Article ID: ${id}`} className="h-[7.5rem] w-[90%] object-cover rounded-[1.25rem]" />
+                            </div> : null }
+
+                        <div className="md:col-span-3">
+                            <a className="text-lg md:text-xl font-bold hover:underline block" href={url} target="_blank">{headline}</a>
+                            <span>{dateVal.toDateString()}</span> | <span>{source}</span>
+                            <p className="my-1 md:my-2">
+                                {summary}
+                            </p>
+                        </div>
+
+                    </div>
+                    )
+}
+                )
+            }
+        </div>
+    </div>
         </>
     )
 }
+
+
  

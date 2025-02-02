@@ -23,15 +23,24 @@ export default function StockSearchPage(){
         <p className="text-2xl">Search...</p>
         <input type="text" name="name_search" id="nms" placeholder="Enter Stock or Ticker Name Here" className="border-0 outline-none rounded-[2rem] p-2 md:p-4 my-2 md:my-4 w-10/12 text-lg md:text-xl text-black" onChange={(e)=> changeInput(e.target.value)} />
         <div className="search_results">
-            <p className="text-md md:text-lg">
                 {
                     results.map((item: any) => (
-                        <Link href={`/stock/${item.symbol}`} className="block underline" key={item.symbol}>
-                            {item.name} ({item.symbol})
+                        <div className="grid gap-x-2 grid-cols-12 md:gap-x-4 p-1 md:p-2 my-1 md:my-2 items-center" key={item.symbol}>
+                        <div className="col-span-1">
+                        <img src={`https://financialmodelingprep.com/image-stock/${item.symbol}.png`} alt={item.name} 
+                        className="h-[3.5rem] w-[3.5rem] rounded-full object-cover"/>
+                        </div>
+
+                        <Link href={`/stock/${item.symbol}`} className="block underline text-xl md:text-2xl col-span-9" key={item.symbol}>
+                            {item.name}
                             </Link>
+                        <div className="col-span-2">
+                            <p className="font-bold text-lg md:text-xl">{item.symbol}</p>
+                            <p>{item.stockExchange}</p>
+                        </div>    
+                        </div>
                     ))
                 }
-            </p>
         </div>
         </div>
     )
