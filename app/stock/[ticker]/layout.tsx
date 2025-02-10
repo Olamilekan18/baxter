@@ -11,7 +11,7 @@ export default function HouseLayout({children}: Readonly<{
 
     return(
         <div className={`w-11/12 p-2 md:p-4 mx-auto`}>
-            <div className="grid md:grid-cols-2">
+            <div className="grid items-center">
                 {children}
             </div>
         </div>     
