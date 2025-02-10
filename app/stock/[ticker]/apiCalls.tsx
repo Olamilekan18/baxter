@@ -147,7 +147,7 @@ export default async function APIRender(props: {symbol: string }){
                         
                         {String(image).length > 0?
                         <div className="md:col-span-1 justify-items-center grid">
-                            <img src={image} alt={`Image for Article ID: ${id}`} className="h-[10rem] w-[90%] object-cover rounded-[1.25rem]" />
+                            <img src={image} alt={`Image for Article ID: ${id}`} className="h-[10rem] w-[90%] object-cover rounded-[1.25rem]" loading="lazy" />
                             </div> : null }
 
                         <div className="md:col-span-3">
