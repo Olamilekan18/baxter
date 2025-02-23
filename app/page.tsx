@@ -16,7 +16,6 @@ export default function Home() {
     <div className="grid w-11/12 mx-auto">
       <HomeNav/>
       <Hero/>
-      {/*<APIRender symbol="NVDA"/>*/}
       <BodySection/>
       <Offerings/>
       <CTA_Footer/>

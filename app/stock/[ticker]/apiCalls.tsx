@@ -1,6 +1,8 @@
-import LineChart, { fetchChartData } from "./chartComps"
+
+import LineChart from "./chartComps"
 
 export const api_key = process.env.NEXT_PUBLIC_FH_KEY
+const fmp_key = process.env.NEXT_PUBLIC_FMP_KEY
 
 export const base_URL = `https://finnhub.io/api/v1`
 
@@ -23,6 +25,21 @@ export async function earnings(symbol:string) {
     const earn_response = await earn_request.json()
     return earn_response
 }
+
+export async function getMarketStatus(){
+    const status_request = await fetch(`${base_URL}/stock/market-status?exchange=US&token=${api_key}`)
+    const status_response = await status_request.json()
+    return status_response
+}
+
+async function deltaPrice(symbol: string){
+    const price_change_req = await fetch (`https://financialmodelingprep.com/api/v3/stock-price-change/${symbol}?apikey=${fmp_key}`, {
+        cache: 'force-cache'
+    })
+    const price_change_res = await price_change_req.json()
+    return price_change_res
+}
+
 
 export async function companyNews(symbol:string){
     let {date_string_1, date_string_2} = giveDateString(1)
@@ -72,14 +89,14 @@ export function giveDateString(n: number){
     }
 }
 
-export default async function APIRender(props: {symbol: string }){
+export default async function APIRender(props: {symbol: string, timeframe? : number }){
     const symb_result = await companyProfile(props.symbol)
     const price_report = await quoteHL(props.symbol.toLocaleUpperCase())
     const earningsData = await earnings(props.symbol.toUpperCase())
     const newsReports: [] = await companyNews(props.symbol.toUpperCase())
+    const {holiday, isOpen, session} = await getMarketStatus()
    
     const {c , dp} = price_report 
-
     const {currency, logo, ticker, name, marketCapitalization} = symb_result
     return(
         <>
@@ -90,25 +107,32 @@ export default async function APIRender(props: {symbol: string }){
         <img src={logo} className="rounded-full p-1 md:p-2 md:w-[75px] md:h-[75px] w-[50px] h-[50px]"/>
         <p className="text-xl md:text-2xl">{name}</p>
         </div>
-        <p className="text-xl md:text-2xl">{ticker}</p>
-        <p className="text-md md:text-lg">{currency} {c.toFixed(2)}   
-            <span className={`px-2 md:px-4  text-md ${
+        <p className="text-xl md:text-4xl">{ticker}</p>
+        <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
+            <span className={`px-2 md:px-4 text-lg md:text-2xl ${
             Number(dp) < 0? 'text-red-700' : 'text-green-700'
         }`}>
            {Number(dp) > 0? "+": null} 
            {Number(dp).toFixed(2)} %</span></p> 
+           <p
+        className={isOpen ? 'text-green-600' : 'text-red-600'}
+
+        >{isOpen? "Market Open" : "Market Closed"}</p>
+        <p>{holiday ? holiday: ''}</p>
+        <p>{session}</p>
        </div>
 
        <div>
         <p className="my-1 md:my-2 text-xl md:text-2xl">
             Company Details
         </p>
-        <p className="text-md md:text-lg">Market Capitalisation: {currency} {marketCapitalization.toFixed(2) > 1000000 ? (marketCapitalization/ 1000000).toFixed(2): (marketCapitalization/1000).toFixed(2)} {marketCapitalization > 1000000? "trillion": "billion"} </p>
+        <p className="text-md md:text-2xl">Market Capitalisation: {currency} {marketCapitalization.toFixed(2) > 1000000 ? (marketCapitalization/ 1000000).toFixed(2): (marketCapitalization/1000).toFixed(2)} {marketCapitalization > 1000000? "trillion": "billion"} </p>
 
-        <p className="earnings_analysis text-md md:text-lg">
+       
+        <p className="earnings_analysis text-lg md:text-3xl my-1 md:my-2">
             Earnings
             </p>
-            <div>
+            <div className="text-lg md:text-xl">
             {
                 earningsData.map((item: {
                     quarter: string | number, 
@@ -117,7 +141,7 @@ export default async function APIRender(props: {symbol: string }){
                     actual: number
                 }) => (
                     <div key={`${item.quarter} ${item.year}`}>
-                        <p className="text-justify text-md md:text-lg">Q{item.quarter} {item.year} : {item.actual} ( <span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
+                        <p className="text-justify">Q{item.quarter} {item.year} : {item.actual} ( <span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
                             {item.surprisePercent > 0 ? `+`: ''}
                             {`${item.surprisePercent.toFixed(2)}%`} </span>)</p>
                     </div>
@@ -128,7 +152,8 @@ export default async function APIRender(props: {symbol: string }){
     </div>
 
     <div className="graphs md:col-span-2 my-2 md:my-4">
-             <LineChart symbol={props.symbol} change={dp} />
+            <p className="text-white text-3xl">Stock Movements</p>
+             <LineChart symbol={props.symbol} change={dp} timeframe={props.timeframe}/>
     </div>
     </div>
 

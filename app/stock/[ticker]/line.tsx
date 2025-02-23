@@ -16,7 +16,6 @@ export function ALineChart(props: {
     const label_arr = props.source_array
     return(
         <>
-        <p className="text-center text-xl md:text-3xl my-2">Stock Movements (24H)</p>
         <Line options={{ responsive:true, maintainAspectRatio: false, plugins: {
             legend:{
                 display: false
