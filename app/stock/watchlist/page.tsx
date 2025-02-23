@@ -1,4 +1,4 @@
-import { companyProfile } from "../[ticker]/apiCalls"
+import { companyProfile } from "../[ticker]/apiLoaders"
 import Link from "next/link"
 
 export default function Watchlist(){
@@ -6,7 +6,7 @@ export default function Watchlist(){
     return(
         <div>
         <p className="md:text-4xl my-6"> Your Watchlist</p>
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
         {
             watchlist_symbols.map((tick) => (
                 <WatchlistItem symbol={tick} />
