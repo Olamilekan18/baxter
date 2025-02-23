@@ -40,7 +40,6 @@ async function deltaPrice(symbol: string){
     return price_change_res
 }
 
-
 export async function companyNews(symbol:string){
     let {date_string_1, date_string_2} = giveDateString(1)
     const news_request = await fetch(`${base_URL}/company-news?symbol=${symbol}&from=${date_string_1}&to=${date_string_2}&token=${api_key}`,{
@@ -94,9 +93,24 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const price_report = await quoteHL(props.symbol.toLocaleUpperCase())
     const earningsData = await earnings(props.symbol.toUpperCase())
     const newsReports: [] = await companyNews(props.symbol.toUpperCase())
+    const priceChanges = await deltaPrice(props.symbol.toUpperCase())
+    const usable = priceChanges[0]
     const {holiday, isOpen, session} = await getMarketStatus()
-   
-    const {c , dp} = price_report 
+    const oneChange = usable['1D']
+    const monthChange = usable['1M']
+    const yearToDay = usable.ytd
+    let change
+    if (props.timeframe && props.timeframe == 30){
+        change = monthChange
+    }
+    else if(props.timeframe && props.timeframe == 365){
+        change = yearToDay
+    }
+    else{
+        change = oneChange
+    }
+
+    const {c} = price_report 
     const {currency, logo, ticker, name, marketCapitalization} = symb_result
     return(
         <>
@@ -110,10 +124,10 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <p className="text-xl md:text-4xl">{ticker}</p>
         <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
             <span className={`px-2 md:px-4 text-lg md:text-2xl ${
-            Number(dp) < 0? 'text-red-700' : 'text-green-700'
+            Number(change) < 0? 'text-red-700' : 'text-green-700'
         }`}>
-           {Number(dp) > 0? "+": null} 
-           {Number(dp).toFixed(2)} %</span></p> 
+           {Number(change) > 0? "+": null} 
+           {Number(change).toFixed(2)} %</span></p> 
            <p
         className={isOpen ? 'text-green-600' : 'text-red-600'}
 
@@ -153,7 +167,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
 
     <div className="graphs md:col-span-2 my-2 md:my-4">
             <p className="text-white text-3xl">Stock Movements</p>
-             <LineChart symbol={props.symbol} change={dp} timeframe={props.timeframe}/>
+             <LineChart symbol={props.symbol} change={change} timeframe={props.timeframe}/>
     </div>
     </div>
 
