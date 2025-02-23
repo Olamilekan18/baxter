@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Agdasima } from "next/font/google";
 import "./globals.css";
 
-
 export const Agdas_font = Agdasima({
   subsets: ['latin'],
   weight: "400"

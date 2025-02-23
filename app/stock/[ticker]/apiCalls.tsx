@@ -98,7 +98,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const {holiday, isOpen, session} = await getMarketStatus()
     const oneChange = usable['1D']
     const monthChange = usable['1M']
-    const yearToDay = usable.ytd
+    const yearToDay = usable['1Y']
     let change
     if (props.timeframe && props.timeframe == 30){
         change = monthChange
@@ -114,7 +114,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const {currency, logo, ticker, name, marketCapitalization} = symb_result
     return(
         <>
-        <div className="grid md:grid-cols-3">
+        <div className="grid md:grid-cols-3 gap-x-4 p-2">
         <div className="md:col-span-1">
         <div className="wrapper">
         <div className="flex gap-x-2 md:gap-x-4 items-center">
@@ -129,8 +129,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
            {Number(change) > 0? "+": null} 
            {Number(change).toFixed(2)} %</span></p> 
            <p
-        className={isOpen ? 'text-green-600' : 'text-red-600'}
-
+        className={`md:text-2xl ${isOpen ? 'text-green-600' : 'text-red-600'}`}
         >{isOpen? "Market Open" : "Market Closed"}</p>
         <p>{holiday ? holiday: ''}</p>
         <p>{session}</p>
@@ -166,7 +165,6 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     </div>
 
     <div className="graphs md:col-span-2 my-2 md:my-4">
-            <p className="text-white text-3xl">Stock Movements</p>
              <LineChart symbol={props.symbol} change={change} timeframe={props.timeframe}/>
     </div>
     </div>

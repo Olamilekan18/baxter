@@ -37,8 +37,6 @@ export async function fetchChartData24H(symbol: string) {
 
 export async function fetchDataLongTerm(symbol:string, timeframe:number){
     let {date_string_1, date_string_2} = longTermDate(timeframe)
-    console.log(date_string_1, date_string_2)
-
     const long_term_data = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${fmp_key}&from=${date_string_1}&to=${date_string_2}`)
     const long_term_response = await long_term_data.json()
     return long_term_response
@@ -60,14 +58,15 @@ export default async function LineChart(props: {symbol: string, change: number, 
     
     return(
         <div className="md:w-[90%] md:h-[87.5%] h-[250px] w-[90vw]">
-        <Link href={`/stock/${props.symbol}`} className="md:text-xl md:m-2 p-2 ">
+        <p className="md:text-3xl">{props.timeframe? `Stock Movements (${props.timeframe} Days)`: `Stock Movements (1D)`}</p>
+        <Link href={`/stock/${props.symbol}`} className="md:text-xl md:m-2 p-2">
         24H
         </Link>
-        <Link href={`/stock/${props.symbol}/30`} className="md:text-xl md:m-2 p-2">
-        1M
+        <Link href={`/stock/${props.symbol}/30`} className="md:text-xl md:m-2 p-2" id="30">
+        1 Month
         </Link>
-        <Link href={`/stock/${props.symbol}/365`} className="md:text-xl md:m-2 p-2">
-        YTD
+        <Link href={`/stock/${props.symbol}/365`} className="md:text-xl md:m-2 p-2" id="365">
+        1 Year
         </Link>
         <ALineChart data_arr={new_arr} source_array={stock_numbers} color={props.change > 0 ? `green`: `red`} />
         </div>
