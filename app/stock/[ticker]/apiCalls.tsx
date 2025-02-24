@@ -46,7 +46,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         className={`md:text-2xl ${isOpen ? 'text-green-600' : 'text-red-600'}`}
         >{isOpen? "Market Open" : "Market Closed"}</p>
         <p>{holiday ? holiday: ''}</p>
-        <p>{session}</p>
+        <p className="capitalize">{session}</p>
        </div>
 
        <div>
@@ -56,7 +56,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <p className="text-md md:text-2xl">Market Capitalisation: {currency} {
             marketCapitalization > 1000000 ? (marketCapitalization / 1000000).toFixed(2) : (marketCapitalization / 1000).toFixed(2)} {marketCapitalization > 1000000 ? "trillion" : "billion"}
   </p>
-  
+
         <p className="earnings_analysis text-lg md:text-3xl my-1 md:my-2">
             Earnings
             </p>
