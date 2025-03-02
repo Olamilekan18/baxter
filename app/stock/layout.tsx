@@ -47,7 +47,7 @@ export default function StockLayout({children} : Readonly<{
 
     return(
         <>
-        <div className="p-2 md:p-4 w-11/12 mx-auto grid md:grid-cols-6">
+        <div className="p-2 md:p-4 mx-1 md:mx-2 grid md:grid-cols-6">
         <div className="hidden md:grid md:col-span-1">
             <SideNav/>
         </div>

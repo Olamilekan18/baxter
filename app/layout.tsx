@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Agdas_font.className} antialiased p-2 md:p-4`}
+        className={`${Agdas_font.className} antialiased p-2 md:p-4 my-1 md:my-2`}
       >
         {children}
       </body>

@@ -6,7 +6,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const symb_result = await companyProfile(props.symbol)
     const price_report = await quoteHL(props.symbol.toLocaleUpperCase())
     const earningsData = await earnings(props.symbol.toUpperCase())
-    const newsReports: [] = await companyNews(props.symbol.toUpperCase())
+    const newsReports = await companyNews(props.symbol.toUpperCase())
     const priceChanges = await deltaPrice(props.symbol.toUpperCase())
     const usable = priceChanges[0]
     const {holiday, isOpen, session} = await getMarketStatus()
@@ -25,7 +25,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     }
 
     const {c} = price_report 
-    const {currency, logo, ticker, name, marketCapitalization} = symb_result
+    const {currency, logo, ticker, name, marketCapitalization, exchange} = symb_result
     return(
         <>
         <div className="grid md:grid-cols-3 gap-x-4 p-2">
@@ -36,6 +36,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <p className="text-xl md:text-2xl">{name}</p>
         </div>
         <p className="text-xl md:text-4xl">{ticker}</p>
+        <p>{exchange}</p>
         <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
             <span className={`px-2 md:px-4 text-lg md:text-2xl ${
             Number(change) < 0? 'text-red-700' : 'text-green-700'
@@ -46,7 +47,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         className={`md:text-2xl ${isOpen ? 'text-green-600' : 'text-red-600'}`}
         >{isOpen? "Market Open" : "Market Closed"}</p>
         <p>{holiday ? holiday: ''}</p>
-        <p className="capitalize">{session}</p>
+        <p className="capitalize text-2xl">{session}</p>
        </div>
 
        <div>
@@ -84,6 +85,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     </div>
     </div>
 
+{newsReports.length > 0 ?
     <div className="company_news_data grid col-span-1">
         <div>
             <p className="text-lg md:text-4xl my-4">
@@ -116,7 +118,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                 )
             }
         </div>
-    </div>   
+    </div>  : null }
         </>
     )
 }
