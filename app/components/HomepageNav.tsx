@@ -9,11 +9,11 @@ export default function HomeNav(){
                 </Link> 
             </p>
             <div className="col-span-1 grid-cols-6 p-2 hidden md:grid items-center">
-                <Link href={'/'} className="text-center px-2 py-1 text-xl hover:text-2xl transition-all">Home</Link>
-                <Link href={'/about_us'} className="text-center px-2 py-1 text-xl hover:text-2xl transition-all" >About</Link>
-                <Link href={'/'} className="text-center px-2 py-1 text-xl hover:text-2xl transition-all">Services</Link>
-                <Link href={'/contact_page'} className="text-center px-2 py-1 text-xl mx-1 hover:text-2xl transition-all">Contact</Link>
-                <Link href={'/sign_up'} className="grid col-span-2 p-2 rounded-2xl text-center bg-pink-700 text-xl font-bold hover:text-2xl transition-all">Sign Up</Link>
+                <Link href={'/'} className="text-center px-2 py-1 text-2xl hover:text-4xl transition-all">Home</Link>
+                <Link href={'/about_us'} className="text-center px-2 py-1 text-2xl hover:text-4xl transition-all" >About</Link>
+                <Link href={'/'} className="text-center px-2 py-1 text-2xl hover:text-4xl transition-all">Services</Link>
+                <Link href={'/contact_page'} className="text-center px-2 py-1 text-2xl hover:text-4xl transition-all">Contact</Link>
+                <Link href={'/stock'} className="grid col-span-2 p-2 rounded-2xl text-center bg-pink-700 text-2xl font-bold hover:text-3xl transition-all">Test Here</Link>
             </div>
 
             <div className="menu_button_mob grid col-span-2 md:hidden">

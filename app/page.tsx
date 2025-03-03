@@ -2,7 +2,6 @@ import HomeNav from "./components/HomepageNav";
 import { Metadata } from "next";
 import Image from "next/image";
 import stock_shot from '../public/stock.jpg'
-import APIRender from "./stock/[ticker]/apiCalls";
 import { FaInstagram, FaMailBulk } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
@@ -112,18 +111,16 @@ function Offerings(){
 
 function CTA_Footer(){
   let date = new Date()
-
-
   return(
     <>
     <section className="p-2 my-2 md:p-4 md:my-4 text-center" id="cta" >
       <p className="text-2xl md:text-4xl">
         Start Your Investment Journey Today!
       </p>
-      <p className="my-2 md:my-4">
+      <p className="my-2 md:my-4 sm:max-xl:text-xl lg:text-3xl">
         Join the thousands of investors who utilise Baxter to help grow their portfolios and trade safely and securely. Whether you're a seasoned trader or just starting out, Baxter has all of the tools that you need to succeed. Sign up for our free tier <span className="bold">here</span> or our <span>Pro</span> tier here. 
       </p>
-      <a className="rounded-2xl bg-pink-700 text-white hover:bg-pink-500 p-1 md:p-2 text-2xl md:text-3xl my-2 md:my-4 w-6/12 md:w-3/12 bgrid justify-self-center">Get Started</a>
+      <a className="rounded-2xl bg-pink-700 text-white hover:bg-pink-500 p-1 md:p-2 text-2xl md:text-3xl my-2 md:my-4 w-6/12 md:w-4/12 bgrid justify-self-center block">Get Started</a>
     </section>
     <footer className="grid md:grid-cols-5">
       <div>
@@ -134,7 +131,7 @@ function CTA_Footer(){
       </div>
 
       <div>
-        <p>About Us</p>
+        <p className="link-topic">About Us</p>
         <a>
           What we Do
         </a>
@@ -152,7 +149,7 @@ function CTA_Footer(){
       </div>
 
       <div>
-      <p>
+      <p className="link-topic">
         Careers
       </p>
       <a>
@@ -170,7 +167,7 @@ function CTA_Footer(){
       </div>
 
       <div>
-        <p>
+        <p className="link-topic">
           Legal
         </p>
         <a>Terms and Conditions Agreement</a>
@@ -179,7 +176,7 @@ function CTA_Footer(){
       </div>
 
       <div>
-        <p>Contact Us</p>
+        <p className="link-topic">Contact Us</p>
         <p className="text-[1.25rem] my-2">Reach out to us on any of the through the following channels:</p>
         <div className="flex gap-x-4 justify-items-center justify-center">
           <FaMailBulk  size={'1.75rem'} className="hover:fill-pink-700"/>
@@ -193,14 +190,3 @@ function CTA_Footer(){
     </>
   )
 }
-
-/* 
-Start Your Investment Journey Today
-
-Join thousands of savvy investors who trust Baxter to help them grow their portfolios. Whether you're a seasoned trader or just starting out, Baxter has the tools you need to succeed.
-
-Get Started for Free
-
-Sign up today and take advantage of our free trial. Explore our features and experience the difference Baxter makes.
-
-*/

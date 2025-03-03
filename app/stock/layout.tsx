@@ -10,14 +10,14 @@ export default function StockLayout({children} : Readonly<{
     function SideNav(){
         return(
           <div>
-            <Link href={'/'} className="text-4xl font-bold my-6 hover:text-[2.5rem] transition-all">
+            <Link href={'/'} className=" text-2xl lg:text-4xl font-bold my-6 hover:text-[2.5rem] transition-all">
             Baxter. 
             </Link>
             <div className="flex gap-x-4 items-center group" >
                 <div>
                <FaSearch size={'1.875rem'} className="group-hover:fill-pink-600"/> 
                 </div>
-                              <Link className="block text-white md:text-3xl my-4 hover:text-[2.5rem] transition-all" href="/stock">
+                              <Link className="block text-white lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href="/stock">
                                   Search
                               </Link>
             </div>
@@ -26,7 +26,7 @@ export default function StockLayout({children} : Readonly<{
             <div>
             <FaBookmark size={'1.875rem'} className="fill-pink-600"/> 
             </div>
-                              <Link className="block text-white md:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/watchlist'>
+                              <Link className="block text-white  lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/watchlist'>
                                   Watchlist
                               </Link>
             </div>
@@ -35,7 +35,7 @@ export default function StockLayout({children} : Readonly<{
             <div>
                <SlGraph size={'1.875rem'} className="fill-pink-600"/> 
                 </div>
-                              <Link className="block text-white md:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/top'>
+                              <Link className="block text-white lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/top'>
                                   Top Movers
                               </Link>
              </div>
@@ -43,11 +43,9 @@ export default function StockLayout({children} : Readonly<{
         )
       }
 
-
-
     return(
         <>
-        <div className="p-2 md:p-4 mx-1 md:mx-2 grid md:grid-cols-6">
+        <div className="p-1 md:p-2 mx-auto grid md:grid-cols-6">
         <div className="hidden md:grid md:col-span-1">
             <SideNav/>
         </div>

@@ -32,11 +32,14 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <div className="md:col-span-1">
         <div className="wrapper">
         <div className="flex gap-x-2 md:gap-x-4 items-center">
-        <img src={logo} className="rounded-full p-1 md:p-2 md:w-[75px] md:h-[75px] w-[50px] h-[50px]"/>
+        <img src={logo} className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"/>
+        <div>
+        <p className="text-xl md:text-4xl">{ticker}</p>
         <p className="text-xl md:text-2xl">{name}</p>
         </div>
-        <p className="text-xl md:text-4xl">{ticker}</p>
-        <p>{exchange}</p>
+        </div>
+       
+        <p className="text-lg md:text-xl">{exchange}</p>
         <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
             <span className={`px-2 md:px-4 text-lg md:text-2xl ${
             Number(change) < 0? 'text-red-700' : 'text-green-700'
@@ -47,18 +50,18 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         className={`md:text-2xl ${isOpen ? 'text-green-600' : 'text-red-600'}`}
         >{isOpen? "Market Open" : "Market Closed"}</p>
         <p>{holiday ? holiday: ''}</p>
-        <p className="capitalize text-2xl">{session}</p>
+        <p className="capitalize text-2xl">{!isOpen ? session: null}</p>
        </div>
 
        <div>
-        <p className="my-1 md:my-2 text-xl md:text-2xl">
+        <p className="my-1 md:my-2 text-xl md:text-2xl underline">
             Company Details
         </p>
         <p className="text-md md:text-2xl">Market Capitalisation: {currency} {
             marketCapitalization > 1000000 ? (marketCapitalization / 1000000).toFixed(2) : (marketCapitalization / 1000).toFixed(2)} {marketCapitalization > 1000000 ? "trillion" : "billion"}
   </p>
 
-        <p className="earnings_analysis text-lg md:text-3xl my-1 md:my-2">
+        <p className="earnings_analysis text-xl md:text-2xl my-1 md:my-2 underline">
             Earnings
             </p>
             <div className="text-lg md:text-xl">
@@ -70,9 +73,8 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                     actual: number
                 }) => (
                     <div key={`${item.quarter} ${item.year}`}>
-                        <p className="text-justify">Q{item.quarter} {item.year} : {item.actual} ( <span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
-                            {item.surprisePercent > 0 ? `+`: ''}
-                            {`${item.surprisePercent.toFixed(2)}%`} </span>)</p>
+                        <p className="text-justify">Q{item.quarter} {item.year} : {`$${item.actual.toFixed(2)}`} (<span className={`${item.surprisePercent > 0? 'text-green-700': 'text-red-700'}`}>
+                            {item.surprisePercent > 0 ? `+`: ''}{`${item.surprisePercent.toFixed(2)}%`} </span>)</p>
                     </div>
                 ))
             }
@@ -80,7 +82,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
        </div>
     </div>
 
-    <div className="graphs md:col-span-2 my-2 md:my-4">
+    <div className="graphs md:col-span-2 my-1 md:my-2">
              <LineChart symbol={props.symbol} change={change} timeframe={props.timeframe}/>
     </div>
     </div>
@@ -92,7 +94,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                 Latest Company News
             </p>
             {
-                newsReports.slice(0, 15).map(
+                newsReports.slice(0, 15).filter((report) => report.image.length > 1).map(
                     ({ headline, datetime , source, summary, url, image, id}) => {
                         const dateVal =  new Date(datetime * 1000)
 
