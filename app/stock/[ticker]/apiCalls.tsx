@@ -33,13 +33,13 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <div className="wrapper">
         <div className="flex gap-x-2 md:gap-x-4 items-center">
         <img src={logo} className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"/>
-        <div>
+        <div className="my-2 lg:my-4">
         <p className="text-xl md:text-4xl">{ticker}</p>
         <p className="text-xl md:text-2xl">{name}</p>
         </div>
         </div>
        
-        <p className="text-lg md:text-xl">{exchange}</p>
+        <p className="text-md md:text-lg">{exchange}</p>
         <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
             <span className={`px-2 md:px-4 text-lg md:text-2xl ${
             Number(change) < 0? 'text-red-700' : 'text-green-700'
@@ -57,7 +57,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <p className="my-1 md:my-2 text-xl md:text-2xl underline">
             Company Details
         </p>
-        <p className="text-md md:text-2xl">Market Capitalisation: {currency} {
+        <p className="text-md md:text-xl">Market Capitalisation: {currency} {
             marketCapitalization > 1000000 ? (marketCapitalization / 1000000).toFixed(2) : (marketCapitalization / 1000).toFixed(2)} {marketCapitalization > 1000000 ? "trillion" : "billion"}
   </p>
 

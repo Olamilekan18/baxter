@@ -9,7 +9,6 @@ export const metadata : Metadata = {
   title: 'Baxter: Guided Investments for a Better Today'
 }
 
-
 export default function Home() {
   return (
     <div className="grid w-11/12 mx-auto">
@@ -26,12 +25,12 @@ function Hero(){
   return(
     <section id="hero" className="p-2 my-2 md:p-4 md:my-2">
     <div className="grid text-center justify-items-center">
-      <p className="md:text-[10rem] text-6xl my-6">
+      <p className="md:text-[10rem] text-3xl md:text-6xl my-6">
         Never Make a Wrong Investment Again
       </p>
 
       <div className="grid md:grid-cols-2 items-center justify-items-center">
-      <p className="text-2xl my-4 text-justify indent-4">Baxter is your ultimate tool for making informed investment decisions. We provide up-to-date stock charts, detailed data, and essential guidance to help you navigate the complexities of the stock market with confidence and security. Our goal is to empower individuals, businesses and corporate bodies to make informed decisions and secure their assets over the short and long term. </p>
+      <p className="text-2xl my-4 text-justify indent-4 blurb">Baxter is your ultimate tool for making informed investment decisions. We provide up-to-date stock charts, detailed data, and essential guidance to help you navigate the complexities of the stock market with confidence and security. Our goal is to empower individuals, businesses and corporate bodies to make informed decisions and secure their assets over the short and long term. </p>
       <div className="grid justify-items-center">
         <Image src={stock_shot} alt="Stock Shot" className="rounded-xl w-[75%]"/>
       </div>
@@ -52,7 +51,7 @@ function BodySection(){
         <p className="md:text-4xl text-2xl">
           Why Choose Baxter?
         </p>
-        <div className="grid grid-cols-2">
+        <div className="grid">
           <div>
           <p className="head_p">Intuitive Stock Charts</p>
 
@@ -177,7 +176,7 @@ function CTA_Footer(){
 
       <div>
         <p className="link-topic">Contact Us</p>
-        <p className="text-[1.25rem] my-2">Reach out to us on any of the through the following channels:</p>
+        <p className="text-[1.75rem] my-2 lg:my-4">Reach out to us on any of the through the following channels:</p>
         <div className="flex gap-x-4 justify-items-center justify-center">
           <FaMailBulk  size={'1.75rem'} className="hover:fill-pink-700"/>
           <FaInstagram  size={'1.75rem'} className="hover:fill-pink-700" />

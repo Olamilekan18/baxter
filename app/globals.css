@@ -27,7 +27,7 @@ body {
 }
 
 .side_p{
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   text-indent: 1rem;
 }
 
@@ -40,10 +40,16 @@ footer a{
   font-weight: bold;
 }
 footer div > a{
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 footer p{
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 768px){
+  html{
+    font-size: 12px;
+  }
 }

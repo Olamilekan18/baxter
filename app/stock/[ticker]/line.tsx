@@ -6,6 +6,8 @@ ChartJS.register(
     Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement
 )
 
+//2025-03-01 
+
 export function ALineChart(props: {
     data_arr : [] | never[], 
     source_array: [] | never[], 
@@ -21,8 +23,15 @@ export function ALineChart(props: {
                 display: false
             }
         }}} data={{
-            labels: label_arr.toReversed().map(({date}) => date
-                ),
+            labels: label_arr.toReversed().map(({date} : {date: string}) => {if(date.length > 11){
+              let text = date.slice(11)
+              return text 
+            }
+            else{
+                return date
+            }
+            
+        }), 
             datasets: [{
                 label: "Price",
                 data: direct_array,

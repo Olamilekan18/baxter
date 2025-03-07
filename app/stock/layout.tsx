@@ -10,34 +10,34 @@ export default function StockLayout({children} : Readonly<{
     function SideNav(){
         return(
           <div>
-            <Link href={'/'} className=" text-2xl lg:text-4xl font-bold my-6 hover:text-[2.5rem] transition-all">
+            <Link href={'/'} className=" text-2xl lg:text-3xl font-bold my-6 hover:text-[2.5rem] transition-all">
             Baxter. 
             </Link>
             <div className="flex gap-x-4 items-center group" >
                 <div>
-               <FaSearch size={'1.875rem'} className="group-hover:fill-pink-600"/> 
+               <FaSearch size={'1.5rem'} className="group-hover:fill-pink-600"/> 
                 </div>
-                              <Link className="block text-white lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href="/stock">
+                              <Link className="block text-white lg:text-2xl my-2 hover:text-pink-600 transition-all" href="/stock">
                                   Search
                               </Link>
             </div>
 
             <div className="flex gap-x-4 items-center">
             <div>
-            <FaBookmark size={'1.875rem'} className="fill-pink-600"/> 
+            <FaBookmark size={'1.5rem'} className="fill-pink-600"/> 
             </div>
-                              <Link className="block text-white  lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/watchlist'>
-                                  Watchlist
-                              </Link>
+                <Link className="block text-white lg:text-2xl my-2 hover:text-pink-600 transition-all" href='/stock/watchlist'>
+                Watchlist
+                </Link>
             </div>
 
             <div className="flex gap-x-4 items-center">
             <div>
-               <SlGraph size={'1.875rem'} className="fill-pink-600"/> 
+               <SlGraph size={'1.5rem'} className="fill-pink-600"/> 
                 </div>
-                              <Link className="block text-white lg:text-3xl my-4 hover:text-[2.5rem] transition-all" href='/stock/top'>
-                                  Top Movers
-                              </Link>
+                <Link className="block text-white lg:text-2xl my-2 hover:text-pink-600 transition-all" href='/stock/top'>
+                Top Movers
+                  </Link>
              </div>
             </div>
         )
