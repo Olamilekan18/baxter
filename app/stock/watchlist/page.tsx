@@ -9,7 +9,7 @@ export default function Watchlist(){
         <div className="grid sm:grid-cols-3 lg:grid-cols-4">
         {
             watchlist_symbols.map((tick) => (
-                <WatchlistItem symbol={tick} />
+                <WatchlistItem symbol={tick} key={tick} />
             ))
         }
         </div>

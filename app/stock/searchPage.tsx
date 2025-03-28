@@ -23,7 +23,6 @@ export default function StockSearchPage(){
 
     return(
         <div className="mx-auto w-11/12 p-1 md:p-2">
-        <p className="md:text-4xl font-bold">Search...</p>
         <input type="text" name="name_search" id="nms" placeholder="Enter Stock or Ticker Name Here" className="border-0 outline-none rounded-[2rem] p-2 md:p-4 my-2 md:my-4 w-10/12 text-lg md:text-2xl text-black" onChange={(e)=> changeInput(e.target.value)} />
         <div className="search_results">
                 {results.length > 0 ?
