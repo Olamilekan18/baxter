@@ -66,7 +66,7 @@ export function giveDateString(n: number){
         else return `${input}`
     }
 
-    if(curr_date.getDay() > 0 && curr_date.getDate() < 6){
+    if(curr_date.getDay() > 0 && curr_date.getDay() < 6){
     return({
         date_string_1: `${lower_date_bound.getFullYear()}-${checkValue(lower_date_bound.getMonth() + 1)}-${checkValue(lower_date_bound.getUTCDate() )}` ,
         date_string_2: `${curr_date.getFullYear()}-${checkValue(curr_date.getMonth() + 1 ) }-${checkValue(curr_date.getUTCDate())}`
@@ -113,14 +113,18 @@ function longTermDate(timeframe: number){
 
 export async function fetchChartData24H(symbol: string) {
     let dateValue = new Date()
-    let n = 1
+    let n
     if (dateValue.getDay() == 1 && dateValue.getHours() < 16){
         n = 3
     }
+    else{
+        n = 1
+    }
+    console.log(n)
     let {date_string_1, date_string_2
 
     } = giveDateString(n)
-
+    console.log(giveDateString(n))
     const stock_data_request = await fetch(`https://financialmodelingprep.com/api/v3/historical-chart/5min/${symbol}?from=${date_string_1}&to=${date_string_2}&apikey=${fmp_key}`)
     const stock_data_response: []= await stock_data_request.json();
     

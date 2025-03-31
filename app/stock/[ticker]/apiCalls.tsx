@@ -95,7 +95,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                 Latest Company News
             </p>
             {
-                filteredNewsReports.map(
+                filteredNewsReports.slice(0,15).map(
                     ({ headline, datetime , source, summary, url, image, id}) => {
                         const dateVal =  new Date(datetime * 1000)
 
