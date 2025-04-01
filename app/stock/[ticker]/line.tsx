@@ -6,10 +6,8 @@ ChartJS.register(
     Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement
 )
 
-//2025-03-01 
-
 export function ALineChart(props: {
-    data_arr : [] | never[], 
+    data_arr : [] | never[] | number[], 
     source_array: [] | never[], 
     color: string
 }){

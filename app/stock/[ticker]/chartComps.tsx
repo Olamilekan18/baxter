@@ -1,6 +1,6 @@
 import { ALineChart } from "./line"
 import Link from 'next/link'
-import { fetchDataLongTerm, fetchChartData24H } from "./apiLoaders"
+import { fetchDataLongTerm, fetchChartData24H, giveDateString } from "./apiLoaders"
 
 export default async function LineChart(props: {symbol: string, change: number, timeframe?: number }){
     let stock_numbers, new_arr
@@ -25,6 +25,9 @@ export default async function LineChart(props: {symbol: string, change: number, 
         </Link>
         <Link href={`/stock/${props.symbol}/365`} className="md:text-xl md:m-2 p-2 hover:text-pink-600" id="365">
         1 Year
+        </Link>
+        <Link href={`/stock/${props.symbol}/custom?initial=${giveDateString(7).date_string_1}&final=${giveDateString(7).date_string_2}`} className="md:text-xl md:m-2 p-2 hover:text-pink-600" id="365">
+        Custom Timeframe
         </Link>
         <ALineChart data_arr={new_arr} source_array={stock_numbers} color={props.change > 0 ? `green`: `red`} />
         </div>

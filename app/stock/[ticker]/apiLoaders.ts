@@ -120,11 +120,10 @@ export async function fetchChartData24H(symbol: string) {
     else{
         n = 1
     }
-    console.log(n)
     let {date_string_1, date_string_2
 
     } = giveDateString(n)
-    console.log(giveDateString(n))
+    
     const stock_data_request = await fetch(`https://financialmodelingprep.com/api/v3/historical-chart/5min/${symbol}?from=${date_string_1}&to=${date_string_2}&apikey=${fmp_key}`)
     const stock_data_response: []= await stock_data_request.json();
     
