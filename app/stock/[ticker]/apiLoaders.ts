@@ -12,6 +12,13 @@ export async function analyst_ratings(symbol: string){
     return recommendation_response
 }
 
+export async function news_general(){
+    const news_request = await fetch(`${base_URL}/news?category=general&token=${api_key}`)
+    const news_response = await news_request.json()
+
+    return news_response
+}
+
 export async function companyProfile(symbol: string) {
     const data_request = await fetch(`${base_URL}/stock/profile2?symbol=${symbol}&token=${api_key}`, {
         cache: "force-cache"

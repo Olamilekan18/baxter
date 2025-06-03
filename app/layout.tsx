@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Agdasima } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
-export const Agdas_font = Agdasima({
+export const Manrope_Font = Manrope({
   subsets: ['latin'],
-  weight: "400"
+  weight: '400'
 })
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Agdas_font.className} antialiased p-2 md:p-4 my-1 md:my-2`}
+        className={`${Manrope_Font.className} antialiased p-1 md:p-2 my-1 md:my-2`}
       >
         {children}
       </body>

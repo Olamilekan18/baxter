@@ -58,7 +58,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         <p className="my-1 md:my-2 text-xl md:text-2xl underline">
             Company Details
         </p>
-        <p className="text-md md:text-xl">Market Capitalisation: {currency} {
+        <p className="text-md md:text-xl">Market Cap: {currency} {
             marketCapitalization > 1000000 ? (marketCapitalization / 1000000).toFixed(2) : (marketCapitalization / 1000).toFixed(2)} {marketCapitalization > 1000000 ? "trillion" : "billion"}
   </p>
 
