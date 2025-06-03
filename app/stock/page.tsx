@@ -5,8 +5,9 @@ export const metadata: Metadata = {
   title: "Baxter | Stock Search Tool"
 }
 
-export default function Page(){
+export default async function Page(){
+
   return(
-    <StockSearchPage />
+    <StockSearchPage/>
   )
 }

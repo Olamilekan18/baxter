@@ -1,6 +1,7 @@
 
 import LineChart from "./chartComps"
 import { companyNews, companyProfile, quoteHL, earnings, deltaPrice, getMarketStatus } from "./apiLoaders"
+import NewsItem from "@/app/components/NewsItem"
 
 export default async function APIRender(props: {symbol: string, timeframe? : number }){
     const symb_result = await companyProfile(props.symbol)
@@ -29,18 +30,18 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const {currency, logo, ticker, name, marketCapitalization, exchange} = symb_result
     return(
         <>
-        <div className="grid md:grid-cols-3 gap-x-4 p-2">
+        <div className="grid gap-x-4 p-2">
         <div className="md:col-span-1">
         <div className="wrapper">
         <div className="flex gap-x-2 md:gap-x-4 items-center">
         <img src={logo} className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"/>
         <div className="my-2 lg:my-4">
-        <p className="text-xl md:text-4xl">{ticker}</p>
-        <p className="text-xl md:text-2xl">{name}</p>
-        </div>
-        </div>
-       
+        <p className="text-xl md:text-3xl">{name} ({ticker})</p>
         <p className="text-md md:text-lg">{exchange}</p>
+        </div>
+        </div>
+       <p className="underline">Chart</p>
+    
         <p className="text-lg md:text-2xl">{currency} {c.toFixed(2)}   
             <span className={`px-2 md:px-4 text-lg md:text-2xl ${
             Number(change) < 0? 'text-red-700' : 'text-green-700'
@@ -51,10 +52,10 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
         className={`md:text-2xl ${isOpen ? 'text-green-600' : 'text-red-600'}`}
         >{isOpen? "Market Open" : "Market Closed"}</p>
         <p>{holiday ? holiday: ''}</p>
-        <p className="capitalize text-2xl">{!isOpen ? session: null}</p>
+        <span className="capitalize text-2xl">{!isOpen ? session: null}</span>
        </div>
 
-       <div>
+      {/* <div>
         <p className="my-1 md:my-2 text-xl md:text-2xl underline">
             Company Details
         </p>
@@ -80,7 +81,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                 ))
             }
             </div>
-       </div>
+       </div> */}
     </div>
 
     <div className="graphs md:col-span-2 my-1 md:my-2">
@@ -96,28 +97,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
             </p>
             {
                 filteredNewsReports.slice(0,15).map(
-                    ({ headline, datetime , source, summary, url, image, id}) => {
-                        const dateVal =  new Date(datetime * 1000)
-
-                    return(
-                    <div key={id} className="md:grid-cols-4 grid gap-x-2 md:gap-x-4 p-2 md:p-4 items-center">
-                        
-                        {String(image).length > 0?
-                        <div className="md:col-span-1 justify-items-center grid">
-                            <img src={image} alt={`Image for Article ID: ${id}`} className="h-[10rem] w-[90%] object-cover rounded-[1.25rem]" loading="lazy" />
-                            </div> : null }
-
-                        <div className="md:col-span-3">
-                            <a className="text-xl md:text-2xl font-bold hover:underline block" href={url} target="_blank">{headline}</a>
-                            <span className="text-[1.25rem]">{dateVal.toDateString()}</span> | <span className="text-[1.25rem]">{source}</span>
-                            <p className="my-1 md:my-2 text-xl">
-                                {summary}
-                            </p>
-                        </div>
-
-                    </div>
-                    )
-}
+                   (article) => <NewsItem object={article} key={article.id}/>
                 )
             }
         </div>

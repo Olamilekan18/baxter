@@ -8,6 +8,7 @@ const fmp_key = process.env.NEXT_PUBLIC_FMP_KEY
 
 export default function StockSearchPage(){
     const [input_value, changeInput] = useState('');
+    console.log(input_value)
     const [results, setResults] = useState<[]>([])
 
     useEffect(()=> {

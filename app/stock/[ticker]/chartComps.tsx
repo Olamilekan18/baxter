@@ -15,8 +15,8 @@ export default async function LineChart(props: {symbol: string, change: number, 
     }
     
     return(
-        <div className="md:w-[90%] md:h-[87.5%] h-[225px] w-[90vw]">
-        <p className="md:text-2xl">{props.timeframe? `Stock Movements (${props.timeframe} Days)`: `Stock Movements (1 Day)`}</p>
+        <div className="md:w-[75%] h-[350px] w-[90vw]">
+        <div className="grid grid-cols-12 gap-x-4">
         <Link href={`/stock/${props.symbol}`} className="md:text-xl md:m-2 p-2 hover:text-[#53D22c]">
         Today
         </Link>
@@ -29,6 +29,7 @@ export default async function LineChart(props: {symbol: string, change: number, 
         <Link href={`/stock/${props.symbol}/custom?initial=${giveDateString(7).date_string_1}&final=${giveDateString(7).date_string_2}`} className="md:text-xl md:m-2 p-2 hover:text-[#53D22c]" id="custom_timeframe">
         Custom Timeframe
         </Link>
+        </div>
         <ALineChart data_arr={new_arr} source_array={stock_numbers} color={props.change > 0 ? `green`: `red`} />
         </div>
     )

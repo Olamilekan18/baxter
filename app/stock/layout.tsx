@@ -35,7 +35,7 @@ export default function StockLayout({children} : Readonly<{
             <div>
                <SlGraph size={'1.5rem'} className="fill-[#53D22c]"/> 
                 </div>
-                <Link className="block text-white lg:text-2xl my-2 hover:text-[#53D22c] transition-all" href='/stock/top_movers'>
+                <Link className="block text-white lg:text-2xl my-2 hover:text-[#53D22c] transition-all" href='/stock'>
                 Top Movers
                   </Link>
              </div>
