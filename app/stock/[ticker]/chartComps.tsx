@@ -1,40 +1,78 @@
-import { ALineChart } from "./line"
-import Link from 'next/link'
-import { fetchDataLongTerm, fetchChartData24H, giveDateString } from "./apiLoaders"
+import { ALineChart } from './line';
+import Link from 'next/link';
+import {
+  fetchDataLongTerm,
+  fetchChartData24H,
+  giveDateString,
+} from './apiLoaders';
 
-export default async function LineChart(props: {symbol: string, change: number, timeframe?: number }){
-    let stock_numbers, new_arr
-    if(!props.timeframe){
-    stock_numbers = await fetchChartData24H(props.symbol.toUpperCase())
-    new_arr = stock_numbers.map(({close}) => close)
-    }
-    if(props.timeframe && props.timeframe > 1){
-        let LTD = await fetchDataLongTerm(props.symbol, props.timeframe)
-        stock_numbers = LTD.historical
-        new_arr = stock_numbers.map(({close} : {close: number}) => close)
-    }
-    
-    return(
-        <div className="md:w-[85%] h-[350px] w-[90vw]">
-        <div className="flex gap-x-2">
-        <Link href={`/stock/${props.symbol}`} className="grid md:text-xl md:m-2 p-2 hover:text-[#53D22c]">
-        Today
+export default async function LineChart(props: {
+  symbol: string;
+  change: number;
+  timeframe?: number;
+}) {
+  let stock_numbers, new_arr;
+  if (!props.timeframe) {
+    stock_numbers = await fetchChartData24H(props.symbol.toUpperCase());
+    new_arr = stock_numbers.map(({ close }) => close);
+  }
+  if (props.timeframe && props.timeframe > 1) {
+    let LTD = await fetchDataLongTerm(props.symbol, props.timeframe);
+    stock_numbers = LTD.historical;
+    new_arr = stock_numbers.map(({ close }: { close: number }) => close);
+  }
+
+  return (
+    <div className="md:w-[75%] h-[350px] w-[90vw]">
+      <div className="grid grid-cols-12 gap-x-4">
+        <Link
+          href={`/stock/${props.symbol}`}
+          className={`md:text-xl col-span-2 md:m-2 p-2 hover:text-[#53D22c] rounded-xl text-center`}
+        >
+          Today
         </Link>
-        <Link href={`/stock/${props.symbol}/30`} className={`grid md:text-xl rounded-[8px] md:m-2 p-2 hover:text-[#53D22c] ${props.timeframe?"underline bg-[#53D22c]": ''}`} id="30">
-        1M
+        <Link
+          href={`/stock/${props.symbol}/30`}
+          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+            props.timeframe && props.timeframe == 30 ? 'bg-[#53D22c]' : ''
+          }`}
+          id="30"
+        >
+          1M
         </Link>
-        <Link href={`/stock/${props.symbol}/90`} className="grid md:text-xl md:m-2 p-2 hover:text-[#53D22c]" id="30">
-        3M
+        <Link
+          href={`/stock/${props.symbol}/90`}
+          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+            props.timeframe && props.timeframe == 90 ? 'bg-[#53D22c]' : ''
+          } `}
+          id="90"
+        >
+          3M
         </Link>
-         <Link href={`/stock/${props.symbol}/180`} className="grid md:text-xl md:m-2 p-2 hover:text-[#53D22c]" id="30">
-        6M
+        <Link
+          href={`/stock/${props.symbol}/180`}
+          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+            props.timeframe && props.timeframe == 180 ? 'bg-[#53D22c]' : ''
+          }`}
+          id="180"
+        >
+          6M
         </Link>
-        <Link href={`/stock/${props.symbol}/365`} className="grid md:text-xl md:m-2 p-2 hover:text-[#53D22c]" id="365">
-        1Y
+        <Link
+          href={`/stock/${props.symbol}/365`}
+          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+            props.timeframe && props.timeframe == 365 ? 'bg-[#53D22c]' : ''
+          }`}
+          id="365"
+        >
+          1Y
         </Link>
-        
-        </div>
-        <ALineChart data_arr={new_arr} source_array={stock_numbers} color={props.change > 0 ? `green`: `red`} />
-        </div>
-    )
+      </div>
+      <ALineChart
+        data_arr={new_arr}
+        source_array={stock_numbers}
+        color={props.change > 0 ? `green` : `red`}
+      />
+    </div>
+  );
 }
