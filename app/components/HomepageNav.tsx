@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function HomeNav() {
@@ -10,23 +11,28 @@ export default function HomeNav() {
         {/* Logo */}
         <div className="flex items-center">
           <div className="w-6 h-6 bg-green-500 rounded-full"></div>
-          <span className="font-semibold text-lg ml-1">Baxter</span>
+          <span className="font-semibold sm:text-lg text-3xl ml-1">Baxter</span>
           {/* Adjust ml to control spacing */}
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex space-x-6 text-sm text-gray-300">
-          {["Home", "Learn", "News", "Community"].map((item) => (
-            <li key={item}>
-              <a href="#" className="hover:text-white transition">
-                {item}
-              </a>
+        <ul className="hidden md:flex space-x-10 text-sm text-white">
+          {[
+            { route: "Home", path: "/" },
+            { route: "Learn", path: "/learn" },
+            { route: "News", path: "/news" },
+            { route: "Community", path: "/community" },
+          ].map(({ route, path }) => (
+            <li key={route}>
+              <Link href={path} className="hover:text-white transition">
+                {route}
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Search + Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3">
           <div className="relative">
             <input
               type="text"
@@ -44,58 +50,65 @@ export default function HomeNav() {
             </svg>
           </div>
 
-          <button className="bg-green-500 text-black font-light px-6 py-2 rounded-full hover:bg-green-600 transition">
+          <button className="bg-green-500 text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition">
             Sign Up
           </button>
-          <button className="bg-[#2c2e2d] text-white font-light px-6 py-2 rounded-full hover:bg-[#3a3c3b] transition">
+          <button className="bg-[#2c2e2d] text-white font-semibold px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition">
             Log In
           </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden h-20">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-white"
           >
-            {mobileOpen ? (
-              // Close icon (X)
-              <svg
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+            <div className="md:hidden flex items-center h-20">
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="text-white"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              // Hamburger icon
-              <svg
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
+                {mobileOpen ? (
+                  // Close icon
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  // Hamburger icon
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
           </button>
         </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-4 space-y-4 text-sm text-gray-300">
+        <div className="md:hidden mt-4 space-y-4  text-gray-300">
           {["Home", "Learn", "News", "Community"].map((item) => (
             <a
               key={item}
