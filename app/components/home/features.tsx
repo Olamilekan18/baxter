@@ -1,9 +1,9 @@
 export default function Features() {
   return (
-    <div className="bg-slate-800 py-5">
+    <div className="bg-slate-800 py-10 pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-5xl lg:text-center flex flex-col justify-center items-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-100 bg-green-700 px-3 rounded-lg uppercase mb-4 lg:mb-8">
+          <h2 className="text-base font-semibold leading-7 text-green-100 bg-green-700 px-3 rounded-lg uppercase mb-4 lg:mb-8">
             Key Features
           </h2>
           <h2 className="block text-center w-full bg-gradient-to-b text-white bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
@@ -12,9 +12,10 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-10 max-w-2xl sm:mt-20 lg:mt-10 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+
             <div className="relative pl-16">
               <dt className="text-base font-semibold leading-7 text-white">
-                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-700">
+                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-green-700">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -40,23 +41,45 @@ export default function Features() {
                 fingertips!
               </dd>
             </div>
+
             <div className="relative pl-16">
               <dt className="text-base font-semibold leading-7 text-white">
-                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-700">
+                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-green-700">
                   <svg
+                    viewBox="-1 0 30 30"
+                    version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
+                    fill="#FFFFFF"
                     className="h-6 w-6 text-white"
                   >
-                    <path
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5"
-                    ></path>
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <title>alert</title>
+                      <desc>Created with Sketch Beta.</desc> <defs> </defs>
+                      <g
+                        id="Page-1"
+                        stroke="none"
+                        strokeWidth="1"
+                        fill="none"
+                        fillRule="evenodd"
+                      >
+                        <g
+                          id="Icon-Set"
+                          transform="translate(-362.000000, -880.000000)"
+                          fill="#FFFFFF"
+                        >
+                          <path
+                            d="M365,904 L368,898 L368,890 C368,885.582 371.582,882 376,882 C380.418,882 384,885.582 384,890 L384,898 L387,904 L365,904 L365,904 Z M376,908 C374.695,908 373.597,907.163 373.184,906 L378.816,906 C378.403,907.163 377.305,908 376,908 L376,908 Z M386,898 L386,890 C386,884.478 381.522,880 376,880 C370.478,880 366,884.478 366,890 L366,898 L362,906 L371.101,906 C371.564,908.282 373.581,910 376,910 C378.419,910 380.436,908.282 380.899,906 L390,906 L386,898 L386,898 Z"
+                            id="alert"
+                          ></path>
+                        </g>
+                      </g>
+                    </g>
                   </svg>
                 </div>
                 Smart Alerts
@@ -68,9 +91,10 @@ export default function Features() {
                 update.
               </dd>
             </div>
+
             <div className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-700">
+              <dt className="text-base font-semibold leading-7 text-white">
+                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-green-700">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -87,17 +111,18 @@ export default function Features() {
                     ></path>
                   </svg>
                 </div>
-                Cost-Efficient Premiums
+                Comparative Analysis Tools
               </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600">
-                Experience cost-effective insurance solutions. We keep our
-                premiums competitive, ensuring you receive optimal coverage
-                without breaking the bank.
+              <dd className="mt-2 text-base leading-7 text-gray-200">
+                Compare multiple stocks side-by-side to make better investment
+                decisions. Our comprehensive analysis tools provide you with the
+                insights you need to evaluate your options effectively.
               </dd>
             </div>
+
             <div className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-700">
+              <dt className="text-base font-semibold leading-7 text-white">
+                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-green-700">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -114,12 +139,12 @@ export default function Features() {
                     ></path>
                   </svg>
                 </div>
-                24/7 Customer Support
+                Mobile-Friendly
               </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600">
-                Our dedicated support team is available around the clock to
-                assist you. Whether it's day or night, we're here to address
-                your insurance-related queries promptly.
+              <dd className="mt-2 text-base leading-7 text-gray-200">
+                Access Baxter anytime, anywhere, whether you're on the go or on
+                the job, thanks to our fully mobile-friendly architecture,
+                ensuring a seamless experience across all devices.
               </dd>
             </div>
           </dl>
