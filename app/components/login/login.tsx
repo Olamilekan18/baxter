@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { useState } from 'react';
+import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="pt-10 sm:pt-10 flex min-h-screen items-center justify-center bg-gradient-to-br from-[#131712] to-[#1a1c1b] text-white px-4">
-      <div className="bg-[#131712] rounded-3xl shadow-2xl w-full max-w-md p-10">
+    <div className="pt-10 sm:pt-10 flex min-h-screen items-center justify-center bg-[#131712] text-white px-4">
+      <div className="bg-[#1A1F19] rounded-3xl shadow-2xl w-full max-w-md p-10">
         <h2 className="text-3xl font-extrabold mb-2 text-center tracking-tight">
           Welcome back
         </h2>
@@ -48,7 +48,7 @@ export default function LoginPage() {
             <div className="flex items-center bg-[#232825] rounded-lg px-3 py-2 focus-within:ring-2 ring-green-400 transition">
               <FiLock className="text-gray-400 mr-2" />
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
                 className="bg-transparent outline-none w-full text-white placeholder-gray-500"
                 value={password}
@@ -60,7 +60,7 @@ export default function LoginPage() {
                 onClick={() => setShowPassword((v) => !v)}
                 className="ml-2 text-gray-400 hover:text-green-400 focus:outline-none"
                 tabIndex={-1}
-                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <FiEyeOff /> : <FiEye />}
               </button>
@@ -70,14 +70,14 @@ export default function LoginPage() {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#40ff47] to-[#32e93a] text-black font-bold py-2 rounded-full hover:from-[#32e93a] hover:to-[#40ff47] transition"
+            className="w-full bg-[#53D22C] text-black font-bold py-2 rounded-full hover:from-[#32e93a] hover:to-[#40ff47] transition"
           >
             Log in
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-400 mt-8">
-          Don’t have an account?{" "}
+          Don’t have an account?{' '}
           <a href="#" className="text-green-400 hover:underline font-medium">
             Sign up
           </a>
