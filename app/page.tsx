@@ -20,8 +20,6 @@ export default function Home() {
       <BodySection />
       <Features />
       <Footer />
-      {/* <Offerings />
-      <CTA_Footer /> */}
     </div>
   );
 }
