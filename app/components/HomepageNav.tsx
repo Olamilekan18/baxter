@@ -60,78 +60,72 @@ export default function HomeNav() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden h-20">
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-white"
-          >
-            <div className="md:hidden flex items-center h-20">
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="text-white"
-              >
-                {mobileOpen ? (
-                  // Close icon
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  // Hamburger icon
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </button>
+          <div className="md:hidden flex items-center h-20">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-white"
+            >
+              {mobileOpen ? (
+                // Close icon
+                <svg
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                // Hamburger icon
+                <svg
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
       {mobileOpen && (
-        <div className="md:hidden mt-4 space-y-4  text-gray-300">
+        <div className="md:hidden mt-4 pb-3 space-y-4  text-gray-300">
           {[
             { route: "Home", path: "/" },
             { route: "Learn", path: "/learn" },
             { route: "News", path: "/news" },
             { route: "Community", path: "/community" },
           ].map(({ route, path }) => (
-           
-              <Link
-                href={path}
-                className=" block px-4 py-2 hover:text-white transition"
-              >
-                {route}
-              </Link>
-        
+            <Link
+              key={path}
+              href={path}
+              className=" block px-4 py-2 mt-2 mb-2 hover:text-white transition"
+            >
+              {route}
+            </Link>
           ))}
-        
-          <div className="px-4">
+
+          <div className="px-4 mt-2 mb-2">
             <input
               type="text"
               placeholder="Search..."
               className="w-full bg-[#1a1c1b] text-white placeholder-gray-400 px-4 py-2 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
-            <div className="flex gap-2">
+            <div className="flex gap-2 mt-5">
               <button className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-600 transition">
                 Sign Up
               </button>
