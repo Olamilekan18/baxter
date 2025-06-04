@@ -60,8 +60,5 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-header>div {
-  width: 100%;
+  border-bottom: 2px solid white;
 }
