@@ -122,18 +122,18 @@ export default function HomeNav() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full bg-[#1a1c1b] text-white placeholder-gray-400 px-4 py-2 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#1a1c1b] text-white placeholder-gray-400 px-4 py-2 rounded-full mb-2 ring-1 ring-white focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <div className="flex gap-2 mt-5">
               <Link
                 href="#"
-                className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-400 transition"
+                className="w-1/2 bg-green-500 text-center text-black py-5 rounded-full font-semibold hover:bg-green-400 transition"
               >
                 Sign Up
               </Link>
               <Link
                 href="#"
-                className="w-1/2 bg-[#2c2e2d] text-white py-2 rounded-full font-semibold hover:bg-[#3a3c3b] transition"
+                className="w-1/2 bg-[#2c2e2d] text-center text-white py-5   rounded-full font-semibold hover:bg-[#3a3c3b] transition"
               >
                 Log In
               </Link>

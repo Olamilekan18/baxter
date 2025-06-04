@@ -23,7 +23,7 @@ export default function AboutUs() {
             decisions and secure their assets over the short and long term.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex text-white bg-green-600 border-0 font-semibold py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg">
+            <button className="inline-flex text-white bg-green-600 rounded-2xl border-0 font-semibold py-2 px-6 focus:outline-none hover:bg-green-700">
               Read More...
             </button>
           </div>
