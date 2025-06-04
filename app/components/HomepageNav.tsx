@@ -106,7 +106,6 @@ export default function HomeNav() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4  text-gray-300">
           {[
