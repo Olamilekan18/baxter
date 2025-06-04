@@ -1,6 +1,9 @@
 import Link from "next/link";
-import FormSection from "./subComponet/formSection";
-export default function LoginForm() {
+export default function LoginForm({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <div className="bg-[#1A1F19] rounded-2xl shadow-xl w-full max-w-md mt-20 mb-20 p-8">
       <h2 className="text-3xl font-extrabold mb-2 text-center tracking-tight">
@@ -10,7 +13,7 @@ export default function LoginForm() {
         Access your Baxter account.
       </p>
 
-      <FormSection />
+      {children}
 
       <p className="text-center text-sm text-gray-400 mt-8">
         Don’t have an account?
