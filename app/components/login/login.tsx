@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="pt-10 sm:pt-20 flex min-h-screen items-center justify-center bg-gradient-to-br from-[#131712] to-[#1a1c1b] text-white px-4">
+    <div className="pt-10 sm:pt-10 flex min-h-screen items-center justify-center bg-gradient-to-br from-[#131712] to-[#1a1c1b] text-white px-4">
       <div className="bg-[#131712] rounded-3xl shadow-2xl w-full max-w-md p-10">
         <h2 className="text-3xl font-extrabold mb-2 text-center tracking-tight">
           Welcome back

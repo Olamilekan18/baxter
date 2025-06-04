@@ -15,7 +15,7 @@ export default function HomeNav() {
             <div className="w-6 h-6 ">
               <Image src={svg} alt="Baxter" />
             </div>
-            <span className="font-semibold sm:text-lg text-3xl ml-1">
+            <span className="font-semibold sm:text-lg text-2xl ml-1">
               Baxter
             </span>
           </div>
@@ -130,13 +130,13 @@ export default function HomeNav() {
             />
             <div className="flex gap-2 mt-5">
               <Link
-                href="#"
+                href="/signup"
                 className="w-1/2 bg-green-500 text-center text-black py-5 rounded-full font-semibold hover:bg-green-400 transition"
               >
                 Sign Up
               </Link>
               <Link
-                href="#"
+                href="/login"
                 className="w-1/2 bg-[#2c2e2d] text-center text-white py-5   rounded-full font-semibold hover:bg-[#3a3c3b] transition"
               >
                 Log In
