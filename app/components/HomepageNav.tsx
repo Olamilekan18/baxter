@@ -126,7 +126,7 @@ export default function HomeNav() {
               className="w-full bg-[#1a1c1b] text-white placeholder-gray-400 px-4 py-2 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <div className="flex gap-2 mt-5">
-              <button className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-600 transition">
+              <button className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-400 transition">
                 Sign Up
               </button>
               <button className="w-1/2 bg-[#2c2e2d] text-white py-2 rounded-full font-semibold hover:bg-[#3a3c3b] transition">
