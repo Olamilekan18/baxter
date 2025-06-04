@@ -64,8 +64,8 @@ export default function HomeNav() {
             Log In
           </Link>
         </div>
-        <div className="md:hidden h-20">
-          <div className="md:hidden flex items-center h-20">
+        <div className="md:hidden h-15">
+          <div className="md:hidden flex items-center h-15">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="text-white"
