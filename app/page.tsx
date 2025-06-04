@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="grid w-11/12 mx-auto">
+    <div className="grid w-full">
       <HomeNav />
-      <Hero />
+      {/* <Hero />
       <BodySection />
       <Offerings />
-      <CTA_Footer />
+      <CTA_Footer /> */}
     </div>
   );
 }
