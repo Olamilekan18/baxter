@@ -1,8 +1,8 @@
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import svg from '@/design_assets/SVG.png';
-import Image from 'next/image';
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import svg from "@/design_assets/SVG.png";
+import Image from "next/image";
 
 export default function HomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,10 +21,10 @@ export default function HomeNav() {
           </div>
           <ul className="hidden md:flex space-x-6 text-sm text-white">
             {[
-              { route: 'Home', path: '/' },
-              { route: 'Learn', path: '/learn' },
-              { route: 'News', path: '/news' },
-              { route: 'Community', path: '/community' },
+              { route: "Home", path: "/" },
+              { route: "Learn", path: "/learn" },
+              { route: "News", path: "/news" },
+              { route: "Community", path: "/community" },
             ].map(({ route, path }) => (
               <li key={route}>
                 <Link href={path} className="hover:text-white transition">
@@ -108,10 +108,10 @@ export default function HomeNav() {
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4  text-gray-300">
           {[
-            { route: 'Home', path: '/' },
-            { route: 'Learn', path: '/learn' },
-            { route: 'News', path: '/news' },
-            { route: 'Community', path: '/community' },
+            { route: "Home", path: "/" },
+            { route: "Learn", path: "/learn" },
+            { route: "News", path: "/news" },
+            { route: "Community", path: "/community" },
           ].map(({ route, path }) => (
             <Link
               key={path}
