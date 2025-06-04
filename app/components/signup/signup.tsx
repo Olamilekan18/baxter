@@ -4,6 +4,7 @@ import { useState } from "react";
 import svg from "@/design_assets/SVG.png";
 import Image from "next/image";
 import { FiMail, FiUser, FiLock } from "react-icons/fi";
+import Link from "next/link";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ export default function SignUpPage() {
         {/* Email */}
         <div>
           <label className="text-sm block mb-1">Email address</label>
-          <div className="flex items-center bg-[#1a1c1b] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
+          <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
             <FiMail className="text-gray-400 mr-2" />
             <input
               type="email"
@@ -44,7 +45,7 @@ export default function SignUpPage() {
         {/* Username */}
         <div>
           <label className="text-sm block mb-1">Username</label>
-          <div className="flex items-center bg-[#1a1c1b] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
+          <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
             <FiUser className="text-gray-400 mr-2" />
             <input
               type="text"
@@ -59,7 +60,7 @@ export default function SignUpPage() {
         {/* Password */}
         <div>
           <label className="text-sm block mb-1">Password</label>
-          <div className="flex items-center bg-[#1a1c1b] rounded-md px-3 py-2  focus-within:ring-2 ring-green-400 transition">
+          <div className="flex items-center bg-[#232825] rounded-md px-3 py-2  focus-within:ring-2 ring-green-400 transition">
             <FiLock className="text-gray-400 mr-2" />
             <input
               type="password"
@@ -80,23 +81,22 @@ export default function SignUpPage() {
         </button>
       </form>
 
-      {/* Terms and Login Link */}
       <p className="text-center text-xs text-gray-400 mt-4">
-        By signing up, you agree to our{" "}
-        <a href="#" className="text-green-500 underline">
+        By signing up, you agree to our
+        <Link href="/termsandcondition" className="text-green-500 underline">
           Terms of Service
-        </a>
+        </Link>
         and
-        <a href="#" className="text-green-500 underline">
+        <Link href="/privacy" className="text-green-500 underline">
           Privacy Policy
-        </a>
+        </Link>
         .
       </p>
       <p className="text-center text-sm text-gray-400 mt-3">
         Already have an account?
-        <a href="#" className="text-green-500 hover:underline">
+        <Link href="/login" className="text-green-500 hover:underline">
           Log in
-        </a>
+        </Link>
       </p>
     </div>
   );
