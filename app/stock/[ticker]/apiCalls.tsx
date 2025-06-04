@@ -15,6 +15,8 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
     const oneChange = usable['1D']
     const monthChange = usable['1M']
     const yearToDay = usable['1Y']
+    const sixMonthChange = usable['6M']
+    const threeMonthChange = usable['3M']
     let change
     if (props.timeframe && props.timeframe == 30){
         change = monthChange
@@ -88,7 +90,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
              <LineChart symbol={props.symbol} change={change} timeframe={props.timeframe}/>
     </div>
     </div>
-
+{/*
 {filteredNewsReports.length > 0 ?
     <div className="company_news_data grid col-span-1">
         <div>
@@ -101,7 +103,7 @@ export default async function APIRender(props: {symbol: string, timeframe? : num
                 )
             }
         </div>
-    </div>  : null }
+    </div>  : null */}
         </>
     )
 }
