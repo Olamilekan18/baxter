@@ -15,7 +15,6 @@ export default function Home() {
       <HomeNav />
       <Hero />
       <BodySection />
-
       <Footer />
       {/* <Offerings />
       <CTA_Footer /> */}
