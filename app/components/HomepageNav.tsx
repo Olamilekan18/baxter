@@ -48,13 +48,13 @@ export default function HomeNav() {
             </svg>
           </div>
           <Link
-            href="#"
+            href="/signup"
             className="bg-green-500 text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition"
           >
             Sign Up
           </Link>
           <Link
-            href="#"
+            href="/login"
             className="bg-[#2c2e2d] text-white font-semibold px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition"
           >
             Log In

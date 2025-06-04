@@ -1,5 +1,5 @@
-import Image from "next/image";
 import stock_shot from "@/public/stock-image.jpg";
+import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative  text-white overflow-hidden pt-10">
@@ -30,7 +30,10 @@ export default function Hero() {
               <button className="group relative w-full sm:w-auto px-6 py-3 min-w-[160px]">
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-lg"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-lg lg:blur-md blur-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                <div className="relative flex items-center justify-center gap-2">
+                <Link
+                  href="/signup"
+                  className="relative flex items-center justify-center gap-2"
+                >
                   <span className="text-white font-medium">Get Started</span>
                   <svg
                     className="w-5 h-5 text-white transform group-hover:translate-x-1 transition-transform"
@@ -45,7 +48,7 @@ export default function Hero() {
                       d="M13 7l5 5m0 0l-5 5m5-5H6"
                     />
                   </svg>
-                </div>
+                </Link>
               </button>
             </div>
           </div>
