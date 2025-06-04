@@ -4,7 +4,7 @@ import Image from "next/image";
 import stock_shot from "../public/stock.jpg";
 import { FaInstagram, FaMailBulk } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-
+import Hero from "./components/home/hero";
 export const metadata: Metadata = {
   title: "Baxter: Guided Investments for a Better Today",
 };
@@ -13,47 +13,47 @@ export default function Home() {
   return (
     <div className="grid w-full">
       <HomeNav />
-      {/* <Hero />
-      <BodySection />
+      <Hero />
+      {/* <BodySection />
       <Offerings />
       <CTA_Footer /> */}
     </div>
   );
 }
 
-function Hero() {
-  return (
-    <section id="hero" className="p-2 my-2 md:p-4 md:my-2">
-      <div className="grid text-center justify-items-center">
-        <p className="md:text-[10rem] text-3xl md:text-6xl my-6">
-          Never Make a Wrong Investment Again
-        </p>
+// function Hero() {
+//   return (
+//     <section id="hero" className="p-2 my-2 md:p-4 md:my-2">
+//       <div className="grid text-center justify-items-center">
+//         <p className="md:text-[10rem] text-3xl md:text-6xl my-6">
+//           Never Make a Wrong Investment Again
+//         </p>
 
-        <div className="grid md:grid-cols-2 items-center justify-items-center">
-          <p className="text-2xl my-4 text-justify indent-4 blurb">
-            Baxter is your ultimate tool for making informed investment
-            decisions. We provide up-to-date stock charts, detailed data, and
-            essential guidance to help you navigate the complexities of the
-            stock market with confidence and security. Our goal is to empower
-            individuals, businesses and corporate bodies to make informed
-            decisions and secure their assets over the short and long term.{" "}
-          </p>
-          <div className="grid justify-items-center">
-            <Image
-              src={stock_shot}
-              alt="Stock Shot"
-              className="rounded-xl w-[75%]"
-            />
-          </div>
-        </div>
+//         <div className="grid md:grid-cols-2 items-center justify-items-center">
+//           <p className="text-2xl my-4 text-justify indent-4 blurb">
+//             Baxter is your ultimate tool for making informed investment
+//             decisions. We provide up-to-date stock charts, detailed data, and
+//             essential guidance to help you navigate the complexities of the
+//             stock market with confidence and security. Our goal is to empower
+//             individuals, businesses and corporate bodies to make informed
+//             decisions and secure their assets over the short and long term.{" "}
+//           </p>
+//           <div className="grid justify-items-center">
+//             <Image
+//               src={stock_shot}
+//               alt="Stock Shot"
+//               className="rounded-xl w-[75%]"
+//             />
+//           </div>
+//         </div>
 
-        <span className="justify-self-center bg-pink-700 md:w-2/12 my-4 w-9/12 rounded-[1.75rem] text-center text-2xl hover:font-bold hover:bg-pink-600 transition-all md:hover:w-4/12 p-2">
-          Read More...
-        </span>
-      </div>
-    </section>
-  );
-}
+//         <span className="justify-self-center bg-pink-700 md:w-2/12 my-4 w-9/12 rounded-[1.75rem] text-center text-2xl hover:font-bold hover:bg-pink-600 transition-all md:hover:w-4/12 p-2">
+//           Read More...
+//         </span>
+//       </div>
+//     </section>
+//   );
+// }
 
 function BodySection() {
   return (
