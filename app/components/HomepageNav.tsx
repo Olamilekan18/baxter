@@ -37,7 +37,7 @@ export default function HomeNav() {
           </ul>
         </div>
         <div className="hidden md:flex items-center space-x-3">
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <input
               type="text"
               placeholder="Search stocks, news..."
@@ -55,7 +55,7 @@ export default function HomeNav() {
           </div>
           <Link
             href="/signup"
-            className="bg-[#53D22C] text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition"
+            className="bg-[#53D22C] text-black font-semibold sm:text-base  px-8 py-2 rounded-full hover:bg-green-600 transition"
           >
             Sign Up
           </Link>

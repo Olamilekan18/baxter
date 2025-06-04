@@ -8,7 +8,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="bg-[#1A1F19] rounded-3xl shadow-2xl w-full max-w-md p-10">
+    <div className="bg-[#1A1F19] rounded-2xl shadow-xl w-full max-w-md mt-20 mb-20 p-8">
       <h2 className="text-3xl font-extrabold mb-2 text-center tracking-tight">
         Welcome back
       </h2>
