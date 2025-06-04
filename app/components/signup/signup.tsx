@@ -14,7 +14,6 @@ export default function SignUpPage() {
   return (
     <div className="bg-[#1A1F19] rounded-2xl shadow-xl w-full max-w-md mt-20 mb-20 p-8">
       <div className="flex justify-center mb-4">
-        {/* Placeholder for logo */}
         <div className="w-10 h-10 rounded-full flex items-center justify-center text-black font-bold text-xl">
           <Image src={svg} alt="Baxter" />
         </div>
@@ -27,7 +26,6 @@ export default function SignUpPage() {
       </p>
 
       <form className="space-y-4">
-        {/* Email */}
         <div>
           <label className="text-sm block mb-1">Email address</label>
           <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
@@ -42,7 +40,6 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        {/* Username */}
         <div>
           <label className="text-sm block mb-1">Username</label>
           <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
@@ -57,7 +54,6 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        {/* Password */}
         <div>
           <label className="text-sm block mb-1">Password</label>
           <div className="flex items-center bg-[#232825] rounded-md px-3 py-2  focus-within:ring-2 ring-green-400 transition">
@@ -72,7 +68,6 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        {/* Sign Up Button */}
         <button
           type="submit"
           className="w-full bg-[#40ff47] text-black font-semibold py-2 rounded-full hover:bg-[#32e93a] transition"
