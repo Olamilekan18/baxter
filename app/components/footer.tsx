@@ -1,10 +1,14 @@
+import Image from "next/image";
+import svg from "@/design_assets/SVG.png";
 export default function Footer() {
   return (
     <footer className="text-white body-font">
       <div className="bg-black">
         <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-            <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+            <div className="w-6 h-6 ">
+              <Image src={svg} alt="Baxter" />
+            </div>
             <span className="ml-3 text-xl">Baxter</span>
           </a>
           <p className="text-sm text-white ml-4">
