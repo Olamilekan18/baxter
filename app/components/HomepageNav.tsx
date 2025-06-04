@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import svg from "@/design_assets/SVG.png";
+import Image from "next/image";
 
 export default function HomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,7 +12,9 @@ export default function HomeNav() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-6">
           <div className="flex items-center">
-            <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+            <div className="w-6 h-6 ">
+              <Image src={svg} alt="Baxter" />
+            </div>
             <span className="font-semibold sm:text-lg text-3xl ml-1">
               Baxter
             </span>
