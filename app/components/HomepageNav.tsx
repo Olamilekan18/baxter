@@ -109,16 +109,22 @@ export default function HomeNav() {
       {/* Mobile Dropdown Menu */}
       {mobileOpen && (
         <div className="md:hidden mt-4 space-y-4  text-gray-300">
-          {["Home", "Learn", "News", "Community"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="block px-4 py-2 hover:text-white transition"
-            >
-              {item}
-            </a>
+          {[
+            { route: "Home", path: "/" },
+            { route: "Learn", path: "/learn" },
+            { route: "News", path: "/news" },
+            { route: "Community", path: "/community" },
+          ].map(({ route, path }) => (
+           
+              <Link
+                href={path}
+                className=" block px-4 py-2 hover:text-white transition"
+              >
+                {route}
+              </Link>
+        
           ))}
-
+        
           <div className="px-4">
             <input
               type="text"
