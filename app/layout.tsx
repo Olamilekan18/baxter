@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Manrope_Font.className} antialiased p-1 md:p-2 my-1 md:my-2`}
+        className={`${Manrope_Font.className}`}
       >
         {children}
       </body>
