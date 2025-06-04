@@ -27,13 +27,13 @@ export default async function LineChart(props: {
       <div className="grid grid-cols-12 gap-x-4">
         <Link
           href={`/stock/${props.symbol}`}
-          className={`md:text-xl col-span-2 md:m-2 p-2 hover:text-[#53D22c] rounded-xl text-center`}
+          className={`md:text-md col-span-2 md:my-1 p-2 hover:text-[#53D22c] rounded-xl text-center`}
         >
           Today
         </Link>
         <Link
           href={`/stock/${props.symbol}/30`}
-          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+          className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
             props.timeframe && props.timeframe == 30 ? 'bg-[#53D22c]' : ''
           }`}
           id="30"
@@ -42,7 +42,7 @@ export default async function LineChart(props: {
         </Link>
         <Link
           href={`/stock/${props.symbol}/90`}
-          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+          className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
             props.timeframe && props.timeframe == 90 ? 'bg-[#53D22c]' : ''
           } `}
           id="90"
@@ -51,7 +51,7 @@ export default async function LineChart(props: {
         </Link>
         <Link
           href={`/stock/${props.symbol}/180`}
-          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+          className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
             props.timeframe && props.timeframe == 180 ? 'bg-[#53D22c]' : ''
           }`}
           id="180"
@@ -60,7 +60,7 @@ export default async function LineChart(props: {
         </Link>
         <Link
           href={`/stock/${props.symbol}/365`}
-          className={`md:text-xl md:m-2 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
+          className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
             props.timeframe && props.timeframe == 365 ? 'bg-[#53D22c]' : ''
           }`}
           id="365"

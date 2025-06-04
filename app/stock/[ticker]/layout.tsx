@@ -23,7 +23,7 @@ export default async function HouseLayout({
   return (
     <div className={`p-2 md:p-4 mx-1 md:mx-2`}>
       <div className="grid">
-        <StockPriceComp symbol={ticker} timeframe={timeframe} />
+        
         {children}
       </div>
     </div>

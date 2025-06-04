@@ -52,7 +52,7 @@ export default async function StockPriceComp(props: {
       <div className="grid gap-x-4 p-2">
         <div className="md:col-span-1">
           <div className="wrapper">
-            <div className="flex gap-x-2 md:gap-x-4 items-center">
+            <div className="flex gap-x-2 md:gap-x-2 items-center">
               {logo.length < 1 ? (
                 <Image src={logo_pic} alt="Fallback Logo" />
               ) : (
@@ -61,14 +61,22 @@ export default async function StockPriceComp(props: {
                   className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"
                 />
               )}
-              <div className="my-2 lg:my-4">
+              <div className="my-1 lg:my-2">
                 <p className="text-xl md:text-3xl">
                   {name} ({ticker})
                 </p>
                 <p className="text-md md:text-lg">{exchange}</p>
               </div>
             </div>
-            <p className="underline">Chart</p>
+            
+            <div className='flex p-2'>
+              <a className='block p-1'>Chart</a>
+              <a className='block p-1'>Summary</a>
+              <a className='block p-1'>Financials</a>
+              <a className='block p-1'>Analytics </a>
+
+            </div>
+
 
             <p className="text-lg md:text-2xl">
               {currency} {c.toFixed(2)}
@@ -82,7 +90,7 @@ export default async function StockPriceComp(props: {
               </span>
             </p>
             <p
-              className={`md:text-2xl ${
+              className={`md:text-xl ${
                 isOpen ? 'text-green-600' : 'text-red-600'
               }`}
             >
