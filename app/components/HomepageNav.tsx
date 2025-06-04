@@ -12,7 +12,6 @@ export default function HomeNav() {
         <div className="flex items-center">
           <div className="w-6 h-6 bg-green-500 rounded-full"></div>
           <span className="font-semibold sm:text-lg text-3xl ml-1">Baxter</span>
-          {/* Adjust ml to control spacing */}
         </div>
 
         {/* Desktop Links */}
