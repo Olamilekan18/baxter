@@ -3,9 +3,9 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 
 export const Manrope_Font = Manrope({
-  subsets: ['latin'],
-  weight: '400'
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Baxter: Your Stock Search Tool",
@@ -19,11 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${Manrope_Font.className}`}
-      >
-        {children}
-      </body>
+      <body className={`${Manrope_Font.className}`}>{children}</body>
     </html>
   );
 }
