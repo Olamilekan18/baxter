@@ -11,14 +11,16 @@ export default function HomeNav() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#131712] text-white px-4 py-4 shadow-md border-b border-[#2D372A]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-6">
-          <div className="flex items-center">
-            <div className="w-6 h-6 ">
-              <Image src={svg} alt="Baxter" />
+          <Link href="/">
+            <div className="flex items-center">
+              <div className="w-6 h-6 ">
+                <Image src={svg} alt="Baxter" />
+              </div>
+              <span className="font-semibold sm:text-lg text-2xl ml-1">
+                Baxter
+              </span>
             </div>
-            <span className="font-semibold sm:text-lg text-2xl ml-1">
-              Baxter
-            </span>
-          </div>
+          </Link>
           <ul className="hidden md:flex space-x-6 text-sm text-white">
             {[
               { route: "Home", path: "/" },
