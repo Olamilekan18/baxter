@@ -6,31 +6,30 @@ export default function HomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0d0f0e] text-white px-4 py-4 shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0d0f0e] text-white px-4 py-4 shadow-md border-b-2 border-white">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
-          <div className="w-6 h-6 bg-green-500 rounded-full"></div>
-          <span className="font-semibold sm:text-lg text-3xl ml-1">Baxter</span>
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center">
+            <div className="w-6 h-6 bg-green-500 rounded-full"></div>
+            <span className="font-semibold sm:text-lg text-3xl ml-1">
+              Baxter
+            </span>
+          </div>
+          <ul className="hidden md:flex space-x-6 text-sm text-white">
+            {[
+              { route: "Home", path: "/" },
+              { route: "Learn", path: "/learn" },
+              { route: "News", path: "/news" },
+              { route: "Community", path: "/community" },
+            ].map(({ route, path }) => (
+              <li key={route}>
+                <Link href={path} className="hover:text-white transition">
+                  {route}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Desktop Links */}
-        <ul className="hidden md:flex space-x-10 text-sm text-white">
-          {[
-            { route: "Home", path: "/" },
-            { route: "Learn", path: "/learn" },
-            { route: "News", path: "/news" },
-            { route: "Community", path: "/community" },
-          ].map(({ route, path }) => (
-            <li key={route}>
-              <Link href={path} className="hover:text-white transition">
-                {route}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Search + Buttons */}
         <div className="hidden md:flex items-center space-x-3">
           <div className="relative">
             <input
@@ -48,16 +47,19 @@ export default function HomeNav() {
               <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 0 5 11a6 6 0 0 0 12 0z" />
             </svg>
           </div>
-
-          <button className="bg-green-500 text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition">
+          <Link
+            href="#"
+            className="bg-green-500 text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition"
+          >
             Sign Up
-          </button>
-          <button className="bg-[#2c2e2d] text-white font-semibold px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition">
+          </Link>
+          <Link
+            href="#"
+            className="bg-[#2c2e2d] text-white font-semibold px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition"
+          >
             Log In
-          </button>
+          </Link>
         </div>
-
-        {/* Mobile Menu Button */}
         <div className="md:hidden h-20">
           <div className="md:hidden flex items-center h-20">
             <button
@@ -65,7 +67,6 @@ export default function HomeNav() {
               className="text-white"
             >
               {mobileOpen ? (
-                // Close icon
                 <svg
                   className="w-6 h-6"
                   viewBox="0 0 24 24"
@@ -80,7 +81,6 @@ export default function HomeNav() {
                   />
                 </svg>
               ) : (
-                // Hamburger icon
                 <svg
                   className="w-6 h-6"
                   viewBox="0 0 24 24"
@@ -125,12 +125,18 @@ export default function HomeNav() {
               className="w-full bg-[#1a1c1b] text-white placeholder-gray-400 px-4 py-2 rounded-full mb-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <div className="flex gap-2 mt-5">
-              <button className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-400 transition">
+              <Link
+                href="#"
+                className="w-1/2 bg-green-500 text-black py-2 rounded-full font-semibold hover:bg-green-400 transition"
+              >
                 Sign Up
-              </button>
-              <button className="w-1/2 bg-[#2c2e2d] text-white py-2 rounded-full font-semibold hover:bg-[#3a3c3b] transition">
+              </Link>
+              <Link
+                href="#"
+                className="w-1/2 bg-[#2c2e2d] text-white py-2 rounded-full font-semibold hover:bg-[#3a3c3b] transition"
+              >
                 Log In
-              </button>
+              </Link>
             </div>
           </div>
         </div>
