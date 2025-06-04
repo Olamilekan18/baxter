@@ -6,7 +6,7 @@ export default function HomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="bg-[#0d0f0e] text-white px-4 py-4 shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0d0f0e] text-white px-4 py-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -37,7 +37,7 @@ export default function HomeNav() {
             <input
               type="text"
               placeholder="Search stocks, news..."
-              className="bg-[#1a1c1b] text-sm text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-[#1a1c1b] text-sm text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-full ring-white ring-1 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <svg
               className="w-4 h-4 text-gray-400 absolute left-3 top-2.5"
