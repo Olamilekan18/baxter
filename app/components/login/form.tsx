@@ -17,7 +17,6 @@ export default function LoginForm() {
       </p>
 
       <form className="space-y-6">
-        {/* Email Field */}
         <div>
           <label className="text-sm block mb-1 font-medium">
             Email address
@@ -35,7 +34,6 @@ export default function LoginForm() {
           </div>
         </div>
 
-        {/* Password Field */}
         <div>
           <div className="flex justify-between items-center mb-1">
             <label className="text-sm font-medium">Password</label>
@@ -65,7 +63,6 @@ export default function LoginForm() {
           </div>
         </div>
 
-        {/* Login Button */}
         <button
           type="submit"
           className="w-full bg-[#53D22C] text-black font-bold py-2 rounded-full hover:from-[#32e93a] hover:to-[#40ff47] transition"
@@ -75,7 +72,7 @@ export default function LoginForm() {
       </form>
 
       <p className="text-center text-sm text-gray-400 mt-8">
-        Don’t have an account?{" "}
+        Don’t have an account?
         <a href="#" className="text-green-400 hover:underline font-medium">
           Sign up
         </a>

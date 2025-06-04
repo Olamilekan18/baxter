@@ -24,7 +24,7 @@ export default function AboutUs() {
           </p>
           <div className="flex justify-center">
             <button className="inline-flex text-white bg-green-600 border-0  py-2 px-6 focus:outline-none hover:bg-green-700 rounded font-light hover:font-normal">
-              Read More...
+              Read More
             </button>
           </div>
         </div>
