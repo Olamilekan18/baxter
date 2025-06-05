@@ -29,7 +29,7 @@ export default function HomeNav() {
               { route: "Community", path: "/community" },
             ].map(({ route, path }) => (
               <li key={route}>
-                <Link href={path} className="hover:text-white transition">
+                <Link href={path} className="hover:text-green-400 transition">
                   {route}
                 </Link>
               </li>
@@ -117,7 +117,7 @@ export default function HomeNav() {
             <Link
               key={path}
               href={path}
-              className=" block px-4 py-2 mt-2 mb-2 hover:text-white transition"
+              className=" block px-4 py-2 mt-2 mb-2 hover:text-green-400 transition"
             >
               {route}
             </Link>

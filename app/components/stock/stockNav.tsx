@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { FiBell, FiMenu, FiX } from "react-icons/fi";
-import logo from "@/design_assets/SVG.png"; // your logo
+import logo from "@/design_assets/SVG.png";
 
 export default function StockHomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
