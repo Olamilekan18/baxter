@@ -12,7 +12,6 @@ export default function StockHomeNav() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#121712] text-white px-4 py-3 border-b border-[#2D372A]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo + Nav Links */}
         <div className="flex items-center space-x-6">
           <Link href="/" className="flex items-center space-x-2">
             <Image src={logo} alt="Baxter" width={24} height={24} />
@@ -36,9 +35,7 @@ export default function StockHomeNav() {
           </ul>
         </div>
 
-        {/* Right Section */}
         <div className="flex items-center space-x-5">
-          {/* Search Bar */}
           <div className="relative hidden lg:block">
             <input
               type="text"
@@ -56,10 +53,8 @@ export default function StockHomeNav() {
             </svg>
           </div>
 
-          {/* Notification */}
           <FiBell className="w-5 h-5 text-gray-300 hidden sm:block" />
 
-          {/* Avatar */}
           <div className="w-8 h-8 rounded-full ring-2 ring-white overflow-hidden">
             <Image
               src={logo}
@@ -68,7 +63,6 @@ export default function StockHomeNav() {
             />
           </div>
 
-          {/* Hamburger Icon */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden"
@@ -82,7 +76,6 @@ export default function StockHomeNav() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4 text-sm text-gray-300">
           {[
