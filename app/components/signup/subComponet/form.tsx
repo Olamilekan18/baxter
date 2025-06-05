@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import { FiUser, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import EmailInput from "./emailInput";
+import UsernameInput from "./usernameInput";
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -10,20 +11,7 @@ export default function SignUpForm() {
   return (
     <form className="space-y-4">
       <EmailInput email={email} setEmail={setEmail} />
-
-      <div>
-        <label className="text-sm block mb-1">Username</label>
-        <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
-          <FiUser className="text-gray-400 mr-2" />
-          <input
-            type="text"
-            placeholder="Choose a unique username"
-            className="bg-transparent outline-none w-full text-white placeholder-gray-500"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-      </div>
+      <UsernameInput username={username} setUsername={setUsername} />
 
       <div>
         <div className="flex justify-between items-center mb-1">
