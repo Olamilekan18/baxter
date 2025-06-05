@@ -53,9 +53,9 @@ export default function StockHomeNav() {
             </svg>
           </div>
 
-          <FiBell className="w-5 h-5 text-gray-300 hidden sm:block" />
+          <FiBell className="w-5 h-5 text-gray-300" />
 
-          <div className="w-8 h-8 rounded-full ring-2 ring-white overflow-hidden">
+          <div className="w-8 h-8 rounded-full ring-2 ring-green-600 overflow-hidden">
             <Image
               src={logo}
               alt="User Avatar"
