@@ -20,7 +20,7 @@ export default function StockHomeNav() {
 
           <ul className="hidden md:flex space-x-6 text-sm">
             {[
-              { label: "My Watchlist", path: "/watchlist" },
+              { label: "My Watchlist", path: "/stock/watchlist" },
               { label: "Portfolio", path: "/portfolio" },
               { label: "News", path: "/news" },
               { label: "Markets", path: "/markets" },
@@ -79,7 +79,7 @@ export default function StockHomeNav() {
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4 text-sm text-gray-300">
           {[
-            { label: "My Watchlist", path: "/watchlist" },
+            { label: "My Watchlist", path: "/stock/watchlist" },
             { label: "Portfolio", path: "/portfolio" },
             { label: "News", path: "/news" },
             { label: "Markets", path: "/markets" },
