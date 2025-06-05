@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import EmailInput from "./emailInput";
 import Link from "next/link";
 export default function FormSection() {
   const [email, setEmail] = useState("");
@@ -8,12 +9,13 @@ export default function FormSection() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <form className="space-y-6">
-      <div>
+      {/* <div>
         <label className="text-sm block mb-1 font-medium">Email address</label>
         <div className="flex items-center bg-[#232825] rounded-lg px-3 py-2 focus-within:ring-2 ring-green-400 transition">
           <FiMail className="text-gray-400 mr-2" />
           <input
             type="email"
+            name="email"
             placeholder="you@example.com"
             className="bg-transparent outline-none w-full text-white placeholder-gray-500"
             value={email}
@@ -21,7 +23,8 @@ export default function FormSection() {
             autoComplete="username"
           />
         </div>
-      </div>
+      </div> */}
+      <EmailInput inputedEmail={email} setEmail={setEmail} />
 
       <div>
         <div className="flex justify-between items-center mb-1">
@@ -34,6 +37,7 @@ export default function FormSection() {
           <FiLock className="text-gray-400 mr-2" />
           <input
             type={showPassword ? "text" : "password"}
+            name="password"
             placeholder="Enter your password"
             className="bg-transparent outline-none w-full text-white placeholder-gray-500"
             value={password}
