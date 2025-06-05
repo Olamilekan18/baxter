@@ -13,6 +13,7 @@ export default function UsernameInput({
         <FiUser className="text-gray-400 mr-2" />
         <input
           type="text"
+          name="username"
           placeholder="Choose a unique username"
           className="bg-transparent outline-none w-full text-white placeholder-gray-500"
           value={username}
