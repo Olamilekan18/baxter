@@ -1,16 +1,10 @@
-'use client';
+import svg from "@/design_assets/SVG.png";
+import Image from "next/image";
 
-import { useState } from 'react';
-import svg from '@/design_assets/SVG.png';
-import Image from 'next/image';
-import { FiMail, FiUser, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
-import Link from 'next/link';
+import Link from "next/link";
+import SignUpForm from "./subComponet/form";
 
 export default function SignUpPage() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="bg-[#1A1F19] rounded-2xl shadow-xl w-full max-w-md mt-20 mb-20 p-8">
       <div className="flex justify-center mb-4">
@@ -25,7 +19,7 @@ export default function SignUpPage() {
         Start your journey to financial literacy today.
       </p>
 
-      <form className="space-y-4">
+      {/* <form className="space-y-4">
         <div>
           <label className="text-sm block mb-1">Email address</label>
           <div className="flex items-center bg-[#232825] rounded-md px-3 py-2 focus-within:ring-2 ring-green-400 transition">
@@ -86,21 +80,22 @@ export default function SignUpPage() {
         >
           Sign up
         </button>
-      </form>
+      </form> */}
+      <SignUpForm />
 
       <p className="text-center text-xs text-gray-200 mt-4">
-        By signing up, you agree to our{' '}
+        By signing up, you agree to our{" "}
         <Link href="/termsandcondition" className="text-green-500 underline">
           Terms of Service
-        </Link>{' '}
-        and{' '}
+        </Link>{" "}
+        and{" "}
         <Link href="/privacy" className="text-green-500 underline">
           Privacy Policy
         </Link>
         .
       </p>
       <p className="text-center text-sm text-gray-200 mt-3">
-        Already have an account?{' '}
+        Already have an account?{" "}
         <Link href="/login" className="text-green-500 hover:underline">
           Log in
         </Link>
