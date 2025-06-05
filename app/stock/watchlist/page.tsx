@@ -32,7 +32,7 @@ export default function Watchlist() {
 async function WatchlistItem(props: { symbol: string }) {
   const profile_results = await companyProfile(props.symbol);
   const { name, ticker, logo } = profile_results;
-  console.log(profile_results);
+
   return (
     <Link href={`/stock/${props.symbol}`}>
       <div className="rounded-2xl p-2 hover:bg-gray-800 hover:opacity-85">
