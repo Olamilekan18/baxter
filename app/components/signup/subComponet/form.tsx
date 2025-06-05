@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import EmailInput from "./emailInput";
 import UsernameInput from "./usernameInput";
+import PasswordInput from "./passwordInput";
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -12,8 +12,13 @@ export default function SignUpForm() {
     <form className="space-y-4">
       <EmailInput email={email} setEmail={setEmail} />
       <UsernameInput username={username} setUsername={setUsername} />
-
-      <div>
+      <PasswordInput
+        password={password}
+        showPassword={showPassword}
+        setPassword={setPassword}
+        setShowPassword={setShowPassword}
+      />
+      {/* <div>
         <div className="flex justify-between items-center mb-1">
           <label className="text-sm font-medium">Password</label>
         </div>
@@ -37,7 +42,7 @@ export default function SignUpForm() {
             {showPassword ? <FiEyeOff /> : <FiEye />}
           </button>
         </div>
-      </div>
+      </div> */}
 
       <button
         type="submit"
