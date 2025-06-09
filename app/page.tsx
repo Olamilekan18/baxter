@@ -1,7 +1,5 @@
 import HomeNav from "./components/HomepageNav";
 import { Metadata } from "next";
-import { FaInstagram, FaMailBulk } from "react-icons/fa";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import Hero from "./components/home/hero";
 import BodySection from "./components/home/body";
 import Footer from "./components/footer";

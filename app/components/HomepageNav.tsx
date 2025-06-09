@@ -8,17 +8,19 @@ export default function HomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0d0f0e] text-white px-4 py-4 shadow-md border-b-2 border-white">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#131712] text-white px-4 py-4 shadow-md border-b border-[#2D372A]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-6">
-          <div className="flex items-center">
-            <div className="w-6 h-6 ">
-              <Image src={svg} alt="Baxter" />
+          <Link href="/">
+            <div className="flex items-center">
+              <div className="w-6 h-6 ">
+                <Image src={svg} alt="Baxter" />
+              </div>
+              <span className="font-semibold sm:text-lg text-2xl ml-1">
+                Baxter
+              </span>
             </div>
-            <span className="font-semibold sm:text-lg text-2xl ml-1">
-              Baxter
-            </span>
-          </div>
+          </Link>
           <ul className="hidden md:flex space-x-6 text-sm text-white">
             {[
               { route: "Home", path: "/" },
@@ -27,7 +29,7 @@ export default function HomeNav() {
               { route: "Community", path: "/community" },
             ].map(({ route, path }) => (
               <li key={route}>
-                <Link href={path} className="hover:text-white transition">
+                <Link href={path} className="hover:text-green-400 transition">
                   {route}
                 </Link>
               </li>
@@ -35,7 +37,7 @@ export default function HomeNav() {
           </ul>
         </div>
         <div className="hidden md:flex items-center space-x-3">
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <input
               type="text"
               placeholder="Search stocks, news..."
@@ -53,13 +55,13 @@ export default function HomeNav() {
           </div>
           <Link
             href="/signup"
-            className="bg-green-500 text-black font-semibold px-8 py-2 rounded-full hover:bg-green-600 transition"
+            className="bg-[#53D22C] text-black font-semibold sm:text-base  px-8 py-2 rounded-full hover:bg-green-600 transition"
           >
             Sign Up
           </Link>
           <Link
             href="/login"
-            className="bg-[#2c2e2d] text-white font-semibold px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition"
+            className="bg-[#2c2e2d] text-white font-regular px-8 py-2 rounded-full hover:bg-[#3a3c3b] transition"
           >
             Log In
           </Link>
@@ -104,7 +106,6 @@ export default function HomeNav() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4  text-gray-300">
           {[
@@ -116,7 +117,7 @@ export default function HomeNav() {
             <Link
               key={path}
               href={path}
-              className=" block px-4 py-2 mt-2 mb-2 hover:text-white transition"
+              className=" block px-4 py-2 mt-2 mb-2 hover:text-green-400 transition"
             >
               {route}
             </Link>
