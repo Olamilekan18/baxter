@@ -9,6 +9,7 @@ import {
 
 import logo_pic from '../../design_assets/SVG.png';
 import Image from 'next/image';
+import { itemFilter } from '../stock/watchlist/page';
 
 export default async function StockPriceComp(props: {
   symbol: string;
@@ -44,7 +45,7 @@ export default async function StockPriceComp(props: {
   }
 
   const { c } = price_report;
-  const { currency, logo, ticker, name, marketCapitalization, exchange } =
+  const { currency, logo, ticker, name, marketCapitalization, exchange, weburl } =
     symb_result;
 
   return (
@@ -53,14 +54,12 @@ export default async function StockPriceComp(props: {
         <div className="md:col-span-1">
           <div className="wrapper">
             <div className="flex gap-x-2 md:gap-x-2 items-center">
-              {logo.length < 1 ? (
-                <Image src={logo_pic} alt="Fallback Logo" />
-              ) : (
+             
                 <img
-                  src={logo}
-                  className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"
+                  src={`https://cdn.brandfetch.io/${itemFilter(ticker)}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
+                  className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px] bg-transparent"
                 />
-              )}
+              
               <div className="my-1 lg:my-2">
                 <p className="text-xl md:text-3xl">
                   {name} ({ticker})

@@ -52,7 +52,7 @@ export default function StockSearchPage() {
                   <img
                     src={`https://cdn.brandfetch.io/${item.url}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
                     alt={item.Ticker}
-                    className="h-[3.5rem] w-[3.5rem] rounded-full object-cover"
+                    className="h-[3.5rem] w-[3.5rem] rounded-full object-cover bg-transparent p-1"
                     loading="lazy"
                   />
                 }
