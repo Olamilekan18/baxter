@@ -25,6 +25,31 @@ export type newsItem = {
     url: string
 }
 
+export type financials = {
+   series: {
+    annual: {
+      currentRatio: {period: string, v: number}[],
+      salesPerShare: {period: string, v: number}[],
+      netMargin: {period: string, v :number}[
+      ]
+    }
+  },
+  metric: {
+    "10DayAverageTradingVolume": number,
+    "52WeekHigh": number,
+    "52WeekLow": number,
+    "52WeekLowDate": string,
+    "52WeekPriceReturnDaily": number,
+    beta: number,
+    epsAnnual: number,
+    peAnnual: number
+  },
+  metricType: string,
+  symbol: string
+}
+
+
+
 export type quoteResult = {
     c: number,
     h: number,

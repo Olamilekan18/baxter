@@ -2,6 +2,7 @@ import {
   companyNewsResult,
   companyProfileResult,
   earningsResult,
+  financials,
   marketStatusResult,
   quoteResult,
 } from '@/app/type_definitions';
@@ -155,6 +156,16 @@ function longTermDate(timeframe: number) {
   };
 }
 
+export async function fetchFinancials(ticker: string){
+  const finRequest = await fetch(`${base_URL}/stock/metric?symbol=${ticker}&metric=all&token=${api_key}`, {
+    cache: 'force-cache'
+  })
+  const finRes : financials = await finRequest.json()
+  return (finRes)
+
+}
+
+
 export async function fetchChartData24H(symbol: string) {
   let dateValue = new Date();
   let n;
@@ -166,7 +177,7 @@ export async function fetchChartData24H(symbol: string) {
   let { date_string_1, date_string_2 } = giveDateString(n);
 
   const stock_data_request = await fetch(
-    `https://financialmodelingprep.com/api/v3/historical-chart/5min/${symbol}?from=${date_string_1}&to=${date_string_2}&apikey=${fmp_key}`
+    `https://financialmodelingprep.com/api/v3/historical-chart/30min/${symbol}?from=${date_string_1}&to=${date_string_2}&apikey=${fmp_key}`
   );
   const stock_data_response: [] = await stock_data_request.json();
 

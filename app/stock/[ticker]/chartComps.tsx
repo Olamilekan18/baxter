@@ -24,7 +24,8 @@ export default async function LineChart(props: {
 
   return (
     <div className="md:w-[75%] h-[350px] w-[90vw]">
-      <div className="grid grid-cols-12 gap-x-4">
+  
+      <div className="grid grid-cols-12 gap-x-2">
         <Link
           href={`/stock/${props.symbol}`}
           className={`md:text-md col-span-2 md:my-1 p-2 hover:text-[#53D22c] rounded-xl text-center`}

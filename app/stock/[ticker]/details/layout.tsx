@@ -1,22 +1,15 @@
-import StockPriceComp from "@/app/components/StockPriceComp";
-import React from "react";
-import Link from "next/link";
+import StockPriceComp from "@/app/components/StockPriceComp"
+import Link from "next/link"
 
-export default async function TImeframeLayout({
-    children, 
-    params
-} : {
-    children: React.ReactNode,
-    params: Promise<{ticker: string, timeframe: number}>
-}
-)
-{
+export default async function DetailsLayout({params, children} : {
+    params: Promise<{ticker: string}>, 
+    children: React.ReactNode
+}){
     const ticker = (await params).ticker
-    const timeframe = (await params).timeframe
     return(
-     <div className="grid">
-        <StockPriceComp symbol={ticker} timeframe={timeframe}/>
-             <div className='flex p-2'>
+        <div> 
+            <StockPriceComp symbol={ticker} />
+                 <div className='flex p-2'>
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}`}>Chart</Link>
                             <Link className={`block p-1 hover:text-[#53d22c]`} 
                             href={`/stock/${ticker}/details/summary` }>
@@ -25,7 +18,7 @@ export default async function TImeframeLayout({
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}/details/analytics`}>Analytics </Link>
               
                           </div>
-        {children}
-     </div>   
+            {children}
+        </div>
     )
 }

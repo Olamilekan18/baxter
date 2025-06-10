@@ -6,9 +6,6 @@ import {
   deltaPrice,
   getMarketStatus,
 } from '../stock/[ticker]/apiLoaders';
-
-import logo_pic from '../../design_assets/SVG.png';
-import Image from 'next/image';
 import { itemFilter } from '../stock/watchlist/page';
 
 export default async function StockPriceComp(props: {
@@ -45,7 +42,7 @@ export default async function StockPriceComp(props: {
   }
 
   const { c } = price_report;
-  const { currency, logo, ticker, name, marketCapitalization, exchange, weburl } =
+  const { currency, ticker, name, exchange} =
     symb_result;
 
   return (
@@ -68,13 +65,7 @@ export default async function StockPriceComp(props: {
               </div>
             </div>
             
-            <div className='flex p-2'>
-              <a className='block p-1'>Chart</a>
-              <a className='block p-1'>Summary</a>
-              <a className='block p-1'>Financials</a>
-              <a className='block p-1'>Analytics </a>
-
-            </div>
+          
 
 
             <p className="text-lg md:text-2xl">
@@ -89,14 +80,14 @@ export default async function StockPriceComp(props: {
               </span>
             </p>
             <p
-              className={`md:text-xl ${
+              className={`md:text-md ${
                 isOpen ? 'text-green-600' : 'text-red-600'
               }`}
             >
               {isOpen ? 'Market Open' : 'Market Closed'}
             </p>
             <p>{holiday ? holiday : ''}</p>
-            <span className="capitalize text-2xl">
+            <span className="capitalize text-xl">
               {!isOpen ? session : null}
             </span>
           </div>

@@ -53,6 +53,7 @@ export function ALineChart(props: {
             {
               label: 'Price',
               data: direct_array,
+              tension: 0.4,
               borderColor: props.color,
               backgroundColor: 'transparent',
             },
