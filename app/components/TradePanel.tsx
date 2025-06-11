@@ -161,6 +161,8 @@ export default function TradePanel({ symbol }: Props) {
         <input
           type="number"
           value={quantity}
+          min={0}
+          max={1000}
           onChange={(e) => setQuantity(Number(e.target.value))}
           className="w-full p-2 rounded bg-[#1e1e1e] text-white border border-gray-600"
         />

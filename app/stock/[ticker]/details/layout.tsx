@@ -16,7 +16,7 @@ export default async function DetailsLayout({params, children} : {
                             Summary</Link>
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}/details/financials`}>Financials</Link>
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}/details/analytics`}>Analytics </Link>
-              
+                               <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}/details/news`}>News </Link>
                           </div>
             {children}
         </div>

@@ -6,7 +6,7 @@ export default async function Page() {
   const news: newsItem[] = await news_general();
   return (
     <>
-      <h3 className="text-3xl">Market News and Updates</h3>
+      <h3 className="text-2xl underline">Market News and Updates</h3>
       {news.slice(0, 12).map((article) => (
         <NewsItem object={article} key={article.id} />
       ))}

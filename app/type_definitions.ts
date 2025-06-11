@@ -42,7 +42,8 @@ export type financials = {
     "52WeekPriceReturnDaily": number,
     beta: number,
     epsAnnual: number,
-    peAnnual: number
+    peAnnual: number, 
+    currentDividendYieldTTM: number, 
   },
   metricType: string,
   symbol: string

@@ -1,4 +1,3 @@
-// app/stock/[symbol]/page.tsx
 
 import TradePanel from '@/app/components/TradePanel';
 

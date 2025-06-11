@@ -17,6 +17,7 @@ export default function Watchlist() {
     "PLTR",
     "AMZN",
     "COIN",
+    "META",
     "LNTH",
     "GOOG",
     "MSFT",
