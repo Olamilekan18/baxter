@@ -46,7 +46,7 @@ export default function AIRoute(){
 
             </div>
             <form className="grid gap-x-2 grid-cols-4 items-center" onSubmit={handleSubmit}>
-            <input type="text" autoFocus name='chat_text' maxLength={400} minLength={2} onChange={(e)=> updateQVal(e.target.value)} className="bg-transparent p-2 rounded-2xl col-span-3 text-wrap border-gray-400 outline-none border-2"/>
+            <input type="text" autoFocus name='chat_text' maxLength={100} minLength={2} onChange={(e)=> updateQVal(e.target.value)} className="bg-transparent p-2 rounded-2xl col-span-3 text-wrap border-gray-400 outline-none border-2"/>
              <button type="submit" className="flex gap-x-3 col-span-1 hover:bg-[#53D22c] p-3 rounded-[1.5rem] justify-center items-center">
                 <FiSend fill="white" size={"1.25rem"}/>
                 <span>Send</span>

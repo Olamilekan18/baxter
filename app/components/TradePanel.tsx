@@ -25,9 +25,27 @@ export default function TradePanel({ symbol }: Props) {
 
   const [marketPrice, setMarketPrice] = useState<number | null>(null);
   const [quantity, setQuantity] = useState<number | ''>('');
-  const [balance, setBalance] = useState<number>(1_000_000);
-  const [holdings, setHoldings] = useState<Holdings>({});
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+const [balance, setBalance] = useState<number>(() => {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('balance');
+    return stored ? parseFloat(stored) : 1_000_000;
+  }
+  return 1_000_000;
+});
+const [holdings, setHoldings] = useState<Holdings>(() => {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('holdings');
+    return stored ? JSON.parse(stored) : {};
+  }
+  return {};
+});
+const [transactions, setTransactions] = useState<Transaction[]>(() => {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('transactions');
+    return stored ? JSON.parse(stored) : [];
+  }
+  return [];
+});
   const [message, setMessage] = useState<string | null>(null);
   const [marketOpen, setMarketOpen] = useState<boolean>(true);
 
@@ -38,17 +56,17 @@ export default function TradePanel({ symbol }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedBalance = localStorage.getItem('balance');
-      const storedHoldings = localStorage.getItem('holdings');
-      const storedTransactions = localStorage.getItem('transactions');
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const storedBalance = localStorage.getItem('balance');
+  //     const storedHoldings = localStorage.getItem('holdings');
+  //     const storedTransactions = localStorage.getItem('transactions');
 
-      if (storedBalance) setBalance(parseFloat(storedBalance));
-      if (storedHoldings) setHoldings(JSON.parse(storedHoldings));
-      if (storedTransactions) setTransactions(JSON.parse(storedTransactions));
-    }
-  }, []);
+  //     if (storedBalance) setBalance(parseFloat(storedBalance));
+  //     if (storedHoldings) setHoldings(JSON.parse(storedHoldings));
+  //     if (storedTransactions) setTransactions(JSON.parse(storedTransactions));
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
