@@ -8,6 +8,7 @@ import {
   getMarketStatus,
 } from './apiLoaders';
 import NewsItem from '@/app/components/NewsItem';
+import TradePanel from '@/app/components/TradePanel';
 
 export default async function APIRender(props: {
   symbol: string;
@@ -85,7 +86,7 @@ export default async function APIRender(props: {
         </div>
 
         <div>
-          <p>Dreamweaver</p>
+          <TradePanel symbol={props.symbol.toUpperCase()} />
         </div>
       </div>
 
