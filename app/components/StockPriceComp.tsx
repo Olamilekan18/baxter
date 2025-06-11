@@ -6,9 +6,7 @@ import {
   deltaPrice,
   getMarketStatus,
 } from '../stock/[ticker]/apiLoaders';
-
-import logo_pic from '../../design_assets/SVG.png';
-import Image from 'next/image';
+import { itemFilter } from '../stock/watchlist/page';
 
 export default async function StockPriceComp(props: {
   symbol: string;
@@ -44,7 +42,7 @@ export default async function StockPriceComp(props: {
   }
 
   const { c } = price_report;
-  const { currency, logo, ticker, name, marketCapitalization, exchange } =
+  const { currency, ticker, name, exchange} =
     symb_result;
 
   return (
@@ -52,23 +50,23 @@ export default async function StockPriceComp(props: {
       <div className="grid gap-x-4 p-2">
         <div className="md:col-span-1">
           <div className="wrapper">
-            <div className="flex gap-x-2 md:gap-x-4 items-center">
-              {logo.length < 1 ? (
-                <Image src={logo_pic} alt="Fallback Logo" />
-              ) : (
+            <div className="flex gap-x-2 md:gap-x-2 items-center">
+             
                 <img
-                  src={logo}
-                  className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px]"
+                  src={`https://cdn.brandfetch.io/${itemFilter(ticker)}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
+                  className="rounded-full p-1 md:p-2 md:w-[80px] md:h-[80px] w-[50px] h-[50px] bg-transparent"
                 />
-              )}
-              <div className="my-2 lg:my-4">
+              
+              <div className="my-1 lg:my-2">
                 <p className="text-xl md:text-3xl">
                   {name} ({ticker})
                 </p>
                 <p className="text-md md:text-lg">{exchange}</p>
               </div>
             </div>
-            <p className="underline">Chart</p>
+            
+          
+
 
             <p className="text-lg md:text-2xl">
               {currency} {c.toFixed(2)}
@@ -82,14 +80,14 @@ export default async function StockPriceComp(props: {
               </span>
             </p>
             <p
-              className={`md:text-2xl ${
+              className={`md:text-md ${
                 isOpen ? 'text-green-600' : 'text-red-600'
               }`}
             >
               {isOpen ? 'Market Open' : 'Market Closed'}
             </p>
             <p>{holiday ? holiday : ''}</p>
-            <span className="capitalize text-2xl">
+            <span className="capitalize text-xl">
               {!isOpen ? session : null}
             </span>
           </div>

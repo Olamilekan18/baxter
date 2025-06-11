@@ -1,19 +1,22 @@
-import APIRender from "./apiCalls"
-import StockPriceComp from "@/app/components/StockPriceComp"
-import Link from "next/link"
+import StockPriceComp from "@/app/components/StockPriceComp";
+import React from "react";
+import Link from "next/link";
 
-
-export default async function RouteShow({
-    params,
-}: {
-    params: Promise<{ticker: string}>
-}){
-    function ShowPageItems(){
-
+export default async function TImeframeLayout({
+    children, 
+    params
+} : {
+    children: React.ReactNode,
+    params: Promise<{ticker: string, timeframe: number}>
+}
+)
+{
+    const ticker = (await params).ticker
+    const timeframe = (await params).timeframe
     return(
-        <>
-          <StockPriceComp symbol={ticker} />
-               <div className='flex p-2'>
+     <div className="grid">
+        <StockPriceComp symbol={ticker} timeframe={timeframe}/>
+             <div className='flex p-2'>
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}`}>Chart</Link>
                             <Link className={`block p-1 hover:text-[#53d22c]`} 
                             href={`/stock/${ticker}/details/summary` }>
@@ -22,23 +25,7 @@ export default async function RouteShow({
                             <Link className='block p-1 hover:text-[#53d22c]' href={`/stock/${ticker}/details/analytics`}>Analytics </Link>
               
                           </div>
-        <APIRender symbol={ticker} />
-        </>
+        {children}
+     </div>   
     )
 }
-
-
-
-    const ticker = (await params).ticker
-    return(
-        <>
-       {
-            ticker?
-        <ShowPageItems />
-         : null
-}
-
-        </>
-    )
-}
-

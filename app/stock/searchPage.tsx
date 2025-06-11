@@ -10,7 +10,7 @@ const fmp_key = process.env.NEXT_PUBLIC_FMP_KEY;
 
 export default function StockSearchPage() {
   const [input_value, changeInput] = useState('');
-  console.log(data);
+
   const [results, setResults] = useState<any[]>([]);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function StockSearchPage() {
                   <img
                     src={`https://cdn.brandfetch.io/${item.url}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
                     alt={item.Ticker}
-                    className="h-[3.5rem] w-[3.5rem] rounded-full object-cover"
+                    className="h-[3.5rem] w-[3.5rem] rounded-full object-cover bg-transparent p-1"
                     loading="lazy"
                   />
                 }
@@ -60,10 +60,11 @@ export default function StockSearchPage() {
 
               <Link
                 href={`/stock/${item.Ticker}`}
-                className="block underline text-xl md:text-2xl col-span-9"
+                className="block text-xl md:text-2xl col-span-9"
                 key={item.Ticker}
               >
-                {item.Name}
+                <p>{item.Ticker}</p>
+                <p className="underline">{item.Name}</p>
               </Link>
             </div>
           ))
