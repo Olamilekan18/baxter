@@ -5,7 +5,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { FiBell, FiMenu, FiX } from "react-icons/fi";
 import logo from "@/design_assets/SVG.png";
-
+const url = [
+  { label: "Search", path: "/stock" },
+  { label: "My Watchlist", path: "/stock/watchlist" },
+  { label: "Portfolio", path: "/portfolio" },
+  { label: "News", path: "/news" },
+  { label: "Markets", path: "/markets" },
+  { label: "Research", path: "/research" },
+];
 export default function StockHomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -19,13 +26,7 @@ export default function StockHomeNav() {
           </Link>
 
           <ul className="hidden md:flex space-x-6 text-sm">
-            {[
-              { label: "My Watchlist", path: "/stock/watchlist" },
-              { label: "Portfolio", path: "/portfolio" },
-              { label: "News", path: "/news" },
-              { label: "Markets", path: "/markets" },
-              { label: "Research", path: "/research" },
-            ].map(({ label, path }) => (
+            {url.map(({ label, path }) => (
               <li key={label}>
                 <Link href={path} className="hover:text-green-400 transition">
                   {label}
@@ -78,13 +79,7 @@ export default function StockHomeNav() {
 
       {mobileOpen && (
         <div className="md:hidden mt-4 pb-3 space-y-4 text-sm text-gray-300">
-          {[
-            { label: "My Watchlist", path: "/stock/watchlist" },
-            { label: "Portfolio", path: "/portfolio" },
-            { label: "News", path: "/news" },
-            { label: "Markets", path: "/markets" },
-            { label: "Research", path: "/research" },
-          ].map(({ label, path }) => (
+          {url.map(({ label, path }) => (
             <Link
               key={label}
               href={path}

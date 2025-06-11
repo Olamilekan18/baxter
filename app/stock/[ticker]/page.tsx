@@ -37,6 +37,7 @@ export default async function RouteShow({
         <ShowPageItems />
          : null
 }
+
         </>
     )
 }

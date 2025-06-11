@@ -10,8 +10,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
+    "axios": "^1.9.0",
     "chart.js": "^4.4.7",
-    "next": "^15.3.3",
+    "dotenv": "^16.5.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.15.1",
+    "next": "15.1.5",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
