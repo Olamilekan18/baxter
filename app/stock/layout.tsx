@@ -1,14 +1,10 @@
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 import { FaBookmark, FaNewspaper } from 'react-icons/fa6';
+import { RiChatAiFill } from 'react-icons/ri';
 import { SlGraph } from 'react-icons/sl';
 
-export default function StockLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  function SideNav() {
+export function SideNav() {
     return (
       <div>
         <Link
@@ -53,6 +49,18 @@ export default function StockLayout({
           </Link>
         </div>
 
+          <div className="flex gap-x-4 items-center group">
+          <div>
+            <RiChatAiFill size={'1.5rem'} className="fill-[#53D22c]" />
+          </div>
+          <Link
+            className="block text-white lg:text-2xl my-2 hover:text-[#53D22c] transition-all"
+            href="/ai-chat"
+          >
+            Chat with AI
+          </Link>
+        </div>
+
         <div className="flex gap-x-4 items-center">
           <FaNewspaper size={'1.5rem'} className="hover: fill-[#53D22C]" />
           <Link
@@ -65,6 +73,13 @@ export default function StockLayout({
       </div>
     );
   }
+
+export default function StockLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+ 
 
   return (
     <>

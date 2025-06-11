@@ -1,21 +1,17 @@
 import LineChart from './chartComps';
 import {
-  companyNews,
   companyProfile,
   quoteHL,
-  earnings,
   deltaPrice,
   getMarketStatus,
 } from './apiLoaders';
-import NewsItem from '@/app/components/NewsItem';
 import TradePanel from '@/app/components/TradePanel';
 
 export default async function APIRender(props: {
   symbol: string;
   timeframe?: number;
 }) {
-  const symb_result = await companyProfile(props.symbol);
-  const price_report = await quoteHL(props.symbol.toLocaleUpperCase());
+ 
   const priceChanges = await deltaPrice(props.symbol.toUpperCase());
   const usable = priceChanges[0];
   const { holiday, isOpen, session } = await getMarketStatus();
@@ -38,9 +34,7 @@ export default async function APIRender(props: {
     change = oneChange;
   }
 
-  const { c } = price_report;
-  const { currency, logo, ticker, name, marketCapitalization, exchange } =
-    symb_result;
+
   return (
     <>
       {/* <div>
