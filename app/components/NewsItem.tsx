@@ -9,9 +9,9 @@ export default function NewsItem(props: {
     return(
          <div key={id} className="md:grid-cols-4 grid gap-x-2 md:gap-x-4 p-2 md:p-4 items-center">
                         <div className="md:col-span-3">
-                            <a className="text-xl md:text-2xl font-bold hover:underline block" href={url} target="_blank">{headline}</a>
+                            <a className="md:text-xl font-bold hover:underline block" href={url} target="_blank">{headline}</a>
                             <span className="text-[1.25rem]">{dateVal.toDateString()}</span> | <span className="text-[1.25rem]">{source}</span>
-                            <p className="my-1 md:my-2 text-xl">
+                            <p className="my-1 md:my-2 text-lg">
                                 {summary}
                             </p>
                         </div>

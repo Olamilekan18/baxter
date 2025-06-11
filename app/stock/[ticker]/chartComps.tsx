@@ -28,9 +28,9 @@ export default async function LineChart(props: {
       <div className="grid grid-cols-12 gap-x-2">
         <Link
           href={`/stock/${props.symbol}`}
-          className={`md:text-md col-span-2 md:my-1 p-2 hover:text-[#53D22c] rounded-xl text-center`}
+          className={`md:text-md col-span-1 md:my-1 p-2 hover:text-[#53D22c] rounded-xl text-center`}
         >
-          Today
+          24H
         </Link>
         <Link
           href={`/stock/${props.symbol}/30`}

@@ -7,7 +7,7 @@ import {
   deltaPrice,
   getMarketStatus,
 } from './apiLoaders';
-import NewsItem from '@/app/components/NewsItem';
+
 
 export default async function APIRender(props: {
   symbol: string;
@@ -15,11 +15,6 @@ export default async function APIRender(props: {
 }) {
   const symb_result = await companyProfile(props.symbol);
   const price_report = await quoteHL(props.symbol.toLocaleUpperCase());
-  const earningsData = await earnings(props.symbol.toUpperCase());
-  const newsReports = await companyNews(props.symbol.toUpperCase());
-  const filteredNewsReports = newsReports.filter(
-    (report) => report.image.length > 1
-  );
   const priceChanges = await deltaPrice(props.symbol.toUpperCase());
   const usable = priceChanges[0];
   const { holiday, isOpen, session } = await getMarketStatus();
@@ -89,21 +84,6 @@ export default async function APIRender(props: {
         </div>
       </div>
 
-      {/* 
-{filteredNewsReports.length > 0 ?
-    <div className="company_news_data grid col-span-1">
-        <div>
-            <p className="text-lg md:text-4xl my-4">
-                Latest Company News
-            </p>
-            {
-                filteredNewsReports.slice(0,15).map(
-                   (article) => <NewsItem object={article} key={article.id}/>
-                )
-            }
-        </div>
-    </div>  : null }
-    */}
     </>
   );
 }
