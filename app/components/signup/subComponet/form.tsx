@@ -5,12 +5,15 @@ import { toast, Toaster } from "react-hot-toast";
 import EmailInput from "./emailInput";
 import UsernameInput from "./usernameInput";
 import PasswordInput from "./passwordInput";
+import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +24,21 @@ export default function SignUpForm() {
     }
 
     try {
+      const resUserExists = await fetch("/api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        toast.error("User already exists.");
+        return;
+      }
+
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: {
@@ -32,7 +50,8 @@ export default function SignUpForm() {
       if (res.ok) {
         const form = e.target;
         form.reset();
-        
+
+        router.push("/login");
 
         toast.success("User registered successfully!");
       } else {

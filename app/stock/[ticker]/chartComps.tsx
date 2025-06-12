@@ -1,10 +1,10 @@
-import { ALineChart } from './line';
-import Link from 'next/link';
+import { ALineChart } from "./line";
+import Link from "next/link";
 import {
   fetchDataLongTerm,
   fetchChartData24H,
   giveDateString,
-} from './apiLoaders';
+} from "./apiLoaders";
 
 export default async function LineChart(props: {
   symbol: string;
@@ -24,7 +24,6 @@ export default async function LineChart(props: {
 
   return (
     <div className="md:w-[75%] h-[350px] w-[90vw]">
-  
       <div className="grid grid-cols-12 gap-x-2">
         <Link
           href={`/stock/${props.symbol}`}
@@ -35,7 +34,7 @@ export default async function LineChart(props: {
         <Link
           href={`/stock/${props.symbol}/30`}
           className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
-            props.timeframe && props.timeframe == 30 ? 'bg-[#53D22c]' : ''
+            props.timeframe && props.timeframe == 30 ? "bg-[#53D22c]" : ""
           }`}
           id="30"
         >
@@ -44,7 +43,7 @@ export default async function LineChart(props: {
         <Link
           href={`/stock/${props.symbol}/90`}
           className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
-            props.timeframe && props.timeframe == 90 ? 'bg-[#53D22c]' : ''
+            props.timeframe && props.timeframe == 90 ? "bg-[#53D22c]" : ""
           } `}
           id="90"
         >
@@ -53,7 +52,7 @@ export default async function LineChart(props: {
         <Link
           href={`/stock/${props.symbol}/180`}
           className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
-            props.timeframe && props.timeframe == 180 ? 'bg-[#53D22c]' : ''
+            props.timeframe && props.timeframe == 180 ? "bg-[#53D22c]" : ""
           }`}
           id="180"
         >
@@ -62,7 +61,7 @@ export default async function LineChart(props: {
         <Link
           href={`/stock/${props.symbol}/365`}
           className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
-            props.timeframe && props.timeframe == 365 ? 'bg-[#53D22c]' : ''
+            props.timeframe && props.timeframe == 365 ? "bg-[#53D22c]" : ""
           }`}
           id="365"
         >
