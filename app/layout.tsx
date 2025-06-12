@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${Manrope_Font.className} p-1 md:p-2`}>{children}</body>
+      <body className={`${Manrope_Font.className} `}>{children}</body>
     </html>
   );
 }
