@@ -1,6 +1,5 @@
-import ChatHead from "@/app/components/stock/chatHead";
 import APIRender from "./apiCalls";
-import StockPriceComp from "@/app/components/StockPriceComp";
+import ChartHeader from "@/app/components/stock/chartHeader";
 
 export default async function RouteShow({
   params,
@@ -10,8 +9,7 @@ export default async function RouteShow({
   function ShowPageItems() {
     return (
       <>
-        <StockPriceComp symbol={ticker} />
-        <ChatHead ticker={ticker} />
+        <ChartHeader ticker={ticker} />
         <APIRender symbol={ticker} />
       </>
     );
