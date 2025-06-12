@@ -10,7 +10,6 @@ const fmp_key = process.env.NEXT_PUBLIC_FMP_KEY;
 
 export default function StockSearchPage() {
   const [input_value, changeInput] = useState("");
-
   const [results, setResults] = useState<any[]>([]);
 
   useEffect(() => {
@@ -45,10 +44,10 @@ export default function StockSearchPage() {
         {results[0] && results[0].length > 0 ? (
           results[0].map((item: any) => (
             <div
-              className="grid gap-x-4 grid-cols-12 md:gap-x-6 p-3 md:p-6 my-4 md:my-6 items-center bg-[#1F2328] border-b border-gray-700 hover:bg-[#1d3f13] rounded-lg transition-all shadow-lg transform hover:scale-105"
+              className="grid grid-cols-12 gap-4 md:gap-6 p-3 md:p-6 my-4 md:my-6 items-center bg-[#1F2328] border-b border-gray-700 hover:bg-[#1d3f13] rounded-lg transition-all shadow-lg transform hover:scale-105"
               key={item.Ticker}
             >
-              <div className="col-span-1 w-[50px] h-[50px] overflow-hidden rounded-full">
+              <div className="col-span-3 sm:col-span-2 md:col-span-1 w-[50px] h-[50px] overflow-hidden rounded-full">
                 <img
                   src={`https://cdn.brandfetch.io/${item.url}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
                   alt={item.Ticker}
@@ -59,7 +58,7 @@ export default function StockSearchPage() {
 
               <Link
                 href={`/stock/${item.Ticker}`}
-                className="col-span-9 text-lg md:text-xl font-medium text-white hover:text-[#53D22c] transition-all"
+                className="col-span-9 sm:col-span-10 text-lg md:text-xl font-medium text-white hover:text-[#53D22c] transition-all"
               >
                 <p className="font-bold text-xl text-white">{item.Ticker}</p>
                 <p className="underline text-[#53D22c]">{item.Name}</p>

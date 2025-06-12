@@ -76,11 +76,12 @@ export default function StockLayout({
   return (
     <>
       <StockHomeNav />
-      <div className="p-1 md:p-3 mt-10 mx-auto grid grid-cols-1 md:grid-cols-12">
-        <div className="hidden md:block md:col-span-3">
+      <div className="p-1 md:p-3 mt-10 mx-auto grid grid-cols-1 lg:grid-cols-12">
+        <div className="hidden lg:block lg:col-span-3">
           <SideNav />
         </div>
-        <div className="md:col-span-8 md:pl-6">{children}</div>
+
+        <div className="lg:col-span-9 lg:pl-6">{children}</div>
       </div>
     </>
   );
