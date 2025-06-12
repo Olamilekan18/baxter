@@ -6,6 +6,8 @@ import Image from "next/image";
 import { FiBell, FiMenu, FiX } from "react-icons/fi";
 import logo from "@/design_assets/SVG.png";
 const url = [
+  { label: "Home", path: "/stock" },
+  { label: "Profile", path: "/profile" },
   { label: "My Watchlist", path: "/stock/watchlist" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
@@ -27,6 +29,7 @@ export default function StockHomeNav() {
           <ul className="hidden md:flex space-x-6 text-sm">
             {[
               { label: "Home", path: "/stock/watchlist" },
+              { label: "Profile", path: "/profile" },
               { label: "Portfolio", path: "/portfolio" },
               { label: "News", path: "/news" },
               { label: "Markets", path: "/markets" },
@@ -75,7 +78,7 @@ export default function StockHomeNav() {
             </Link>
           ))}
 
-          <div className="px-4 relative">
+          {/* <div className="px-4 relative">
             <input
               type="text"
               placeholder="Search..."
@@ -90,7 +93,7 @@ export default function StockHomeNav() {
             >
               <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 0 5 11a6 6 0 0 0 12 0z" />
             </svg>
-          </div>
+          </div> */}
         </div>
       )}
     </nav>
