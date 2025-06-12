@@ -7,8 +7,7 @@ import StockHomeNav from "../components/stock/stockNav";
 
 export function SideNav() {
   return (
-    <div className="w-64 bg-[#121712] text-white h-full fixed top-0 left-0 z-40 p-6">
-      {/* Logo */}
+    <div className="w-64 bg-[#121712] text-white h-full fixed top-0 left-0 z-40 p-6 border-r-2 border-white">
       <Link
         href={"/"}
         className="text-3xl font-bold my-6 hover:text-[#53D22c] transition-all"
@@ -16,7 +15,6 @@ export function SideNav() {
         Baxter.
       </Link>
 
-      {/* Search */}
       <div className="flex items-center gap-x-4 group hover:bg-[#2D3748] p-3 rounded-lg my-2">
         <FaSearch size={"1.5rem"} className="group-hover:fill-[#53D22c]" />
         <Link
@@ -27,7 +25,6 @@ export function SideNav() {
         </Link>
       </div>
 
-      {/* Watchlist */}
       <div className="flex items-center gap-x-4 group hover:bg-[#2D3748] p-3 rounded-lg my-2">
         <FaBookmark size={"1.5rem"} className="group-hover:fill-[#53D22c]" />
         <Link
@@ -38,7 +35,6 @@ export function SideNav() {
         </Link>
       </div>
 
-      {/* Top Movers */}
       <div className="flex items-center gap-x-4 group hover:bg-[#2D3748] p-3 rounded-lg my-2">
         <SlGraph size={"1.5rem"} className="group-hover:fill-[#53D22c]" />
         <Link
@@ -49,7 +45,6 @@ export function SideNav() {
         </Link>
       </div>
 
-      {/* Chat with AI */}
       <div className="flex items-center gap-x-4 group hover:bg-[#2D3748] p-3 rounded-lg my-2">
         <RiChatAiFill size={"1.5rem"} className="group-hover:fill-[#53D22c]" />
         <Link
