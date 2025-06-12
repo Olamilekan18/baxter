@@ -1,5 +1,5 @@
-'use client';
-import { Line } from 'react-chartjs-2';
+"use client";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   Tooltip,
@@ -9,7 +9,7 @@ import {
   PointElement,
   LineElement,
   plugins,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJS.register(
   Tooltip,
@@ -38,6 +38,50 @@ export function ALineChart(props: {
             legend: {
               display: false,
             },
+            tooltip: {
+              mode: "index",
+              intersect: false,
+              backgroundColor: "#1f1f1f",
+              titleColor: "#ffffff",
+              bodyColor: "#ffffff",
+              borderColor: "#333",
+              borderWidth: 1,
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                color: "rgba(255,255,255,0.05)",
+              },
+              ticks: {
+                color: "#ccc",
+                font: {
+                  size: 12,
+                },
+              },
+            },
+            y: {
+              grid: {
+                color: "rgba(255,255,255,0.05)",
+              },
+              ticks: {
+                color: "#ccc",
+                font: {
+                  size: 12,
+                },
+                callback: (value: number) => `$${value.toFixed(2)}`,
+              },
+            },
+          },
+          elements: {
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 4,
+            },
+            line: {
+              borderWidth: 2,
+            },
           },
         }}
         data={{
@@ -51,11 +95,11 @@ export function ALineChart(props: {
           }),
           datasets: [
             {
-              label: 'Price',
+              label: "Price",
               data: direct_array,
               tension: 0.4,
               borderColor: props.color,
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
             },
           ],
         }}
