@@ -1,3 +1,5 @@
+"use client";
+
 import { FiUser } from "react-icons/fi";
 export default function UsernameInput({
   username,

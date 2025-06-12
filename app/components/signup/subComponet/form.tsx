@@ -1,29 +1,69 @@
 "use client";
+
 import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import EmailInput from "./emailInput";
 import UsernameInput from "./usernameInput";
 import PasswordInput from "./passwordInput";
+
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  return (
-    <form className="space-y-4">
-      <EmailInput email={email} setEmail={setEmail} />
-      <UsernameInput username={username} setUsername={setUsername} />
-      <PasswordInput
-        password={password}
-        showPassword={showPassword}
-        setPassword={setPassword}
-        setShowPassword={setShowPassword}
-      />
 
-      <input
-        value="Sign up"
-        type="submit"
-        className="w-full bg-[#40ff47] text-black font-semibold py-2 rounded-full hover:bg-[#32e93a] transition"
-      />
-    </form>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!username || !password || !email) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password, email }),
+      });
+
+      if (res.ok) {
+        const form = e.target;
+        form.reset();
+        
+
+        toast.success("User registered successfully!");
+      } else {
+        toast.error("Registration failed. Try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error("Error during registration:", error);
+    }
+  };
+
+  return (
+    <>
+      <Toaster position="top-center" />
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <EmailInput email={email} setEmail={setEmail} />
+        <UsernameInput username={username} setUsername={setUsername} />
+        <PasswordInput
+          password={password}
+          showPassword={showPassword}
+          setPassword={setPassword}
+          setShowPassword={setShowPassword}
+        />
+
+        <input
+          value="Sign up"
+          type="submit"
+          className="w-full bg-[#40ff47] text-black font-semibold py-2 rounded-full hover:bg-[#32e93a] transition"
+        />
+      </form>
+    </>
   );
 }

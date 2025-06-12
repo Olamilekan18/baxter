@@ -1,10 +1,18 @@
+"use client";
+
 import svg from "@/design_assets/SVG.png";
 import Image from "next/image";
 
 import Link from "next/link";
 import SignUpForm from "./subComponet/form";
 
+import { useState} from 'react';
+
+
+
 export default function SignUpPage() {
+ 
+
   return (
     <div className="bg-[#1A1F19] rounded-2xl shadow-xl w-full max-w-md mt-20 mb-20 p-8">
       <div className="flex justify-center mb-4">
@@ -82,7 +90,7 @@ export default function SignUpPage() {
         </button>
       </form> */}
       <SignUpForm />
-
+      
       <p className="text-center text-xs text-gray-200 mt-4">
         By signing up, you agree to our{" "}
         <Link href="/termsandcondition" className="text-green-500 underline">
