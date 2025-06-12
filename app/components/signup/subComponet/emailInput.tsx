@@ -1,3 +1,5 @@
+"use client";
+
 import { FiMail } from "react-icons/fi";
 export default function EmailInput({
   email,

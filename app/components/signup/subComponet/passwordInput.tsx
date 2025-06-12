@@ -1,3 +1,5 @@
+"use client";
+
 import { FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 export default function PasswordInput({
   password,
