@@ -1,4 +1,5 @@
 import LineChart from './chartComps';
+import StockView from '@/app/components/StockPage';
 import {
   companyProfile,
   quoteHL,
@@ -13,7 +14,10 @@ export default async function APIRender(props: {
 }) {
  
   const priceChanges = await deltaPrice(props.symbol.toUpperCase());
-  const usable = priceChanges[0];
+  const usable = priceChanges?.[0];
+   if (!usable) {
+      console.warn('No usable data found for symbol:', props.symbol);
+    }
   const { holiday, isOpen, session } = await getMarketStatus();
   const oneChange = usable['1D'];
   const monthChange = usable['1M'];
@@ -34,6 +38,7 @@ export default async function APIRender(props: {
     change = oneChange;
   }
 
+  
 
   return (
     <>
@@ -75,7 +80,7 @@ export default async function APIRender(props: {
         </div>
 
         <div>
-          <TradePanel symbol={props.symbol.toUpperCase()} />
+          <StockView symbol={props.symbol.toUpperCase()} />
         </div>
       </div>
 
