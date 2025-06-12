@@ -11,6 +11,11 @@
   :root {
     --background: #121712;
     --foreground: #ededed;
+  --primary: #1E3A8A;
+  --accent: #3B82F6;
+  --profit: #10B981;
+  --alert: #EF4444;
+  --bg-light: #F3F4F6;
   }
 }
 
