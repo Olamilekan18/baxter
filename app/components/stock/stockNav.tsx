@@ -18,14 +18,20 @@ export default function StockHomeNav() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#121712] text-white px-4 py-3 border-b border-[#2D372A]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-6">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src={logo} alt="Baxter" width={24} height={24} />
-            <span className="text-lg font-semibold">Baxter</span>
-          </Link>
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src={logo} alt="Baxter" width={24} height={24} />
+          <span className="text-lg font-semibold">Baxter</span>
+        </Link>
 
+        <div className="flex items-center space-x-5">
           <ul className="hidden md:flex space-x-6 text-sm">
-            {url.map(({ label, path }) => (
+            {[
+              { label: "Home", path: "/stock/watchlist" },
+              { label: "Portfolio", path: "/portfolio" },
+              { label: "News", path: "/news" },
+              { label: "Markets", path: "/markets" },
+              { label: "Research", path: "/research" },
+            ].map(({ label, path }) => (
               <li key={label}>
                 <Link href={path} className="hover:text-green-400 transition">
                   {label}
@@ -33,25 +39,6 @@ export default function StockHomeNav() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="flex items-center space-x-5">
-          <div className="relative hidden lg:block">
-            <input
-              type="text"
-              placeholder="Search stocks, news..."
-              className="bg-[#1a1c1b] text-sm text-white placeholder-gray-400 pl-10 pr-4 py-2 rounded-full ring-white ring-1 focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <svg
-              className="w-4 h-4 text-gray-400 absolute left-3 top-2.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 0 5 11a6 6 0 0 0 12 0z" />
-            </svg>
-          </div>
 
           <FiBell className="w-5 h-5 text-gray-300" />
 
