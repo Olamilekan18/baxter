@@ -6,7 +6,6 @@ import Image from "next/image";
 import { FiBell, FiMenu, FiX } from "react-icons/fi";
 import logo from "@/design_assets/SVG.png";
 const url = [
-  { label: "Search", path: "/stock" },
   { label: "My Watchlist", path: "/stock/watchlist" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
