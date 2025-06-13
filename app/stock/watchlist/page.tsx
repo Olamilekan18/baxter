@@ -22,7 +22,7 @@ export default function Watchlist() {
     "MSFT",
   ];
   return (
-    <div className="p-6 rounded-xl shadow-xl">
+    <div className="p-6 rounded-xl">
       <p className="text-4xl font-semibold text-center text-white mb-8">
         Your Watchlist
       </p>
