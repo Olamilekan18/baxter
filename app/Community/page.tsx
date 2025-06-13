@@ -242,34 +242,6 @@ export default function CommunityPage() {
           <Poll />
         </section>
 
-        {/* <section className="bg-primary text-white p-8 rounded-lg mb-12">
-          <h2 className="text-2xl font-bold mb-4">💬 Join the Conversation</h2>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {[
-              "#BaxterAI",
-              "#StocksToWatch",
-              "#AITrading",
-              "#EarningsSeason",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="bg-accent px-3 py-1 rounded-full text-sm"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="space-y-3">
-            <p className="italic">
-              &quot;Just used Baxter&apos;s AI scanner to find a 15% gap
-              play—worked like magic!&quot; – @DayTraderDan
-            </p>
-            <p className="italic">
-              &quot;Who else is riding the NVDA wave? Baxter&apos;s alerts saved
-              me from a bad short!&quot; – @OptionsGuru
-            </p>
-          </div>
-        </section> */}
         <div className="bg-gradient-to-b from-[#121212] to-green-800">
           <div className="mx-auto py-16 sm:px-6 lg:px-8">
             <div className="relative isolate overflow-hidden px-6 py-24 text-center sm:rounded-3xl sm:px-16">
