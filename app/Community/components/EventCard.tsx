@@ -1,3 +1,4 @@
+import { FiCalendar } from "react-icons/fi";
 import { Event } from "../types";
 
 interface EventCardProps {
@@ -20,19 +21,7 @@ export default function EventCard({ event }: EventCardProps) {
 
   return (
     <div className="bg-[#131712] text-white rounded-lg shadow-md p-6 text-center space-y-3">
-      <svg
-        className="w-10 h-10 mx-auto text-purple-500"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-
+      <FiCalendar className="w-10 h-10 mx-auto text-green-500" />
       <div>
         <div className="text-2xl font-bold text-primary">
           {event.date.split(" ")[1]}
@@ -56,28 +45,5 @@ export default function EventCard({ event }: EventCardProps) {
         RSVP
       </button>
     </div>
-
-    // <div>
-    //   <svg
-    //     className="w-10 h-10 mb-2 text-purple-500 md:w-12 md:h-12 dark:text-purple-500"
-    //     fill="currentColor"
-    //     viewBox="0 0 20 20"
-    //     xmlns="http://www.w3.org/2000/svg"
-    //   >
-    //     <path
-    //       fill-rule="evenodd"
-    //       d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
-    //       clip-rule="evenodd"
-    //     ></path>
-    //   </svg>
-    //  <div className="mr-4 text-center">
-    //     <div className="text-2xl font-bold text-primary">{event.date.split(' ')[1]}</div>
-    //     <div className="text-sm uppercase text-gray-500">{event.date.split(' ')[0]}</div>
-    //   </div>
-    //   <h3 className="mb-2 text-2xl font-bold dark:text-white">99.99% uptime</h3>
-    //   <p className="font-light text-gray-500 dark:text-gray-400">
-    //     For Landwind, with zero maintenance downtime
-    //   </p>
-    // </div>
   );
 }
