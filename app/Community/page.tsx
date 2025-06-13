@@ -69,7 +69,7 @@ export default function CommunityPage() {
       <HomeNav />
 
       <main className="flex-grow container ">
-        <section className="w-full flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-b from-[#121212] to-green-800 mb-10">
+        <section className="w-full flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-b from-[#121212] to-green-800">
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
             <h1
@@ -140,7 +140,7 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="mb-16" id="top-features">
+        <section className="mb-16 pt-10 pb-10 dark:bg-gray-800" id="top-features">
           <h2 className="font-bold text-4xl text-primary mb-10 text-center tracking-wide">
             <span className="text-gradient">Top Features</span>
           </h2>
@@ -216,20 +216,23 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <Leaderboard />
-
-          <div>
-            <h2 className="text-2xl font-bold text-primary mb-6">
-              Upcoming Events
-            </h2>
-            <div className="space-y-4">
-              {upcomingEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
+        <div className="bg-gray-800">
+          <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-10 lg:px-6">
+            <div className="col-span-2 mb-8">
+              <Leaderboard />
+            </div>
+            <div className="col-span-2 space-y-8">
+              <h2 className="text-2xl font-bold text-primary mb-6">
+                Upcoming Events
+              </h2>
+              <div className="space-y-4 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+                {upcomingEvents.map((event) => (
+                  <EventCard key={event.id} event={event} />
+                ))}
+              </div>
             </div>
           </div>
-        </section>
+        </div>
 
         <section className="mb-12">
           <Poll />
