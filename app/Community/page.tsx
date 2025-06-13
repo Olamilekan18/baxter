@@ -16,7 +16,7 @@ export default function CommunityPage() {
       title: "NVDA Earnings Breakdown",
       author: "@TradeMaster",
       content:
-        "Baxter's AI predicted a 12% move post-earnings—what's your play?",
+        "Baxter's AI predicted a 12% move post-earnings—what’s your next move? Are you positioning for a gain or playing it safe after this forecast?",
       upvotes: 1200,
       comments: 342,
       isHot: true,
@@ -26,7 +26,7 @@ export default function CommunityPage() {
       title: "Market Alert: Fed Rate Decision Impact",
       author: "@MacroTrader",
       content:
-        "Baxter's sentiment analysis shows 78% bearish signals on tech stocks.",
+        "Baxter's sentiment analysis reveals 78% bearish signals across major tech stocks. Are you adjusting your portfolio, or sticking to your current positions in this market?",
       upvotes: 890,
       comments: 210,
       isAlert: true,
@@ -36,7 +36,7 @@ export default function CommunityPage() {
       title: "New Feature: AI Trade Copier",
       author: "@BaxterTeam",
       content:
-        "Automatically mirror top traders' moves with Baxter's AI Copilot!",
+        "Automatically mirror the top traders' strategies and moves with Baxter's AI Copilot! Let cutting-edge technology help you make smarter, faster trading decisions with ease.",
       upvotes: 2500,
       comments: 512,
       isNew: true,
@@ -139,26 +139,7 @@ export default function CommunityPage() {
             </Link>
           </div>
         </section>
-        {/* Features Grid */}
-        {/* <section className="mb-12" id="top-features">
-          <h2 className="text-2xl font-bold text-primary mb-6">Top Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              "Live Discussion Threads",
-              "Expert AMAs",
-              "AI-Powered Trade Signals",
-              "Leaderboard",
-              "Educational Hub",
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-primary p-4 rounded-lg shadow-md border-l-4 border-accent"
-              >
-                <p className="font-medium">✅ {feature}</p>
-              </div>
-            ))}
-          </div>
-        </section> */}
+
         <section className="mb-16" id="top-features">
           <h2 className="font-bold text-4xl text-primary mb-10 text-center tracking-wide">
             <span className="text-gradient">Top Features</span>
@@ -223,13 +204,15 @@ export default function CommunityPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-primary mb-6">
+          <h2 className="text-4xl font-bold text-primary mb-6 text-center">
             Trending Market Discussions
           </h2>
-          <div className="space-y-4">
-            {trendingDiscussions.map((discussion) => (
-              <DiscussionCard key={discussion.id} discussion={discussion} />
-            ))}
+          <div className="container px-5 py-10 mx-auto">
+            <div className="flex flex-wrap -m-4">
+              {trendingDiscussions.map((discussion) => (
+                <DiscussionCard key={discussion.id} discussion={discussion} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -271,12 +254,12 @@ export default function CommunityPage() {
           </div>
           <div className="space-y-3">
             <p className="italic">
-              'Just used Baxter&quot;s AI scanner to find a 15% gap play—worked
-              like magic!' – @DayTraderDan
+              "Just used Baxter&apos;s AI scanner to find a 15% gap play—worked
+              like magic!" – @DayTraderDan
             </p>
             <p className="italic">
-              'Who else is riding the NVDA wave? Baxter's alerts saved me from a
-              bad short!' – @OptionsGuru
+              "Who else is riding the NVDA wave? Baxter&apos;s alerts saved me
+              from a bad short!" – @OptionsGuru
             </p>
           </div>
         </section>
