@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-
+import nvidia from "@/public/nvidia.png";
+import Image from "next/image";
 export default function Poll() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
@@ -81,8 +82,8 @@ export default function Poll() {
       </div>
 
       <div className="w-full sm:w-1/3 mt-6 sm:mt-0">
-        <img
-          src="https://s.yimg.com/ny/api/res/1.2/gHlVvT_Jz07GK4l1kBgqNA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTY0MA--/https://media.zenfs.com/en/us.finance.gurufocus/528af7acf1b685a79f0a0ee8c34ab69c"
+        <Image
+          src={nvidia}
           alt="Poll Illustration"
           className="rounded-lg shadow-md w-full h-auto object-cover"
         />
