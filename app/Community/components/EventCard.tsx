@@ -21,18 +21,6 @@ export default function EventCard({ event }: EventCardProps) {
 
   return (
     <div className="bg-[#131712] text-white rounded-lg shadow-md p-6 text-center space-y-3">
-      {/* <svg
-        className="w-10 h-10 mx-auto text-purple-500"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
-          clipRule="evenodd"
-        ></path>
-      </svg> */}
       <FiCalendar className="w-10 h-10 mx-auto text-green-500" />
       <div>
         <div className="text-2xl font-bold text-primary">
