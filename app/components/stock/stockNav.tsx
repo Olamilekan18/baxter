@@ -11,7 +11,7 @@ const url = [
   { label: "My Watchlist", path: "/stock/watchlist" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
-  { label: "Markets", path: "/markets" },
+  { label: "Stocks", path: "/stock" },
   { label: "AI Chat", path: "/ai-chat" },
 ];
 export default function StockHomeNav() {
@@ -32,7 +32,7 @@ export default function StockHomeNav() {
               { label: "Courses", path: "/Courses" },
               { label: "Portfolio", path: "/portfolio" },
               { label: "News", path: "/news" },
-              { label: "Markets", path: "/markets" },
+              { label: "Stocks", path: "/stock" },
               { label: "AI Chat", path: "/ai-chat" },
             ].map(({ label, path }) => (
               <li key={label}>
