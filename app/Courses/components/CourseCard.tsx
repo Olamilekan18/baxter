@@ -101,6 +101,16 @@ export default function CourseCard({ course }: CourseCardProps) {
   const showSeeMore =
     contentPreview.length > 100 || course.content.includes('####');
 
+  const handleVideoClick = () => {
+    setShowVideo(true);
+    // Track clicked videos in localStorage
+    const watched = JSON.parse(localStorage.getItem('watchedVideos') || '[]');
+    if (!watched.includes(course.id)) {
+      watched.push(course.id);
+      localStorage.setItem('watchedVideos', JSON.stringify(watched));
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
       {/* Video Player or Thumbnail */}
@@ -131,7 +141,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           </div>
         ) : videoId ? (
           <button
-            onClick={() => setShowVideo(true)}
+            onClick={handleVideoClick}
             className="w-full h-full relative group"
             aria-label="Play video"
           >

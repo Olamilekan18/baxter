@@ -1,31 +1,12 @@
 "use client";
-
-import { useState } from 'react';
-import TradePanel from './TradePanel';
+import TradePanel from "./TradePanel";
 
 export default function StockView({ symbol }: { symbol: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div className="relative">
-      <button 
-        onClick={() => setIsOpen(true)}
-className="md:hidden fixed bottom-90% left-1/2 transform -translate-x-1/2  bg-green-500 text-white px-4 py-2 rounded-lg  text-center shadow-lg hover:bg-green-600 transition duration-300 ease-in-out z-50"
-      >
-        Trade Demo
-      </button>
-
-      <div className={`${isOpen ? 'block' : 'hidden'} md:block fixed md:static inset-0 md:inset-auto w-full  md:bg-transparent z-50 md:z-auto p-4 md:p-0`}>
-        {isOpen && (
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="md:hidden absolute top-2 right-2 text-xl font-bold text-white "
-          >
-            ×
-          </button>
-        )}
-        <TradePanel symbol={symbol} />
-      </div>
+    <div
+      className={`md:block inset-0 md:inset-auto w-full  md:bg-transparent z-50 p-4 mt-20 sm:mt-10 md:p-0`}
+    >
+      <TradePanel symbol={symbol} />
     </div>
   );
 }
