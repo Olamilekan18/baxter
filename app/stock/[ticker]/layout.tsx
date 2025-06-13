@@ -13,16 +13,10 @@ export async function generateMetadata({
 }
 
 export default async function HouseLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{
-    ticker: string, followUp: string
-  }>
+  children,} : {
+  children: React.ReactNode;}
+) {
 
-}) {
-  const ticker = (await params).ticker
   return (
     <div className={`p-1 md:p-2 mx-1 md:mx-2`}>
       <div className="grid">
