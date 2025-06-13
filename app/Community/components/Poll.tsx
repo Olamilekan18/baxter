@@ -79,8 +79,8 @@ export default function Poll() {
             <p>Results will be shared soon.</p>
           </div>
         )}
-      </div>
 
+      </div>
       <div className="w-full sm:w-1/3 mt-6 sm:mt-0">
         <Image
           src={nvidia}
