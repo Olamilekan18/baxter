@@ -140,7 +140,10 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="mb-16 pt-10 pb-10 dark:bg-gray-800" id="top-features">
+        <section
+          className="mb-16 pt-10 pb-10 dark:bg-gray-800"
+          id="top-features"
+        >
           <h2 className="font-bold text-4xl text-primary mb-10 text-center tracking-wide">
             <span className="text-gradient">Top Features</span>
           </h2>
@@ -257,12 +260,12 @@ export default function CommunityPage() {
           </div>
           <div className="space-y-3">
             <p className="italic">
-              "Just used Baxter&apos;s AI scanner to find a 15% gap play—worked
-              like magic!" – @DayTraderDan
+              &quot;Just used Baxter&apos;s AI scanner to find a 15% gap
+              play—worked like magic!&quot; – @DayTraderDan
             </p>
             <p className="italic">
-              "Who else is riding the NVDA wave? Baxter&apos;s alerts saved me
-              from a bad short!" – @OptionsGuru
+              &quot;Who else is riding the NVDA wave? Baxter&apos;s alerts saved
+              me from a bad short!&quot; – @OptionsGuru
             </p>
           </div>
         </section>
