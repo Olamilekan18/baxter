@@ -22,21 +22,28 @@ export default function FormSection() {
       return;
     }
 
-    const res = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    setLoading(true); // Start loading
 
-    console.log(res); // Debug: log the response
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
 
-    if (!res || !res.ok) {
-      toast.error(res?.error || "Invalid email or password");
-      return;
+      setLoading(false); // Stop loading
+
+      if (!res || !res.ok) {
+        toast.error(res?.error || "Invalid email or password");
+        return;
+      }
+
+      toast.success("Login successful!");
+      router.push("/stock");
+    } catch (error) {
+      setLoading(false);
+      toast.error("An unexpected error occurred. Please try again.");
     }
-
-    toast.success("Logged in successfully");
-    router.push("/");
   };
 
   return (
@@ -53,7 +60,9 @@ export default function FormSection() {
         value={loading ? "Logging in..." : "Log In"}
         disabled={loading}
         className={`w-full bg-[#53D22C] text-black font-bold py-2 rounded-full transition cursor-pointer ${
-          loading ? "opacity-50 cursor-not-allowed" : "hover:from-[#32e93a] hover:to-[#40ff47]"
+          loading
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:from-[#32e93a] hover:to-[#40ff47]"
         }`}
       />
     </form>

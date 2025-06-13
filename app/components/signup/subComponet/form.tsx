@@ -51,9 +51,9 @@ export default function SignUpForm() {
         const form = e.target;
         form.reset();
 
-        router.push("/login");
+        router.push("/stock");
 
-        toast.success("User registered successfully!");
+        toast.success("Account Created successfully!");
       } else {
         toast.error("Registration failed. Try again.");
       }
