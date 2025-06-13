@@ -66,7 +66,6 @@ export default function CommunityPage() {
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">
-        {/* Hero Section */}
         <section className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             Baxter <span className="text-accent">Community Hub</span>
@@ -101,7 +100,7 @@ export default function CommunityPage() {
           <h2 className="text-2xl font-bold text-primary mb-6">
             Trending Market Discussions
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-4 grid grid-cols-3">
             {trendingDiscussions.map((discussion) => (
               <DiscussionCard key={discussion.id} discussion={discussion} />
             ))}
@@ -176,7 +175,7 @@ export default function CommunityPage() {
             <button className="bg-accent hover:bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors">
               Sign Up Now
             </button>
-            <button className="bg-primary hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg border border-primary transition-colors">
+            <button className="bg-primary hover:bg-gray-100 text-gray-600 hover:text-[#53d22c] font-bold py-3 px-6 rounded-lg border border-primary transition-colors">
               Download App
             </button>
           </div>

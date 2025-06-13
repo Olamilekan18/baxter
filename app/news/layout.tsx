@@ -13,7 +13,7 @@ export default function NewsLayout({
         <div className="rounded-2xl p-2 space-y-4">
           <div className="flex items-center gap-4">
             <img
-              src="https://cdn.brandfetch.io/apple.com/w/200/h/244/theme/light/logo?c=1id090JVq9Slhwrn5Rm"
+              src="https://cdn.brandfetch.io/apple.com/w/400/h/400?c=1id090JVq9Slhwrn5Rm"
               alt="Apple Logo"
               className="rounded-md bg-white p-2 w-12 h-12 object-contain"
             />
@@ -91,11 +91,11 @@ export default function NewsLayout({
         <HomeNav />
       </div>
 
-      <div className="p-1 md:p-2 mx-auto grid grid-cols-8 mt-15 pt-20 md:pt-20">
-        <div className="p-1 md:p-2 col-span-2 hidden md:block">
+      <div className="p-1 md:p-2 mx-auto grid grid-cols-4 mt-15 pt-20 ">
+        <div className="p-1 md:p-2 col-span-1 hidden md:block">
           <WatchlistSidebar />
         </div>
-        <div className="grid md:col-span-6 col-span-12 p-5">{children}</div>
+        <div className="grid md:col-span-3 col-span-12 p-5">{children}</div>
       </div>
     </>
   );

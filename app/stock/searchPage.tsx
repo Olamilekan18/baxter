@@ -4,9 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ZeroMatch from "./zeroMatch";
 import data from "@/logos_array";
-// import logo_pic from "../../design_assets/SVG.png";
-
-const fmp_key = process.env.NEXT_PUBLIC_FMP_KEY;
 
 export default function StockSearchPage() {
   const [input_value, changeInput] = useState("");
@@ -36,8 +33,9 @@ export default function StockSearchPage() {
         name="name_search"
         id="nms"
         placeholder="Enter Stock or Ticker Name Here"
-        className="border-2 border-gray-300 outline-none rounded-lg p-3 md:p-5 my-3 md:my-5 w-full text-lg md:text-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-[#53D22c] transition-all shadow-md"
+        className="border-2 rounded-[3.5rem] border-gray-300 outline-none p-3 md:p-5 my-3 md:my-5 w-full text-lg md:text-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-[#53D22c] transition-all shadow-md"
         onChange={(e) => changeInput(e.target.value)}
+        autoFocus
       />
 
       <div className="search_results">

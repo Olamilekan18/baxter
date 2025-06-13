@@ -29,7 +29,7 @@ export default function Poll() {
             {options.map((option) => (
               <div 
                 key={option.id}
-                className={`p-4 rounded-lg cursor-pointer transition-colors ${selectedOption === option.id ? 'ring-2 ring-accent' : 'hover:bg-gray-50'}`}
+                className={`p-4 rounded-lg cursor-pointer transition-colors ${selectedOption === option.id ? 'ring-2 ring-accent' : 'hover:bg-gray-50 hover:text-[#53d22c] '}`}
                 onClick={() => setSelectedOption(option.id)}
               >
                 <div className="flex items-center">
@@ -42,7 +42,7 @@ export default function Poll() {
           <button
             onClick={handleVote}
             disabled={!selectedOption}
-            className={`py-2 px-6 rounded-lg font-bold ${selectedOption ? 'bg-accent hover:bg-primary text-white' : 'bg-gray-200 text-gray-500 cursor-not-allowed'} transition-colors`}
+            className={`py-2 px-6 rounded-lg font-bold ${selectedOption ? 'bg-accent hover:bg-primary text-white' : 'bg-gray-200 text-[#53d22c] cursor-not-allowed'} transition-colors`}
           >
             Vote Now
           </button>

@@ -8,7 +8,6 @@ export default function StockView({ symbol }: { symbol: string }) {
 
   return (
     <div className="relative">
-      {/* Trade Demo Button - shown on mobile */}
       <button 
         onClick={() => setIsOpen(true)}
 className="md:hidden fixed bottom-90% left-1/2 transform -translate-x-1/2  bg-green-500 text-white px-4 py-2 rounded-lg  text-center shadow-lg hover:bg-green-600 transition duration-300 ease-in-out z-50"
