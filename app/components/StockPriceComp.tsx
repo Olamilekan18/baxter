@@ -16,9 +16,7 @@ export default async function StockPriceComp(props: {
   const price_report = await quoteHL(props.symbol.toLocaleUpperCase());
   const earningsData = await earnings(props.symbol.toUpperCase());
   const newsReports = await companyNews(props.symbol.toUpperCase());
-  const filteredNewsReports = newsReports.filter(
-    (report) => report.image.length > 1
-  );
+
   const priceChanges = await deltaPrice(props.symbol.toUpperCase());
   const usable = priceChanges[0];
   const { holiday, isOpen, session } = await getMarketStatus();
@@ -62,19 +60,19 @@ export default async function StockPriceComp(props: {
                 {name} ({ticker})
               </h1>
               <p className="text-sm md:text-base text-gray-400">
-                {exchange} • Real-time data
+                {exchange}
               </p>
             </div>
           </div>
 
-          {/* <div className="flex gap-2 justify-start md:justify-end">
+          <div className="flex gap-2 justify-start md:justify-end">
       <button className="bg-[#1d241f] hover:bg-[#2c362e] px-4 py-2 rounded text-sm flex items-center gap-1">
         <span>🔔</span> Set Alert
       </button>
       <button className="bg-[#1d241f] hover:bg-[#2c362e] px-4 py-2 rounded text-sm flex items-center gap-1">
         <span>⭐</span> Add to Watchlist
       </button>
-    </div> */}
+    </div>
         </div>
 
         <div className="mt-6">

@@ -6,13 +6,12 @@ import { FiSend, FiUser } from "react-icons/fi";
 
 export default function AIRoute() {
   const [query, updateQVal] = useState("");
-  const [response, updateRes] = useState("");
-
+  
   function appender() {
     const chat_window = document.querySelector("#chat_body");
     const div = document.createElement("div");
     div.className =
-      "grid text-xl justify-self-end  p-3 rounded-lg rounded-bl-none my-2 bg-gray-400 text-right justify-self-right h-auto";
+      "grid text-xl justify-self-end p-3 rounded-lg rounded-bl-none my-2 bg-gray-400 text-right justify-self-right h-auto";
     chat_window?.appendChild(div);
     div.textContent = query;
   }
@@ -21,19 +20,18 @@ export default function AIRoute() {
     const chat_window = document.querySelector("#chat_body");
     const div = document.createElement("div");
     div.className =
-      "grid text-xl   indent-4 my-2 bg-[#53D22c] text-gray-800 p-3 rounded-lg rounded-bl-none text-left justify-self-left h-auto w-[60%] text-justify";
+      "grid text-xl my-2 bg-[#53D22c] text-gray-800 p-3 rounded-lg rounded-bl-none text-left justify-self-left h-auto w-[60%] text-justify";
     chat_window?.appendChild(div);
     div.textContent = txt;
   }
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    updateRes("");
     appender();
     const value = await chatItem(query);
     if (value) {
-      updateRes(value);
       appendAIResponse(value);
     }
+    updateQVal('')
   }
 
   return (
@@ -49,7 +47,7 @@ export default function AIRoute() {
 
         <div
           id="chat_body"
-          className="flex-1 overflow-y-auto p-4 space-y-4 h-[75vh] sm:h-[70vh]"
+          className="overflow-y-auto p-4 space-y-4 h-[75vh] sm:h-[70vh]"
         ></div>
 
         <form
