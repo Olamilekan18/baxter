@@ -181,7 +181,7 @@ export default function CourseCard({ course }: CourseCardProps) {
       </div>
 
       <div className="p-4 flex-grow flex flex-col">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
+        <h2 className="text-xl font-semibold text-[#131712] mb-2">
           {course.title}
         </h2>
 
@@ -201,7 +201,7 @@ export default function CourseCard({ course }: CourseCardProps) {
               {showSeeMore && (
                 <button
                   onClick={() => setExpanded(true)}
-                  className="text-primary hover:text-primary-dark text-sm font-medium mt-1"
+                  className="text-[#53D22C] hover:text-[#131712] text-sm font-medium mt-1"
                 >
                   See more
                 </button>
@@ -223,7 +223,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           {expanded && (
             <button
               onClick={() => setExpanded(false)}
-              className="mt-2 w-full  bg-black text-primary hover:text-primary-dark font-medium py-1 px-4 rounded transition-colors duration-300"
+              className="mt-2 w-full  bg-[#131712] text-[#53D22C] hover:text-primary-dark font-medium py-1 px-4 rounded transition-colors duration-300"
             >
               Show Less
             </button>
