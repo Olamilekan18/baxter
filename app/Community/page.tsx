@@ -1,7 +1,8 @@
 // pages/community.tsx
 // import Header from "./components/Header";
 import Link from "next/link";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import Footer from "../components/footer";
 import DiscussionCard from "./components/DiscussionCard";
 import Leaderboard from "./components/Leaderboard";
 import EventCard from "./components/EventCard";
@@ -241,7 +242,7 @@ export default function CommunityPage() {
           <Poll />
         </section>
 
-        <section className="bg-primary text-white p-8 rounded-lg mb-12">
+        {/* <section className="bg-primary text-white p-8 rounded-lg mb-12">
           <h2 className="text-2xl font-bold mb-4">💬 Join the Conversation</h2>
           <div className="flex flex-wrap gap-2 mb-4">
             {[
@@ -268,9 +269,59 @@ export default function CommunityPage() {
               me from a bad short!&quot; – @OptionsGuru
             </p>
           </div>
-        </section>
+        </section> */}
+        <div className="bg-gradient-to-b from-[#121212] to-green-800">
+          <div className="mx-auto py-16 sm:px-6 lg:px-8">
+            <div className="relative isolate overflow-hidden px-6 py-24 text-center sm:rounded-3xl sm:px-16">
+              <h2 className="font-nudge-extrabold mx-auto max-w-2xl text-3xl font-bold uppercase tracking-wide sm:text-4xl">
+                💬 Join the Conversation
+              </h2>
 
-        <section className="text-center">
+              <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white">
+                Experience the benefits of our community. &quot;Just used
+                Baxter&apos;s AI scanner to find a 15% gap play—worked like
+                magic!&quot;
+              </p>
+
+              <div className="isolate mt-8 flex flex-wrap items-center justify-center -space-x-2 overflow-hidden">
+                <img
+                  className="relative z-30 inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/men/34.jpg"
+                  alt="members"
+                />
+                <img
+                  className="relative z-20 inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/women/2.jpg"
+                  alt="members"
+                />
+                <img
+                  className="relative z-10 inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/women/3.jpg"
+                  alt="members"
+                />
+                <img
+                  className="relative z-0 inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  src="https://randomuser.me/api/portraits/men/4.jpg"
+                  alt="members"
+                />
+                <span className="!ml-2 font-bold italic text-green-500">
+                  Join these awesome members
+                </span>
+              </div>
+
+              <div className="mt-12 flex items-center justify-center gap-x-6">
+                <button
+                  type="button"
+                  className="text-md relative inline-flex items-center gap-x-2 rounded-lg bg-green-600 px-6 py-4 font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                >
+                  Join Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <section className="text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
             🚀 Why Join Baxter&quot;s Community?
           </h2>
@@ -286,15 +337,15 @@ export default function CommunityPage() {
               </div>
             ))}
           </div>
-          {/* <div className="space-x-4">
+          <div className="space-x-4">
             <button className="bg-accent hover:bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors">
               Sign Up Now
             </button>
             <button className="bg-primary hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg border border-primary transition-colors">
               Download App
             </button>
-          </div> */}
-        </section>
+          </div>
+        </section> */}
       </main>
 
       <Footer />
