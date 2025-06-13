@@ -9,9 +9,9 @@ export default function Header() {
         </a>
         
         <nav className="hidden md:flex space-x-6">
-          <button><a className="hover:text-accent transition-colors">Trade</a></button>
-          <button ><a className="font-bold text-accent">Community</a></button>
-          <button ><a className="hover:text-accent transition-colors">Learn</a></button>
+          <button><a href = '/stock' className="hover:text-accent transition-colors">Trade</a></button>
+          <button ><a href = '/community' className="font-bold text-accent">Community</a></button>
+          <button ><a href = '/Courses' className="hover:text-accent transition-colors">Learn</a></button>
           <button ><a className="hover:text-accent transition-colors">About</a></button>
         </nav>
         

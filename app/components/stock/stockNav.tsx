@@ -7,7 +7,7 @@ import { FiBell, FiMenu, FiX } from "react-icons/fi";
 import logo from "@/design_assets/SVG.png";
 const url = [
   { label: "Home", path: "/stock" },
-  { label: "Profile", path: "/profile" },
+  { label: "Courses", path: "/Courses" },
   { label: "My Watchlist", path: "/stock/watchlist" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
@@ -29,7 +29,7 @@ export default function StockHomeNav() {
           <ul className="hidden md:flex space-x-6 text-sm">
             {[
               { label: "Home", path: "/stock/watchlist" },
-              { label: "Profile", path: "/profile" },
+              { label: "Courses", path: "/Courses" },
               { label: "Portfolio", path: "/portfolio" },
               { label: "News", path: "/news" },
               { label: "Markets", path: "/markets" },

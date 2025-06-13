@@ -16,7 +16,7 @@ export default function CommunityPage() {
       title: "NVDA Earnings Breakdown",
       author: "@TradeMaster",
       content:
-        "Baxter's AI predicted a 12% move post-earnings—what’s your next move? Are you positioning for a gain or playing it safe after this forecast?",
+        "Baxter's AI predicted a 12% move post-earnings—what’s your next move? Are you positioning for a gain or playing it safe after this forecast? You don't want to miss this!",
       upvotes: 1200,
       comments: 342,
       isHot: true,
@@ -68,7 +68,7 @@ export default function CommunityPage() {
     <div className="min-h-screen flex flex-col">
       <HomeNav />
 
-      <main className="flex-grow container ">
+      <main className="flex-grow  w-full ">
         <section className="w-full flex items-center justify-center min-h-screen overflow-hidden bg-gradient-to-b from-[#121212] to-green-800">
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="relative z-10 container mx-auto px-4 text-center text-white">
@@ -238,9 +238,9 @@ export default function CommunityPage() {
           <Poll />
         </section>
 
-        <section className="bg-primary text-white p-8 rounded-lg mb-12">
+        <section className="bg-primary text-white mx-auto justify-center align-center text-center p-8 rounded-lg mb-12">
           <h2 className="text-2xl font-bold mb-4">💬 Join the Conversation</h2>
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap text-center gap-2 mb-4">
             {[
               "#BaxterAI",
               "#StocksToWatch",
@@ -249,7 +249,7 @@ export default function CommunityPage() {
             ].map((tag) => (
               <span
                 key={tag}
-                className="bg-accent px-3 py-1 rounded-full text-sm"
+                className="bg-accent px-3 py-1  rounded-full text-sm"
               >
                 {tag}
               </span>

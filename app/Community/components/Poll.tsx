@@ -19,7 +19,7 @@ export default function Poll() {
   };
 
   return (
-    <div className="bg-primary rounded-lg shadow-md p-6">
+    <div className="bg-primary mx-auto  rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold text-primary mb-4">📢 Community Poll</h2>
       <p className="mb-6">"Which market are you bullish on this quarter?"</p>
       
