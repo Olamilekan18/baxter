@@ -2,14 +2,16 @@
 import Link from "next/link";
 import HomeNav from "@/app/components/HomepageNav.tsx";
 import Footer from "@/app/components/footer.tsx";
+import error from "@/public/404.png";
+import Image from "next/image";
 export default function NotFound() {
   return (
     <>
       <HomeNav />
       <div className="pt-10 sm:pt-10 flex min-h-screen items-center justify-center bg-[#131712] text-white px-4 ">
         <div className="text-center animate-fadeIn">
-          <img
-            src="https://yemca-services.net/404.png"
+          <Image
+            src={error}
             alt="404 Illustration"
             className="mx-auto w-80 animate-[float_3s_infinite] shadow-xl rounded-lg"
           />
