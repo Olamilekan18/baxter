@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 
-import {AuthProvider} from './Providers'
 
 export const Manrope_Font = Manrope({
   subsets: ['latin'],
@@ -22,10 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${Manrope_Font.className} `}> 
-
-        <AuthProvider>
         {children}
-        </AuthProvider>
         </body>
     </html>
   );
