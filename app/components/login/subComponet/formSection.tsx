@@ -16,7 +16,11 @@ export default function FormSection() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
+
+    if (!email || !password) {
+      toast.error("Please enter both email and password");
+      return;
+    }
 
     const res = await signIn("credentials", {
       redirect: false,
@@ -24,7 +28,7 @@ export default function FormSection() {
       password,
     });
 
-    setLoading(false);
+    console.log(res); // Debug: log the response
 
     if (!res || !res.ok) {
       toast.error(res?.error || "Invalid email or password");
