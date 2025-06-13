@@ -1,6 +1,3 @@
-import StockPriceComp from "@/app/components/StockPriceComp";
-import Link from "next/link";
-
 export async function generateMetadata({
   params,
 }: {
@@ -13,16 +10,13 @@ export async function generateMetadata({
 }
 
 export default async function HouseLayout({
-  children,} : {
-  children: React.ReactNode;}
-) {
-
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className={`p-1 md:p-2 mx-1 md:mx-2`}>
-      <div className="grid">
-
-        {children}
-      </div>
+      <div className="grid">{children}</div>
     </div>
   );
 }
