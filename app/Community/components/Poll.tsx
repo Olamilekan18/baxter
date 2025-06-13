@@ -28,7 +28,7 @@ export default function Poll() {
   };
 
   return (
-    <div className="bg-primary rounded-lg shadow-md p-6 flex flex-col sm:flex-row items-center sm:justify-between">
+    <div className="bg-primary rounded-lg p-6 flex flex-col sm:flex-row items-center sm:justify-between">
       <div className="w-full sm:w-2/3">
         <h2 className="text-2xl font-bold text-primary mb-4">
           📢 Community Poll
@@ -46,7 +46,7 @@ export default function Poll() {
                   className={`p-4 rounded-lg cursor-pointer transition-colors ${
                     selectedOption === option.id
                       ? "ring-2 ring-accent"
-                      : "hover:bg-gray-50 hover:text-[#53d22c] "
+                      : "hover:bg-gray-200 hover:text-[#53d22c] "
                   }`}
                   onClick={() => setSelectedOption(option.id)}
                 >
@@ -64,7 +64,7 @@ export default function Poll() {
               disabled={!selectedOption}
               className={`py-2 px-6 rounded-lg font-bold ${
                 selectedOption
-                  ? "bg-accent hover:bg-primary text-white"
+                  ? "bg-accent hover:bg-[#53d22c] text-white"
                   : "bg-gray-200 text-[#53d22c] cursor-not-allowed"
               } transition-colors`}
             >
@@ -85,7 +85,7 @@ export default function Poll() {
         <Image
           src={nvidia}
           alt="Poll Illustration"
-          className="rounded-lg shadow-md w-full h-auto object-cover"
+          className="rounded-lg w-full h-auto object-cover"
         />
       </div>
     </div>
