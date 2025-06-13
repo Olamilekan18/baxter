@@ -23,7 +23,7 @@ export default async function LineChart(props: {
   }
 
   return (
-    <div className="md:w-[95%] h-[350px] w-[90vw]">
+    <div className="w-full md:w-[95%] h-[350px]">
       <div className="grid grid-cols-12 gap-x-2">
         <Link
           href={`/stock/${props.symbol}`}
@@ -44,7 +44,7 @@ export default async function LineChart(props: {
           href={`/stock/${props.symbol}/90`}
           className={`md:text-md md:my-1 p-2 col-span-1 hover:text-[#53D22c] rounded-xl text-center ${
             props.timeframe && props.timeframe == 90 ? "bg-[#53D22c]" : ""
-          } `}
+          }`}
           id="90"
         >
           3M
