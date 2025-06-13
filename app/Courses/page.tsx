@@ -22,6 +22,7 @@ declare global {
 export default function CoursesPage() {
   const [progress, setProgress] = useState<Record<string, number>>({});
   const [courses, setCourses] = useState<Course[]>([]);
+  const [watchProgress, setWatchProgress] = useState(0)
 
   useEffect(() => {
     const courseData = [
@@ -147,6 +148,11 @@ export default function CoursesPage() {
     if (savedProgress) setProgress(JSON.parse(savedProgress));
   }, []);
 
+  useEffect(() => {
+    const watched = JSON.parse(localStorage.getItem('watchedVideos') || '[]');
+    setWatchProgress((watched.length / courses.length) * 100);
+  }, [courses.length]);
+
   const trackProgress = (courseId: string) => {
     const newProgress = {
       ...progress,
@@ -177,6 +183,7 @@ export default function CoursesPage() {
             />
           ))}
         </div>
+              <div className="text-right text-sm mt-3 ">{Math.round(watchProgress)}% completed</div>
       </main>
     </div>
   );
