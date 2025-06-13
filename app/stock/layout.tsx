@@ -81,7 +81,7 @@ export default function StockLayout({
           <SideNav />
         </div>
 
-        <div className="lg:col-span-9">{children}</div>
+        <div className="grid lg:col-span-9 place-items-center">{children}</div>
       </div>
     </>
   );

@@ -12,8 +12,7 @@ const url = [
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
   { label: "Markets", path: "/markets" },
-  { label: "Research", path: "/research" },
-  { label: "Chat with AI", path: "/ai-chat" },
+  { label: "AI Chat", path: "/ai-chat" },
 ];
 export default function StockHomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -34,7 +33,7 @@ export default function StockHomeNav() {
               { label: "Portfolio", path: "/portfolio" },
               { label: "News", path: "/news" },
               { label: "Markets", path: "/markets" },
-              { label: "Research", path: "/research" },
+              { label: "AI Chat", path: "/ai-chat" },
             ].map(({ label, path }) => (
               <li key={label}>
                 <Link href={path} className="hover:text-green-400 transition">

@@ -56,7 +56,7 @@ export function ALineChart(props: {
               ticks: {
                 color: "#ccc",
                 font: {
-                  size: 12,
+                  size: 10,
                 },
               },
             },
@@ -69,7 +69,6 @@ export function ALineChart(props: {
                 font: {
                   size: 12,
                 },
-                callback: (value: number) => `$${value.toFixed(2)}`,
               },
             },
           },
