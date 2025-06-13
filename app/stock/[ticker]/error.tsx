@@ -22,14 +22,12 @@ export default function ErrorPage() {
           Something went wrong. We couldn’t find what you were looking for.
         </p>
 
-        <p className="text-sm text-white mb-6">
-          An unknown Error Occured
-        </p>
+        <p className="text-sm text-white mb-6">An unknown Error Occured</p>
 
         <div className="flex flex-col items-center space-y-4">
           <button
             onClick={handleGoHome}
-            className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 flex items-center space-x-2 transition"
+            className="bg-green-600 text-white py-2 px-6 rounded-lg cursor-pointer hover:bg-green-500 flex items-center space-x-2 transition"
           >
             <FiHome className="w-5 h-5" />
             <span>Go to Homepage</span>
@@ -37,7 +35,7 @@ export default function ErrorPage() {
 
           <button
             onClick={handleReload}
-            className="bg-gray-700 text-white py-2 px-6 rounded-lg hover:bg-gray-600 flex items-center space-x-2 transition"
+            className="bg-gray-700 cursor-pointer text-white py-2 px-6 rounded-lg hover:bg-gray-600 flex items-center space-x-2 transition"
           >
             <FiRefreshCcw className="w-5 h-5" />
             <span>Reload Page</span>
