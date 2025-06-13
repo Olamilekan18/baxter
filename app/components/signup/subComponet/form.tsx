@@ -32,7 +32,7 @@ export default function SignUpForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, username }),
       });
 
       const { user } = await resUserExists.json();
