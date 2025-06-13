@@ -84,7 +84,7 @@ export default function SignUpForm() {
         />
 
         <input
-          value={loading ? "Signing up..." : "Sign up"}
+          value={loading ? "Creating Account..." : "Sign up"}
           type="submit"
           className="w-full bg-[#40ff47] text-black font-semibold py-2 rounded-full hover:bg-[#32e93a] transition"
           disabled={loading}
