@@ -1,5 +1,3 @@
-// components/Layout/Header.tsx
-import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -20,11 +18,11 @@ export default function Header() {
         </nav>
         
         <div className="flex items-center space-x-4">
-          <button className="bg-accent hover:bg-white hover:text-primary text-white py-2 px-4 rounded-lg transition-colors">
-            Sign In
+          <button className="bg-accent hover:bg-green-600 hover:text-primary text-white py-2 px-4 rounded-lg transition-colors">
+           <a href="/signup">Sign In</a> 
           </button>
-          <button className="hidden md:block bg-white text-primary hover:bg-gray-100 py-2 px-4 rounded-lg transition-colors">
-            Get Started
+          <button className="hidden md:block bg-primary text-primary hover:bg-green-600 py-2 px-4 rounded-lg transition-colors">
+           <a href = '/'> Get Started</a>
           </button>
         </div>
       </div>
