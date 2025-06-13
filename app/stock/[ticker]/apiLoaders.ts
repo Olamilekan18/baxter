@@ -156,15 +156,16 @@ function longTermDate(timeframe: number) {
   };
 }
 
-export async function fetchFinancials(ticker: string){
-  const finRequest = await fetch(`${base_URL}/stock/metric?symbol=${ticker}&metric=all&token=${api_key}`, {
-    cache: 'force-cache'
-  })
-  const finRes : financials = await finRequest.json()
-  return (finRes)
-
+export async function fetchFinancials(ticker: string) {
+  const finRequest = await fetch(
+    `${base_URL}/stock/metric?symbol=${ticker}&metric=all&token=${api_key}`,
+    {
+      cache: 'force-cache',
+    }
+  );
+  const finRes: financials = await finRequest.json();
+  return finRes;
 }
-
 
 export async function fetchChartData24H(symbol: string) {
   let dateValue = new Date();
@@ -172,7 +173,7 @@ export async function fetchChartData24H(symbol: string) {
   if (dateValue.getDay() == 1 && dateValue.getHours() < 15) {
     n = 3;
   } else {
-    n = 1;
+    n = 0;
   }
   let { date_string_1, date_string_2 } = giveDateString(n);
 
