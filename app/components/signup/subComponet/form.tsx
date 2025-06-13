@@ -12,6 +12,7 @@ export default function SignUpForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -22,6 +23,8 @@ export default function SignUpForm() {
       toast.error("Please fill in all fields.");
       return;
     }
+
+    setLoading(true); // Start loading
 
     try {
       const resUserExists = await fetch("/api/userExists", {
@@ -36,6 +39,7 @@ export default function SignUpForm() {
 
       if (user) {
         toast.error("User already exists.");
+        setLoading(false); // Stop loading
         return;
       }
 
@@ -51,15 +55,17 @@ export default function SignUpForm() {
         const form = e.target;
         form.reset();
 
-        router.push("/login");
+        router.push("/stock");
 
-        toast.success("User registered successfully!");
+        toast.success("Account Created successfully!");
       } else {
         toast.error("Registration failed. Try again.");
       }
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
       console.error("Error during registration:", error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -78,9 +84,10 @@ export default function SignUpForm() {
         />
 
         <input
-          value="Sign up"
+          value={loading ? "Creating Account..." : "Sign up"}
           type="submit"
           className="w-full bg-[#40ff47] text-black font-semibold py-2 rounded-full hover:bg-[#32e93a] transition"
+          disabled={loading}
         />
       </form>
     </>

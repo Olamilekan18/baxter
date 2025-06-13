@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/stock/[ticker]/loading.js"
-  ],
+, "app/stock/[ticker]/error.tsx"  ],
   "exclude": ["node_modules"]
 }

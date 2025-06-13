@@ -67,7 +67,7 @@ export default async function StockPriceComp(props: {
 
           <div className="flex gap-2 justify-start md:justify-end">
       <button className="bg-[#1d241f] hover:bg-[#2c362e] px-4 py-2 rounded text-sm flex items-center gap-1">
-        <span>🔔</span> Set Alert
+        <span >🔔</span> Set Alert
       </button>
       <button className="bg-[#1d241f] hover:bg-[#2c362e] px-4 py-2 rounded text-sm flex items-center gap-1">
         <span>⭐</span> Add to Watchlist

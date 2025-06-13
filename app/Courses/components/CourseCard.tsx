@@ -23,13 +23,11 @@ export default function CourseCard({ course }: CourseCardProps) {
   const playerRef = useRef<HTMLDivElement>(null);
   const videoId = course.youtubeurl?.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/)?.[1];
 
-  // Load progress from localStorage
   useEffect(() => {
     const savedProgress = JSON.parse(localStorage.getItem('courseProgress') || '{}');
     setProgress(savedProgress[course.id] || 0);
   }, [course.id]);
 
-  // Save progress to localStorage when it changes
   useEffect(() => {
     if (progress > 0) {
       const savedProgress = JSON.parse(localStorage.getItem('courseProgress') || '{}');
@@ -66,7 +64,6 @@ export default function CourseCard({ course }: CourseCardProps) {
   }, [showVideo, videoId]);
 
   const onPlayerReady = (event: any) => {
-    // Start from where user left off
     if (progress > 0) {
       const duration = event.target.getDuration();
       event.target.seekTo((duration * progress) / 100);
@@ -146,7 +143,6 @@ export default function CourseCard({ course }: CourseCardProps) {
         )}
       </div>
 
-      {/* Content Section - Fully Restored */}
       <div className="p-4 flex-grow flex flex-col">
         <h2 className="text-xl font-semibold text-gray-800 mb-2">{course.title}</h2>
         
@@ -188,7 +184,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           {expanded && (
             <button
               onClick={() => setExpanded(false)}
-              className="mt-2 w-full text-primary hover:text-primary-dark font-medium py-1 px-4 rounded transition-colors duration-300"
+              className="mt-2 w-full  bg-black text-primary hover:text-primary-dark font-medium py-1 px-4 rounded transition-colors duration-300"
             >
               Show Less
             </button>

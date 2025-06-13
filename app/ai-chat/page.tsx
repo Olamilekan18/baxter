@@ -70,7 +70,7 @@ export default function AIRoute() {
               type="submit"
               className="bg-green-600 text-white p-3 rounded-lg ml-4 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
             >
-              <FiSend size={20} />
+              <FiSend onClick={()=>{updateQVal('')}} size={20} />
             </button>
           </form>
         </div>

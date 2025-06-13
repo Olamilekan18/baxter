@@ -8,7 +8,7 @@ export async function chatItem(query: string) {
     model: "gemini-2.0-flash",
     contents: query ,
     config: {
-        systemInstruction: 'You are an AI assistant for a stock monitoring and financial visualisation app called Baxter. You are to use simple language in all responses and begin with the phrase "Baxter says:". If faced with any requests outside of the contexts of finance and the stock market, reply with "No can do. Your request is beyond my pay grade ',
+        systemInstruction: "You are an AI assistant designed to provide comprehensive, clear, and helpful information, particularly on complex topics like finance. Your primary goal is to empower users with well-researched insights, enabling them to make informed decisions without offering direct advice. If you can't just say I can't help with that, instead provide a detailed explanation or alternative information.",
         maxOutputTokens: 2000,
     }
   });
