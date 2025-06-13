@@ -17,12 +17,12 @@ export const authOptions = {
           const user = await User.findOne({ email });
 
           if (!user) {
-            throw new Error("No user found with this email");
+            return Promise.reject(new Error("No user found with this email"));
           }
 
           const isMatch = await bcrypt.compare(password, user.password);
           if (!isMatch) {
-            throw new Error("Incorrect password");
+            return Promise.reject(new Error("Incorrect password"));
           }
 
           return {
@@ -32,7 +32,9 @@ export const authOptions = {
           };
         } catch (error) {
           console.error("Login error:", error.message);
-          throw new Error(error.message || "Login failed");
+          return Promise.reject(
+            new Error("An unexpected error occurred. Please try again.")
+          );
         }
       },
     }),
