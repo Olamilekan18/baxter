@@ -12,12 +12,7 @@ const url = [
   { label: "Portfolio", path: "/portfolio" },
   { label: "News", path: "/news" },
   { label: "Markets", path: "/markets" },
-<<<<<<< HEAD
   { label: "AI Chat", path: "/ai-chat" },
-=======
-  { label: "Research", path: "/research" },
-  { label: "Chat with AI", path: "/ai-chat" },
->>>>>>> 962e3181cb7b5f4e38675ff09c061a73ec4e67fb
 ];
 export default function StockHomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);

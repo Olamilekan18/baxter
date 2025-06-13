@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 962e3181cb7b5f4e38675ff09c061a73ec4e67fb
 export default function Header() {
   return (
     <header className="bg-primary text-white shadow-md">
@@ -23,13 +19,8 @@ export default function Header() {
           <button className="bg-accent hover:bg-green-600 hover:text-primary text-white py-2 px-4 rounded-lg transition-colors">
            <a href="/signup">Sign In</a> 
           </button>
-<<<<<<< HEAD
           <button className="hidden md:block bg-primary text-primary hover:bg-green-600 py-2 px-4 rounded-lg transition-colors">
            <a href = '/'> Get Started</a>
-=======
-          <button className="hidden md:block bg-white text-gray-600 text-primary hover:bg-gray-100 hover:text-[#53d22c] py-2 px-4 rounded-lg transition-colors">
-            Get Started
->>>>>>> 962e3181cb7b5f4e38675ff09c061a73ec4e67fb
           </button>
         </div>
       </div>
