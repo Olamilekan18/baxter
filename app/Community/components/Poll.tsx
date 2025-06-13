@@ -28,7 +28,6 @@ export default function Poll() {
   };
 
   return (
-<<<<<<< HEAD
     <div className="bg-primary mx-auto  rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold text-primary mb-4">📢 Community Poll</h2>
       <p className="mb-6">"Which market are you bullish on this quarter?"</p>
@@ -45,60 +44,30 @@ export default function Poll() {
                 <div className="flex items-center">
                   <div className={`w-4 h-4 rounded-full mr-3 ${option.color}`}></div>
                   <span>{option.label}</span>
-=======
-    <div className="bg-primary rounded-lg p-6 flex flex-col sm:flex-row items-center sm:justify-between">
-      <div className="w-full sm:w-2/3">
-        <h2 className="text-2xl font-bold text-primary mb-4">
-          📢 Community Poll
-        </h2>
-        <p className="mb-6">
-          &quot;Which market are you bullish on this quarter?&quot;
-        </p>
-
-        {!hasVoted ? (
-          <>
-            <div className="space-y-3 mb-6">
-              {options.map((option) => (
-                <div
-                  key={option.id}
-                  className={`p-4 rounded-lg cursor-pointer transition-colors ${
-                    selectedOption === option.id
-                      ? "ring-2 ring-accent"
-                      : "hover:bg-gray-200 hover:text-[#53d22c] "
-                  }`}
-                  onClick={() => setSelectedOption(option.id)}
-                >
-                  <div className="flex items-center">
-                    <div
-                      className={`w-4 h-4 rounded-full mr-3 ${option.color}`}
-                    ></div>
-                    <span>{option.label}</span>
-                  </div>
->>>>>>> 082303551ea972b838af775980068bc1c7f2eb07
                 </div>
-              ))}
-            </div>
-            <button
-              onClick={handleVote}
-              disabled={!selectedOption}
-              className={`py-2 px-6 rounded-lg font-bold ${
-                selectedOption
-                  ? "bg-accent hover:bg-[#53d22c] text-white"
-                  : "bg-gray-200 text-[#53d22c] cursor-not-allowed"
-              } transition-colors`}
-            >
-              Vote Now
-            </button>
-          </>
-        ) : (
-          <div className="text-center py-4">
-            <p className="text-lg font-medium text-primary mb-4">
-              Thanks for voting!
-            </p>
-            <p>Results will be shared soon.</p>
+              </div>
+            ))}
           </div>
-        )}
-      </div>
+          <button
+            onClick={handleVote}
+            disabled={!selectedOption}
+            className={`py-2 px-6 rounded-lg font-bold ${
+              selectedOption
+                ? "bg-accent hover:bg-[#53d22c] text-white"
+                : "bg-gray-200 text-[#53d22c] cursor-not-allowed"
+            } transition-colors`}
+          >
+            Vote Now
+          </button>
+        </>
+      ) : (
+        <div className="text-center py-4">
+          <p className="text-lg font-medium text-primary mb-4">
+            Thanks for voting!
+          </p>
+          <p>Results will be shared soon.</p>
+        </div>
+      )}
 
       <div className="w-full sm:w-1/3 mt-6 sm:mt-0">
         <Image
