@@ -22,8 +22,8 @@ export default function ErrorPage() {
           Something went wrong. We couldn’t find what you were looking for.
         </p>
 
-        <p className="text-sm text-gray-400 mb-6">
-          Error: 404 - Page Not Found
+        <p className="text-sm text-white mb-6">
+          An unknown Error Occured
         </p>
 
         <div className="flex flex-col items-center space-y-4">
