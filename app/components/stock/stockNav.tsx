@@ -79,23 +79,6 @@ export default function StockHomeNav() {
               {label}
             </Link>
           ))}
-
-          {/* <div className="px-4 relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full bg-[#2C352A] text-white placeholder-gray-400 px-4 py-2 pl-10 rounded-full focus:outline-none ring-white ring-1 focus:ring-2 focus:ring-green-500"
-            />
-            <svg
-              className="w-4 h-4 text-gray-400 absolute left-7 top-2.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 0 5 11a6 6 0 0 0 12 0z" />
-            </svg>
-          </div> */}
         </div>
       )}
     </nav>
