@@ -28,6 +28,24 @@ export default function Poll() {
   };
 
   return (
+<<<<<<< HEAD
+    <div className="bg-primary mx-auto  rounded-lg shadow-md p-6">
+      <h2 className="text-2xl font-bold text-primary mb-4">📢 Community Poll</h2>
+      <p className="mb-6">"Which market are you bullish on this quarter?"</p>
+      
+      {!hasVoted ? (
+        <>
+          <div className="space-y-3 mb-6">
+            {options.map((option) => (
+              <div 
+                key={option.id}
+                className={`p-4 rounded-lg cursor-pointer transition-colors ${selectedOption === option.id ? 'ring-2 ring-accent' : 'hover:bg-gray-50 hover:text-[#53d22c] '}`}
+                onClick={() => setSelectedOption(option.id)}
+              >
+                <div className="flex items-center">
+                  <div className={`w-4 h-4 rounded-full mr-3 ${option.color}`}></div>
+                  <span>{option.label}</span>
+=======
     <div className="bg-primary rounded-lg p-6 flex flex-col sm:flex-row items-center sm:justify-between">
       <div className="w-full sm:w-2/3">
         <h2 className="text-2xl font-bold text-primary mb-4">
@@ -56,6 +74,7 @@ export default function Poll() {
                     ></div>
                     <span>{option.label}</span>
                   </div>
+>>>>>>> 082303551ea972b838af775980068bc1c7f2eb07
                 </div>
               ))}
             </div>
