@@ -168,8 +168,8 @@ export default function CoursesPage() {
       <StockHomeNav />
       <header className="bg-primary text-white py-8">
         <div className="container mt-10 text-center mx-auto px-4">
-          <h1 className="text-3xl font-bold">Investment Courses</h1>
-          <p className="mt-2">Track your learning journey</p>
+          <h1 className="text-3xl font-bold">Financial Literacy Courses</h1>
+          <p className="mt-2">Track your learning journey! Always come  back to learn</p>
         </div>
       </header>
 

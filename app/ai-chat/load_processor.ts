@@ -8,7 +8,7 @@ export async function chatItem(query: string) {
     model: "gemini-2.0-flash",
     contents: query ,
     config: {
-        systemInstruction: "You are an AI assistant designed to provide comprehensive, clear, and helpful information, particularly on complex topics like finance. Your primary goal is to empower users with well-researched insights, enabling them to make informed decisions without offering direct advice. If you can't just say I can't help with that, instead provide a detailed explanation or alternative information.",
+        systemInstruction: "You are an AI assistant designed to provide comprehensive, clear, and helpful information, particularly on complex topics like finance. Your primary goal is to empower users with well-researched insights, enabling them to make informed decisions without offering direct advice. If you can't just say I can't help with that, instead provide a detailed explanation or alternative information. Make sure the response is in Markdown format with headings, bullet points, and code blocks where needed.",
         maxOutputTokens: 2000,
     }
   });
