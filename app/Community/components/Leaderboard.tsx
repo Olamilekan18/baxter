@@ -9,36 +9,65 @@ export default function Leaderboard() {
   ];
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-primary mb-6">🏆 Top Traders This Week</h2>
+    <div className="w-full">
+      <h2 className="text-2xl font-bold text-primary mb-6 text-center sm:text-left">
+        🏆 Top Traders This Week
+      </h2>
+
       <div className="bg-primary rounded-lg shadow-md overflow-hidden">
-        <table className="min-w-full divide-y bg-primary divide-gray-200">
-          <thead className="bg-primary text-white">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rank</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trader</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Win Rate</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">P&L (7D)</th>
-            </tr>
-          </thead>
-          <tbody className="bg-primary divide-y divide-gray-200">
-            {topTraders.map((trader) => (
-              <tr key={trader.rank}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {trader.rank === 1 && <span className="text-yellow-500">🥇</span>}
-                  {trader.rank === 2 && <span className="text-gray-400">🥈</span>}
-                  {trader.rank === 3 && <span className="text-amber-600">🥉</span>}
-                  {trader.rank > 3 && <span>{trader.rank}</span>}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap font-medium text-primary">{trader.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{trader.winRate}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-green-600 font-medium">{trader.pnl}</td>
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-primary text-white">
+              <tr>
+                <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider whitespace-nowrap">
+                  Rank
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider whitespace-nowrap">
+                  Trader
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider whitespace-nowrap">
+                  Win Rate
+                </th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider whitespace-nowrap">
+                  P&L (7D)
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="px-6 py-4 bg-primary text-right">
-          <a href="#" className="text-accent hover:text-primary font-medium">
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {topTraders.map((trader) => (
+                <tr
+                  key={trader.rank}
+                  className="bg-[#131712] hover:bg-[#2a2a2a]"
+                >
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    {trader.rank === 1 && (
+                      <span className="text-yellow-500">🥇</span>
+                    )}
+                    {trader.rank === 2 && (
+                      <span className="text-gray-400">🥈</span>
+                    )}
+                    {trader.rank === 3 && (
+                      <span className="text-amber-600">🥉</span>
+                    )}
+                    {trader.rank > 3 && <span>{trader.rank}</span>}
+                  </td>
+                  <td className="px-4 py-3 whitespace-nowrap font-medium">
+                    {trader.name}
+                  </td>
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    {trader.winRate}
+                  </td>
+                  <td className="px-4 py-3 whitespace-nowrap text-green-500 font-semibold">
+                    {trader.pnl}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="px-4 py-3 bg-[#1c1c1c] text-right">
+          <a href="#" className="text-accent hover:text-white font-medium">
             View Full Leaderboard →
           </a>
         </div>

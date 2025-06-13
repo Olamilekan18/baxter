@@ -24,7 +24,7 @@ export default function HomeNav() {
           <ul className="hidden md:flex space-x-6 text-sm text-white">
             {[
               { route: "Home", path: "/" },
-              { route: "Learn", path: "/learn" },
+              { route: "Learn", path: "/Courses" },
               { route: "News", path: "/news" },
               { route: "Community", path: "/Community" },
             ].map(({ route, path }) => (
@@ -110,7 +110,7 @@ export default function HomeNav() {
         <div className="md:hidden mt-4 pb-3 space-y-4  text-gray-300">
           {[
             { route: "Home", path: "/" },
-            { route: "Learn", path: "/learn" },
+            { route: "Learn", path: "/Courses" },
             { route: "News", path: "/news" },
             { route: "Community", path: "/community" },
           ].map(({ route, path }) => (

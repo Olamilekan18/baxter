@@ -1,4 +1,5 @@
-import { Discussion } from '../types';
+import { FiChevronUp } from "react-icons/fi";
+import { Discussion } from "../types";
 
 interface DiscussionCardProps {
   discussion: Discussion;
@@ -6,35 +7,58 @@ interface DiscussionCardProps {
 
 export default function DiscussionCard({ discussion }: DiscussionCardProps) {
   return (
-    <div className="bg-[#131712] rounded-lg shadow-md overflow-hidden">
-      <div className="p-6">
-        <div className="flex items-start">
-          {discussion.isHot && (
-            <span className="bg-primary text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">🔥 HOT</span>
-          )}
-          {discussion.isAlert && (
-            <span className="bg-primary text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">📉 ALERT</span>
-          )}
-          {discussion.isNew && (
-            <span className="bg-primary text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">🚀 NEW</span>
-          )}
-          <h3 className="text-xl font-bold text-primary flex-grow">{discussion.title}</h3>
-        </div>
-        <p className="text-gray-600 mt-2">Posted by {discussion.author}</p>
-        <p className="mt-3">{discussion.content}</p>
-        <div className="mt-4 flex items-center space-x-4 text-sm">
-          <span className="flex items-center text-gray-500">
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
-            </svg>
-            {discussion.upvotes.toLocaleString()} Upvotes
-          </span>
-          <span className="flex items-center text-gray-500">
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            {discussion.comments.toLocaleString()} Comments
-          </span>
+    <div className="p-4 md:w-1/3">
+      <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <img
+          className="lg:h-48 md:h-36 w-full object-cover object-center"
+          src="https://s.yimg.com/ny/api/res/1.2/gHlVvT_Jz07GK4l1kBgqNA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTY0MA--/https://media.zenfs.com/en/us.finance.gurufocus/528af7acf1b685a79f0a0ee8c34ab69c"
+          alt="blog"
+        />
+        <div className="p-6 bg-white">
+          <h2 className="tracking-widest text-xs title-font font-medium text-gray-700 mb-1">
+            Author: {discussion.author}
+          </h2>
+          <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+            {discussion.title}
+          </h1>
+          <p className="leading-relaxed text-black mb-3">
+            {discussion.content}
+          </p>
+          <div className="flex items-center flex-wrap ">
+            <a className="text-green-500 inline-flex items-center md:mb-2 lg:mb-0">
+              Learn More
+              <svg
+                className="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <FiChevronUp className="w-4 h-4 mr-1" />
+              {discussion.upvotes.toLocaleString()}
+            </span>
+            <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+              <svg
+                className="w-4 h-4 mr-1"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>
+              {discussion.comments.toLocaleString()}
+            </span>
+          </div>
         </div>
       </div>
     </div>

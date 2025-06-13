@@ -7,7 +7,7 @@ export default function NewsItem(props: { object: newsItem }) {
   return (
     <div
       key={id}
-      className="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 bg-transparent rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6"
+      className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-[#496043] p-4 bg-transparent rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6"
     >
       <div className="md:col-span-3">
         <a
