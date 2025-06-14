@@ -1,94 +1,126 @@
 "use client";
-import { useEffect, useState } from "react"
-import { Holdings, Transaction } from "../components/TradePanel"
+import { useEffect, useState } from "react";
+import { Holdings, Transaction } from "../components/TradePanel";
 import Link from "next/link";
 import { itemFilter } from "../stock/watchlist/page";
 
 const Dashboard = () => {
-    const [holdings, updateHoldings] = useState<Holdings>({});
-    const [balance, updateBalance] = useState<string>('0')
-    const [transactions, updateTransactions] = useState<Transaction[]>([])
+  const [holdings, updateHoldings] = useState<Holdings>({});
+  const [balance, updateBalance] = useState<string>("0");
+  const [transactions, updateTransactions] = useState<Transaction[]>([]);
 
-    useEffect(()=> {
-        const storedHoldings = localStorage.getItem("holdings");
-        if(storedHoldings){
-            try{
-                const parsedHoldings = JSON.parse(storedHoldings);
-                updateHoldings(parsedHoldings)
-            } catch(err){
-                console.error(err)
-            }
-        }
-    }, []);
+  useEffect(() => {
+    const storedHoldings = localStorage.getItem("holdings");
+    if (storedHoldings) {
+      try {
+        const parsedHoldings = JSON.parse(storedHoldings);
+        updateHoldings(parsedHoldings);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }, []);
 
-    useEffect(()=> {
-        const user_balance = localStorage.getItem('balance') || '10'
-        const user_holdings = JSON.parse(localStorage.getItem('holdings') ||
-        "{}")
-        const user_transactions = JSON.parse(localStorage.getItem('transactions') || '[]')
+  useEffect(() => {
+    const user_balance = localStorage.getItem("balance") || "10";
+    const user_holdings = JSON.parse(localStorage.getItem("holdings") || "{}");
+    const user_transactions = JSON.parse(
+      localStorage.getItem("transactions") || "[]"
+    );
 
-        updateBalance(user_balance);
-        updateTransactions(user_transactions)
-        updateHoldings(user_holdings)
-    }, []);
-    
-    return(
-        <>
-        
-        <div className="grid p-2 -my-2 mx-auto">
-            <p className="text-3xl my-1">
-                Welcome Back, James!
+    updateBalance(user_balance);
+    updateTransactions(user_transactions);
+    updateHoldings(user_holdings);
+  }, []);
+
+  return (
+    <div className="p-6 max-w-5xl mx-auto mt-20 space-y-8 bg-[#1A1F19] rounded-2xl">
+      <div className="p-8 bg-[#2A3328] rounded-lg shadow-xl">
+        <p className="text-4xl font-semibold text-gray-200">
+          Welcome Back, James!
+        </p>
+        <p className="text-2xl font-semibold text-gray-300 mt-2">
+          Your Balance: <span className="text-green-600">USD {balance}</span>
+        </p>
+      </div>
+
+      <div className="p-8 bg-[#2A3328] rounded-lg shadow-xl">
+        <div className="flex justify-between items-center">
+          <p className="text-xl font-semibold text-gray-200">Holdings</p>
+        </div>
+        <div className="space-y-3 mt-4">
+          {Object.entries(holdings).length === 0 ? (
+            <p className="text-center text-gray-500 text-lg">
+              You dont have any Holdings yet.
             </p>
-            <p className="font-semibold text-xl my-4">Your Balance: USD {balance}</p>
-
-            <div className="grid grid-cols-4">
-                <div className="col-span-3">
-                    <p>Lorem</p>
-                    
-                </div>
-
-              <div className="grid col-span-1">
-            <p className="my-2 underline">Holdings</p>
-           {
+          ) : (
             Object.entries(holdings).map(([symbol, shares]) => (
-               <div key={symbol}>
-                    <Link href={`/stock/${symbol}`} className="hover:underline">
+              <div key={symbol} className="flex justify-between items-center">
+                <div className="flex items-center space-x-4">
+                  <img
+                    src={`https://cdn.brandfetch.io/${itemFilter(
+                      symbol
+                    )}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
+                    className="rounded-full max-h-10"
+                    alt={`${symbol} Logo`}
+                  />
+                  <Link
+                    href={`/stock/${symbol}`}
+                    className="text-lg font-medium text-green-600 hover:text-white hover:underline transition duration-300"
+                  >
                     {symbol}
-                    </Link> : 
-                <span>{shares}</span>
-               </div>
+                  </Link>
+                </div>
+                <span className="text-gray-200">{shares} shares</span>
+              </div>
             ))
-           }
+          )}
         </div>
-        </div>
+      </div>
 
-            <p className="text-xl my-2 underline">Transaction History</p>
-             <ul className="text-sm space-y-3 pr-4">
+      <div className="p-8 bg-[#2A3328] rounded-lg shadow-xl">
+        <p className="text-xl font-semibold text-gray-300 text-center mb-4">
+          Transaction History
+        </p>
+
+        {transactions.length === 0 ? (
+          <p className="text-center text-gray-500 text-lg">No transactions</p>
+        ) : (
+          <ul className="space-y-4">
             {transactions.map((tx, index) => (
               <li
                 key={index}
-                className="border-b border-gray-700 py-2 px-4 rounded-lg hover:bg-[#333333] transition-all duration-300"
+                className="border-b border-gray-300 py-6 px-8 rounded-lg hover:bg-[#53D22C] hover:text-[#131712] hover:scale-105 transition-all duration-300 border-2 border-white"
               >
-                <p className="flex justify-between items-center">
-                  <span>{tx.type === 'buy' ? '🟢 Buy' : '🔴 Sell'}</span>
-                
-                  <img src={`https://cdn.brandfetch.io/${itemFilter(
-                                  tx.symbol
-                                )}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`} className='rounded-full max-h-8' alt={`${tx.symbol} Logo`}/>
-                </p>
-                 
-                <p className="text-gray-400 text-xs text-right">
-                     <p className="font-semibold">
-                    {tx.quantity} {tx.symbol} @ ${tx.price.toFixed(2)}
+                <div className="flex justify-between items-center mb-2">
+                  <p className="font-bold text-xl">
+                    {tx.type === "buy" ? "🟢 Buy" : "🔴 Sell"}
                   </p>
-                  {new Date(tx.timestamp).toLocaleString()}
-                </p>
+                  <img
+                    src={`https://cdn.brandfetch.io/${itemFilter(
+                      tx.symbol
+                    )}/w/400/h/400?c=1idERn_mT3M_sg0-LYT`}
+                    className="rounded-full max-h-10"
+                    alt={`${tx.symbol} Logo`}
+                  />
+                </div>
+                <div className="flex justify-between">
+                  <p className="text-sm">
+                    <span className="font-semibold">
+                      {tx.quantity} {tx.symbol}
+                    </span>{" "}
+                    @ ${tx.price.toFixed(2)}
+                  </p>
+                  <p className="text-xs text-gray-100">
+                    {new Date(tx.timestamp).toLocaleString()}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>
-        </div>
-        </>
-    )
-}
-export default Dashboard
-
+        )}
+      </div>
+    </div>
+  );
+};
+export default Dashboard;
