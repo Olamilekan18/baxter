@@ -98,7 +98,7 @@ const Dashboard = () => {
             {transactions.map((tx, index) => (
               <li
                 key={index}
-                className="border-b border-gray-300 py-6 px-8 rounded-lg hover:bg-[#53D22C] hover:text-[#131712] hover:scale-105 transition-all duration-300 border-2 border-white"
+                className="border-b border-gray-300 py-6 px-8 rounded-lg hover:bg-[#53D22C] hover:text-[#131712] hover:scale-105 transition-all duration-300 border-2 "
               >
                 <div className="flex justify-between items-center mb-2">
                   <p className="font-bold text-xl">
