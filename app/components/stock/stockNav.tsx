@@ -18,7 +18,7 @@ export default function StockHomeNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#121712] text-white px-4 py-3 border-b border-[#2D372A]">
+    <nav className="w-full z-50 bg-[#121712] text-white px-4 py-3 border-b border-[#2D372A]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <Image src={logo} alt="Baxter" width={24} height={24} />

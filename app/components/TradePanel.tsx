@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { isMarketOpen } from '@/app/components/time';
 
-type Props = {
+export type Props = {
   symbol: string;
 };
 
-type Holdings = {
+export type Holdings = {
   [symbol: string]: number;
 };
 
-type Transaction = {
+export type Transaction = {
   symbol: string;
   quantity: number;
   price: number;
@@ -55,18 +55,6 @@ export default function TradePanel({ symbol }: Props) {
     const interval = setInterval(checkMarket, 60000);
     return () => clearInterval(interval);
   }, []);
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const storedBalance = localStorage.getItem('balance');
-  //     const storedHoldings = localStorage.getItem('holdings');
-  //     const storedTransactions = localStorage.getItem('transactions');
-
-  //     if (storedBalance) setBalance(parseFloat(storedBalance));
-  //     if (storedHoldings) setHoldings(JSON.parse(storedHoldings));
-  //     if (storedTransactions) setTransactions(JSON.parse(storedTransactions));
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

@@ -14,9 +14,6 @@ export default async function StockPriceComp(props: {
 }) {
   const symb_result = await companyProfile(props.symbol);
   const price_report = await quoteHL(props.symbol.toLocaleUpperCase());
-  const earningsData = await earnings(props.symbol.toUpperCase());
-  const newsReports = await companyNews(props.symbol.toUpperCase());
-
   const priceChanges = await deltaPrice(props.symbol.toUpperCase());
   const usable = priceChanges[0];
   const { holiday, isOpen, session } = await getMarketStatus();
