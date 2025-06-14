@@ -55,7 +55,7 @@ const Dashboard = () => {
                 You don&apos;t have any Holdings yet.
               </p>
               <Link
-                href="/stocks"
+                href="/stock"
                 className="mt-4 inline-block px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-300"
               >
                 Browse Stocks
