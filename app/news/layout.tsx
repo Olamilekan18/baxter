@@ -28,7 +28,7 @@ export default function NewsLayout({
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <img
               src="https://cdn.brandfetch.io/reddit.com/w/400/h/400?c=1id090JVq9Slhwrn5Rm"
               alt="Reddit Logo"
@@ -43,7 +43,7 @@ export default function NewsLayout({
               </Link>
               <p className="text-gray-400 text-sm">Social Media</p>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-4">
             <img
