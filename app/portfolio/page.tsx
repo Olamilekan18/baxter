@@ -22,7 +22,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    const user_balance = localStorage.getItem("balance") || "10";
+    const user_balance = localStorage.getItem("balance") || "1,000,000";
     const user_holdings = JSON.parse(localStorage.getItem("holdings") || "{}");
     const user_transactions = JSON.parse(
       localStorage.getItem("transactions") || "[]"
@@ -36,8 +36,8 @@ const Dashboard = () => {
   return (
     <div className="p-6 max-w-5xl mx-auto mt-20 space-y-8 bg-[#1A1F19] rounded-2xl">
       <div className="p-8 bg-[#2A3328] rounded-lg shadow-xl">
-        <p className="text-4xl font-semibold text-gray-200">
-          Welcome Back, James!
+        <p className="text-4xl font-semibold text-gray-200 mb-10">
+          Welcome Back!
         </p>
         <p className="text-2xl font-semibold text-gray-300 mt-2">
           Your Balance: <span className="text-green-600">USD {balance}</span>
@@ -50,9 +50,17 @@ const Dashboard = () => {
         </div>
         <div className="space-y-3 mt-4">
           {Object.entries(holdings).length === 0 ? (
-            <p className="text-center text-gray-500 text-lg">
-              You dont have any Holdings yet.
-            </p>
+            <div className="text-center">
+              <p className="text-gray-500 text-lg">
+                You don&apos;t have any Holdings yet.
+              </p>
+              <Link
+                href="/stocks"
+                className="mt-4 inline-block px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-300"
+              >
+                Browse Stocks
+              </Link>
+            </div>
           ) : (
             Object.entries(holdings).map(([symbol, shares]) => (
               <div key={symbol} className="flex justify-between items-center">
