@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { isMarketOpen } from "@/app/components/time";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { isMarketOpen } from '@/app/components/time';
 
 type Props = {
   symbol: string;
@@ -16,7 +16,7 @@ type Transaction = {
   symbol: string;
   quantity: number;
   price: number;
-  type: "buy" | "sell";
+  type: 'buy' | 'sell';
   timestamp: string;
 };
 
@@ -24,24 +24,24 @@ export default function TradePanel({ symbol }: Props) {
   const API_KEY = process.env.NEXT_PUBLIC_FH_KEY;
 
   const [marketPrice, setMarketPrice] = useState<number | null>(null);
-  const [quantity, setQuantity] = useState<number | "">("");
+  const [quantity, setQuantity] = useState<number | ''>('');
   const [balance, setBalance] = useState<number>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("balance");
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('balance');
       return stored ? parseFloat(stored) : 1_000_000;
     }
     return 1_000_000;
   });
   const [holdings, setHoldings] = useState<Holdings>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("holdings");
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('holdings');
       return stored ? JSON.parse(stored) : {};
     }
     return {};
   });
   const [transactions, setTransactions] = useState<Transaction[]>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("transactions");
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('transactions');
       return stored ? JSON.parse(stored) : [];
     }
     return [];
@@ -69,27 +69,27 @@ export default function TradePanel({ symbol }: Props) {
   // }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("balance", balance.toString());
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('balance', balance.toString());
     }
   }, [balance]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("holdings", JSON.stringify(holdings));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('holdings', JSON.stringify(holdings));
     }
   }, [holdings]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("transactions", JSON.stringify(transactions));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('transactions', JSON.stringify(transactions));
     }
   }, [transactions]);
 
   useEffect(() => {
     const fetchPrice = async () => {
       if (!API_KEY) {
-        console.error("Missing API key");
+        console.error('Missing API key');
         return;
       }
       try {
@@ -98,7 +98,7 @@ export default function TradePanel({ symbol }: Props) {
         );
         setMarketPrice(res.data.c);
       } catch (error) {
-        console.error("Error fetching market price:", error);
+        console.error('Error fetching market price:', error);
       }
     };
 
@@ -106,17 +106,17 @@ export default function TradePanel({ symbol }: Props) {
   }, [symbol]);
 
   const estimatedCost =
-    marketPrice && typeof quantity === "number" ? quantity * marketPrice : 0;
+    marketPrice && typeof quantity === 'number' ? quantity * marketPrice : 0;
 
-  const resetForm = () => setQuantity("");
+  const resetForm = () => setQuantity('');
 
   const handleBuy = () => {
-    if (!marketPrice || typeof quantity !== "number" || quantity <= 0) {
-      setMessage("Enter a valid quantity to buy.");
+    if (!marketPrice || typeof quantity !== 'number' || quantity <= 0) {
+      setMessage('Enter a valid quantity to buy.');
       return;
     }
     if (estimatedCost > balance) {
-      setMessage("❌ Insufficient balance to buy.");
+      setMessage('❌ Insufficient balance to buy.');
       return;
     }
     const timestamp = new Date().toISOString();
@@ -126,7 +126,7 @@ export default function TradePanel({ symbol }: Props) {
       [symbol]: (prev[symbol] || 0) + quantity,
     }));
     setTransactions((prev) => [
-      { symbol, quantity, price: marketPrice, type: "buy", timestamp },
+      { symbol, quantity, price: marketPrice, type: 'buy', timestamp },
       ...prev,
     ]);
     setMessage(
@@ -136,8 +136,8 @@ export default function TradePanel({ symbol }: Props) {
   };
 
   const handleSell = () => {
-    if (!marketPrice || typeof quantity !== "number" || quantity <= 0) {
-      setMessage("Enter a valid quantity to sell.");
+    if (!marketPrice || typeof quantity !== 'number' || quantity <= 0) {
+      setMessage('Enter a valid quantity to sell.');
       return;
     }
     const holdingQty = holdings[symbol] || 0;
@@ -154,7 +154,7 @@ export default function TradePanel({ symbol }: Props) {
       [symbol]: holdingQty - quantity,
     }));
     setTransactions((prev) => [
-      { symbol, quantity, price: marketPrice, type: "sell", timestamp },
+      { symbol, quantity, price: marketPrice, type: 'sell', timestamp },
       ...prev,
     ]);
     setMessage(
@@ -164,11 +164,11 @@ export default function TradePanel({ symbol }: Props) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#1e1e1e] to-[#121212] text-white p-6 rounded-2xl shadow-lg">
+    <div className="bg-[#1A1F19] text-white p-6 rounded-2xl shadow-lg">
       <p className="mb-4 text-lg font-medium">
         🕒 Market Status:
-        <span className={marketOpen ? "text-green-400" : "text-red-500"}>
-          {marketOpen ? "Open" : "Closed"}
+        <span className={marketOpen ? 'text-green-400' : 'text-red-500'}>
+          {marketOpen ? 'Open' : 'Closed'}
         </span>
       </p>
 
@@ -182,8 +182,8 @@ export default function TradePanel({ symbol }: Props) {
         </div>
         <div className="flex justify-between">
           <p className="text-sm">
-            📈 <strong>Market Price:</strong>{" "}
-            {marketPrice ? `$${marketPrice.toFixed(2)}` : "Loading..."}
+            📈 <strong>Market Price:</strong>{' '}
+            {marketPrice ? `$${marketPrice.toFixed(2)}` : 'Loading...'}
           </p>
         </div>
         <div className="flex justify-between">
@@ -206,17 +206,17 @@ export default function TradePanel({ symbol }: Props) {
       </div>
 
       <p className="mb-6 text-center text-xl font-semibold">
-        Estimated {quantity ? "Value" : "Cost"}: ${estimatedCost.toFixed(2)}
+        Estimated {quantity ? 'Value' : 'Cost'}: ${estimatedCost.toFixed(2)}
       </p>
 
       <div className="flex gap-6 mb-6">
         <button
           onClick={handleBuy}
           disabled={!marketOpen}
-          className={`px-6 py-3 rounded-xl w-full font-semibold text-white transition-all duration-300 ${
+          className={`px-6 py-3 rounded-full w-full font-semibold text-white transition-all duration-300 ${
             marketOpen
-              ? "bg-green-600 hover:bg-green-700"
-              : "bg-gray-600 cursor-not-allowed"
+              ? 'bg-[#53D22C] hover:bg-[#1A1F19]'
+              : 'bg-gray-600 cursor-not-allowed'
           }`}
         >
           Buy
@@ -225,10 +225,10 @@ export default function TradePanel({ symbol }: Props) {
         <button
           onClick={handleSell}
           disabled={!marketOpen}
-          className={`px-6 py-3 rounded-xl w-full font-semibold text-white transition-all duration-300 ${
+          className={`px-6 py-3 rounded-full w-full font-semibold text-white transition-all duration-300 ${
             marketOpen
-              ? "bg-red-600 hover:bg-red-700"
-              : "bg-gray-600 cursor-not-allowed"
+              ? 'bg-red-600 hover:bg-red-700'
+              : 'bg-gray-600 cursor-not-allowed'
           }`}
         >
           Sell
@@ -253,7 +253,7 @@ export default function TradePanel({ symbol }: Props) {
                 className="border-b border-gray-700 py-2 px-4 rounded-lg hover:bg-[#333333] transition-all duration-300"
               >
                 <p className="flex justify-between items-center">
-                  <span>{tx.type === "buy" ? "🟢 Buy" : "🔴 Sell"}</span>
+                  <span>{tx.type === 'buy' ? '🟢 Buy' : '🔴 Sell'}</span>
                   <span className="font-semibold">
                     {tx.quantity} {tx.symbol} @ ${tx.price.toFixed(2)}
                   </span>
