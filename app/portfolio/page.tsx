@@ -22,7 +22,8 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    const user_balance = localStorage.getItem("balance") || "1,000,000";
+    const intermezzo_user_balance = localStorage.getItem("balance") || "1,000,000";
+    const user_balance = Number(intermezzo_user_balance).toFixed(2)
     const user_holdings = JSON.parse(localStorage.getItem("holdings") || "{}");
     const user_transactions = JSON.parse(
       localStorage.getItem("transactions") || "[]"
