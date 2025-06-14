@@ -27,6 +27,7 @@ export default function HomeNav() {
               { route: "Learn", path: "/Courses" },
               { route: "News", path: "/news" },
               { route: "Community", path: "/Community" },
+              {route : "Stocks", path: "/stock" },
             ].map(({ route, path }) => (
               <li key={route}>
                 <Link href={path} className="hover:text-green-400 transition">

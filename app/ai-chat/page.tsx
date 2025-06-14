@@ -36,9 +36,9 @@ export default function AIRoute() {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="grid grid-cols-1 sm:grid-cols-6 p-4 sm:p-2 my-2 gap-4 w-full max-w-3xl">
+      <div className="grid grid-cols-1 sm:grid-cols-6 p-4 sm:p-2  gap-4 w-full max-w-3xl">
         <div className="col-span-1 sm:col-span-5 h-[80vh] bg-white rounded-lg shadow-lg w-full">
-          <div className="bg-[#53D22c] text-white p-4 flex items-center rounded-t-lg">
+          <div className="bg-[#53D22c] w-full text-white p-4 flex items-center rounded-t-lg">
             <FiUser className="w-6 h-6 mr-2" />
             <div>
               <h1 className="font-bold text-lg sm:text-xl">Baxter Chatbot</h1>
@@ -58,7 +58,7 @@ export default function AIRoute() {
             <input
               type="text"
               name="chat_text"
-              placeholder="Type your message here..."
+              placeholder="Ask Baxter AI..."
               maxLength={100}
               minLength={2}
               onChange={(e) => updateQVal(e.target.value)}
