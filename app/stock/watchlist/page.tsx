@@ -37,7 +37,7 @@ export default function Watchlist() {
 
 async function WatchlistItem(props: { symbol: string }) {
   const profile_results = await companyProfile(props.symbol);
-  const { name, ticker, logo, weburl } = profile_results;
+  const { name, ticker } = profile_results;
 
   return (
     <Link href={`/stock/${props.symbol}`}>

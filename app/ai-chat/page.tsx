@@ -20,13 +20,14 @@ export default function AIRoute() {
     const chat_window = document.querySelector("#chat_body");
     const div = document.createElement("div");
     div.className =
-      "grid text-xl my-2 bg-[#53D22c] text-gray-800 p-3 rounded-lg rounded-bl-none text-left justify-self-left h-auto w-[60%] text-justify";
+      "grid text-xl my-2 bg-[#53D22c] text-gray-800 p-3 rounded-lg rounded-bl-none text-left justify-self-left h-auto md:w-[60%] w-full text-justify";
     chat_window?.appendChild(div);
     div.textContent = txt;
   }
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     appender();
+    appendAIResponse('Loading...')
     const value = await chatItem(query);
     if (value) {
       appendAIResponse(value);

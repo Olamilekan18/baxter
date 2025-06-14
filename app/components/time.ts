@@ -1,4 +1,5 @@
 export function isMarketOpen(): boolean {
+  /*
   const now = new Date();
 
   const utcHour = now.getUTCHours();
@@ -15,4 +16,6 @@ export function isMarketOpen(): boolean {
   const isWeekday = utcDay >= 1 && utcDay <= 5;
 
   return isWeekday && totalMinutes >= marketOpen && totalMinutes < marketClose;
+  */
+ return true
 }

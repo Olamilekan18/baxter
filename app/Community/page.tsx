@@ -1,7 +1,4 @@
-// pages/community.tsx
-// import Header from "./components/Header";
 import Link from "next/link";
-// import Footer from "./components/Footer";
 import Footer from "../components/footer";
 import DiscussionCard from "./components/DiscussionCard";
 import Leaderboard from "./components/Leaderboard";

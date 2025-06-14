@@ -10,7 +10,6 @@ export default async function RouteShow({
   function ShowPageItems() {
     return (
       <>
-        <ChartHeader ticker={ticker} timeframe={24} />
         <APIRender symbol={ticker} />
       </>
     );
