@@ -1,4 +1,4 @@
-import { newsItem } from "../type_definitions";
+import { newsItem } from '../type_definitions';
 
 export default function NewsItem(props: { object: newsItem }) {
   let object = props.object;
@@ -7,7 +7,7 @@ export default function NewsItem(props: { object: newsItem }) {
   return (
     <div
       key={id}
-      className="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 bg-[#1a1f19] rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6"
+      className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-[#1A1F19] p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6"
     >
       <div className="md:col-span-3">
         <a
