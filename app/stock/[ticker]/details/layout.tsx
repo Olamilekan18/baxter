@@ -10,7 +10,6 @@ export default async function DetailsLayout({
   const ticker = (await params).ticker;
   return (
     <div>
-      <ChartHeader ticker={ticker} timeframe={2} />
       {children}
     </div>
   );

@@ -11,7 +11,6 @@ export default async function TImeframeLayout({
   const timeframe = (await params).timeframe;
   return (
     <div className="grid">
-      <ChartHeader ticker={ticker} timeframe={timeframe} />
       {children}
     </div>
   );

@@ -1,10 +1,7 @@
 import LineChart from "./chartComps";
 import StockView from "@/app/components/StockPage";
 import {
-  companyProfile,
-  quoteHL,
   deltaPrice,
-  getMarketStatus,
 } from "./apiLoaders";
 
 export default async function APIRender(props: {
@@ -16,7 +13,6 @@ export default async function APIRender(props: {
   if (!usable) {
     console.warn("No usable data found for symbol:", props.symbol);
   }
-  const { holiday, isOpen, session } = await getMarketStatus();
   const oneChange = usable["1D"];
   const monthChange = usable["1M"];
   const yearToDay = usable["1Y"];

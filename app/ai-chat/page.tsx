@@ -27,6 +27,7 @@ export default function AIRoute() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     appender();
+    appendAIResponse('Loading...')
     const value = await chatItem(query);
     if (value) {
       appendAIResponse(value);
